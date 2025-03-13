@@ -41,10 +41,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        // Save the player's position before loading the main menu
-        SavePlayerPosition();
-
-        Time.timeScale = 1f; // Reset time scale before loading the menu
+        Time.timeScale = 1f; // Ensure time resumes before switching scenes
         SceneManager.LoadScene("UIScene"); // Replace "UIScene" with your main menu scene name
     }
 
@@ -53,26 +50,5 @@ public class PauseMenu : MonoBehaviour
         Application.Quit(); // Quit the game
     }
 
-    private void SavePlayerPosition()
-    {
-        if (player == null)
-        {
-            Debug.LogError("Player transform not set in PauseMenu!");
-            return;
-        }
-
-        // Get the current level name
-        string currentLevel = SceneManager.GetActiveScene().name;
-
-        // Save the player's position
-        PlayerPrefs.SetFloat(playerTag + "X_" + currentLevel, player.position.x);
-        PlayerPrefs.SetFloat(playerTag + "Y_" + currentLevel, player.position.y);
-        PlayerPrefs.SetFloat(playerTag + "Z_" + currentLevel, player.position.z);
-
-        // Save the current level
-        PlayerPrefs.SetString("SavedLevel_" + playerTag, currentLevel);
-
-        PlayerPrefs.Save();
-        Debug.Log("Saved player position for " + currentLevel + ": " + player.position);
-    }
+    
 }

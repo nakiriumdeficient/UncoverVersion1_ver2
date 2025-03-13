@@ -10,6 +10,7 @@ public class ExperienceBar : MonoBehaviour
     public TextMeshProUGUI xpText; // Assign in the Inspector
     public PlayerExperience playerExp; // Reference to the player XP script
     public TextMeshProUGUI levelText;
+    public TextMeshProUGUI orbs;
 
     private void Start()
     {
@@ -27,7 +28,9 @@ public class ExperienceBar : MonoBehaviour
         xpSlider.maxValue = GameManager.Instance.maxXP;
         xpSlider.value = GameManager.Instance.playerXP;
         xpText.text = $"{GameManager.Instance.playerXP} / {GameManager.Instance.maxXP}";
-        levelText.text = "Level " + GameManager.Instance.playerLevel;
+        levelText.text = $"Level: {GameManager.Instance.playerLevel}";
+        orbs.text = $"Orbs: {GameManager.Instance.upgradeOrb}";
+
     }
 }
 

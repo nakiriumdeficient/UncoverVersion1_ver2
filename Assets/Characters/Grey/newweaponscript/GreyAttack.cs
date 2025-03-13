@@ -12,7 +12,8 @@ public class GreyAttack : MonoBehaviour
     private CharacterController controller;
     private Animator animator;
     public AudioSource attackAudioSource; // Reference to the AudioSource for attack sounds
-
+    public float attackCooldown = 1f;
+    private float nextAttackTime = 0f;
     private void Start()
     {
         EquipWeapon("Default Sword"); // Ensure a starting weapon exists
@@ -43,7 +44,7 @@ public class GreyAttack : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Time.time >= nextAttackTime && Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Attack();
             }
@@ -126,6 +127,7 @@ public class GreyAttack : MonoBehaviour
         if (currentWeapon != null)
         {
             animator.SetTrigger("Attack");
+            nextAttackTime = Time.time + attackCooldown; // Set next available attack time
             if (attackAudioSource != null && attackAudioSource.clip != null)
             {
                 attackAudioSource.Play();

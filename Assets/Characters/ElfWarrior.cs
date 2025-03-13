@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Diagnostics.Contracts;
 
 public class ElfWarrior : NPC
 {
@@ -11,7 +12,11 @@ public class ElfWarrior : NPC
 
     public GameObject expOrb; // Assign XP orb prefab in the Inspector
     public int xpDropAmount = 30;
-    public int numberOfDrops = 3; // Number of XP orbs to spawn
+    public int numberOfXpDrops = 3; // Number of XP orbs to spawn
+
+    public GameObject upgradeOrb;
+    public int upgradeDropAmount = 30;
+    public int numberOfUpDrops = 3;
 
     protected override void Start()
     {
@@ -135,22 +140,37 @@ public class ElfWarrior : NPC
         }
 
         DropExperience();
+        DropUpgrade();
 
         StartCoroutine(RemoveNPC());
     }
 
     private void DropExperience()
     {
-        for (int i = 0; i < numberOfDrops; i++)
+        for (int i = 0; i < numberOfXpDrops; i++)
         {
             Vector3 randomOffset = new Vector3(Random.Range(-3f, 3f), 0.5f, Random.Range(-0.1f, 0.1f));
             GameObject xp = Instantiate(expOrb, transform.position + randomOffset, Quaternion.identity);
             ExperiencePickup xpScript = xp.GetComponent<ExperiencePickup>();
             if (xpScript != null)
             {
-                xpScript.expAmount = xpDropAmount / numberOfDrops; // Distribute XP evenly
+                xpScript.expAmount = xpDropAmount / numberOfXpDrops; // Distribute XP evenly
             }
         }
+    }
+    private void DropUpgrade()
+    {
+        for (int i = 0; i < numberOfUpDrops; i++)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-3f, 3f), 0.2f, Random.Range(-0.1f, 0.1f));
+            GameObject upgrade = Instantiate(upgradeOrb, transform.position + randomOffset, Quaternion.identity);
+            UpgradePickup upgradeScript = upgrade.GetComponent<UpgradePickup>();
+            if (upgradeScript != null)
+            {
+                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfXpDrops;
+            }
+        }
+
     }
 
     private IEnumerator RemoveNPC()

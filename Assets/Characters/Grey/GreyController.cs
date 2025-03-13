@@ -14,8 +14,10 @@ public class GreyController : MonoBehaviour
     private Transform modelTransform;
     private bool facingRight = true;
     private bool isJumping = false;
+    private bool isFalling = false;
 
-    private bool isAttacking = false;
+    private Vector3 lastPosition;
+
     private bool isDead = false;
     private PlayerSpawnManager spawnManager;
 
@@ -54,6 +56,8 @@ public class GreyController : MonoBehaviour
         {
             Debug.LogError("Move AudioSource not set!");
         }
+
+        lastPosition = transform.position;
     }
 
     void Update()
@@ -102,10 +106,25 @@ public class GreyController : MonoBehaviour
             }
         }
 
+        if(!controller.isGrounded)
+        {
+            isFalling = true;
+            animator.SetBool("Falling", isFalling);
+        }
+        else
+        {
+            isFalling = false;
+            animator.SetBool("Falling", isFalling);
+        }
+
         moveDirection.y -= gravity * Time.deltaTime; // Apply gravity
         controller.Move(moveDirection * Time.deltaTime); // Move the player
 
-        
+        float relspeed = (transform.position - lastPosition).magnitude / Time.deltaTime;
+        lastPosition = transform.position;
+
+        animator.SetFloat("Speed", relspeed); // Use absolute value for both directions
+
         if (animator != null)
         {
             animator.SetBool("isMoving", isMoving);

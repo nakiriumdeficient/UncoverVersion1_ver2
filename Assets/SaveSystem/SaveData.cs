@@ -3,19 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
+[System.Serializable]
 public class SaveData
 {
-    public float playerX, playerY, playerZ;
-    public int level;
-    public int experience;
-
-    public SaveData(Vector3 position, int level, int experience)
-    {
-        playerX = position.x;
-        playerY = position.y;
-        playerZ = position.z;
-        this.level = level;
-        this.experience = experience;
-    }
+    public string savedScene;
+    public int playerHPcur;
+    public int playerHPmax;
+    public int playerXP;
+    public int maxXP;
+    public int playerLevel;
+    public int upgradeOrb;
+    public List<WeaponData> collectedWeapons;
+    public Vector3 savedPosition;
 }
