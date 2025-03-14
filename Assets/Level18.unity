@@ -1852,7 +1852,7 @@ GameObject:
   - component: {fileID: 1784051234}
   - component: {fileID: 1784051233}
   m_Layer: 0
-  m_Name: OutsideMine
+  m_Name: OutsideMineToLevel17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2404,7 +2404,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 395738688}
-  offset: {x: 2.99, y: 2, z: -17.7}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &2108047032
 MonoBehaviour:
   m_ObjectHideFlags: 0

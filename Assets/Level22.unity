@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 815865418}
   - component: {fileID: 815865417}
   m_Layer: 0
-  m_Name: TransitionZoneToUnder
+  m_Name: TransitionZoneToUnderToLevel24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2252,7 +2252,7 @@ GameObject:
   - component: {fileID: 1531543497}
   - component: {fileID: 1531543496}
   m_Layer: 0
-  m_Name: TransitionZoneToUnder (1)
+  m_Name: TransitionZoneToUnderToLevel26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2742,7 +2742,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1197297362}
-  offset: {x: 1.42, y: 0.6, z: -6.2}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &1736525920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2873,7 +2876,7 @@ GameObject:
   - component: {fileID: 1784051234}
   - component: {fileID: 1784051233}
   m_Layer: 0
-  m_Name: EnterSilvaForest
+  m_Name: EnterSilvaForestToLevel21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2942,7 +2945,7 @@ GameObject:
   - component: {fileID: 1898526096}
   - component: {fileID: 1898526095}
   m_Layer: 0
-  m_Name: EnterB2Boss
+  m_Name: EnterB2BossToLevel23RequiredKeyLevel15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -155,7 +155,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1921489147}
-  offset: {x: 2.99, y: 2, z: -17.7}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &50407441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3324,7 +3327,7 @@ GameObject:
   - component: {fileID: 1784051234}
   - component: {fileID: 1784051233}
   m_Layer: 0
-  m_Name: EnterSilvaForest
+  m_Name: EnterSilvaForestToLevel12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3393,7 +3396,7 @@ GameObject:
   - component: {fileID: 1898526096}
   - component: {fileID: 1898526095}
   m_Layer: 0
-  m_Name: EnterB2
+  m_Name: EnterB2ToLevel22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

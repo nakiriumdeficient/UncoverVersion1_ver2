@@ -1255,7 +1255,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 294171257}
-  offset: {x: 1.42, y: 0.6, z: -6.2}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &439843671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2316,7 +2319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3109024510390628354, guid: aff71b512371fbf4cb467a121e619a68, type: 3}
       propertyPath: m_Name
-      value: TransitionZone
+      value: TransitionZoneToLevel36
       objectReference: {fileID: 0}
     - target: {fileID: 6744649683779231603, guid: aff71b512371fbf4cb467a121e619a68, type: 3}
       propertyPath: nextSceneName
@@ -2724,7 +2727,7 @@ GameObject:
   - component: {fileID: 1784051234}
   - component: {fileID: 1784051233}
   m_Layer: 0
-  m_Name: EnterB2
+  m_Name: EnterToLevel29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

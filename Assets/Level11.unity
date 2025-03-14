@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 870289100}
   - component: {fileID: 870289099}
   m_Layer: 0
-  m_Name: EndOfMapTriggerToLevel11
+  m_Name: EndOfMapTriggerToLevel12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1985,7 +1985,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1560850942}
-  offset: {x: 2.99, y: 2, z: -10.9}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &992660288
 MonoBehaviour:
   m_ObjectHideFlags: 0

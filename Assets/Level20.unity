@@ -2633,7 +2633,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 543554348}
-  offset: {x: 2.99, y: 2, z: -17.7}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &850662122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5469,7 +5472,7 @@ GameObject:
   - component: {fileID: 1784051234}
   - component: {fileID: 1784051233}
   m_Layer: 0
-  m_Name: BackTo19
+  m_Name: BackToLevel19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

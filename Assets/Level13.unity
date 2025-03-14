@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 34180763}
   - component: {fileID: 34180762}
   m_Layer: 0
-  m_Name: TransitionZone
+  m_Name: TransitionZoneToLevel12or14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1644,7 +1644,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1296481593}
-  offset: {x: 2.99, y: 2, z: -17.7}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &1570053057
 MonoBehaviour:
   m_ObjectHideFlags: 0

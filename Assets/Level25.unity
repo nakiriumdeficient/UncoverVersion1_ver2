@@ -1321,7 +1321,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 992185199}
-  offset: {x: 1.42, y: 0.6, z: -6.2}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &974942059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2445,7 +2448,7 @@ GameObject:
   - component: {fileID: 1784051234}
   - component: {fileID: 1784051233}
   m_Layer: 0
-  m_Name: EnterB2
+  m_Name: EnterB2ToLevel24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

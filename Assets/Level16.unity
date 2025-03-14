@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 34180763}
   - component: {fileID: 34180762}
   m_Layer: 0
-  m_Name: TransitionZone
+  m_Name: TransitionZoneToLevel14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,7 +473,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1830891516}
-  offset: {x: 1.69, y: 0.59, z: -7}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!114 &252648934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,7 +1626,7 @@ GameObject:
   - component: {fileID: 1784051234}
   - component: {fileID: 1784051233}
   m_Layer: 0
-  m_Name: EnterMine
+  m_Name: EnterMineToLevel17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
