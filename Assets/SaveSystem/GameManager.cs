@@ -105,6 +105,20 @@ public class GameManager : MonoBehaviour
         upgradeOrb += upgrade;
     }
     //upgade orb counter
+
+    public void ResetGameData()
+    {
+        playermaxHP = 100;
+        playercurHP = playermaxHP;
+        playerXP = 0;
+        maxXP = 100;
+        playerLevel = 1;
+        upgradeOrb = 0;
+        collectedWeapons.Clear();
+        savedPosition = Vector3.zero;
+        SaveSystem.DeleteSave();
+    }
+
     public void SaveGame()
     {
         if (string.IsNullOrEmpty(savePath))  // Prevents the null error
@@ -119,6 +133,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Player not found! Cannot save position.");
             return;
         }
+
         SaveData data = new SaveData
         {
             savedScene = SceneManager.GetActiveScene().name,
@@ -129,7 +144,7 @@ public class GameManager : MonoBehaviour
             playerLevel = playerLevel,
             upgradeOrb = upgradeOrb,
             collectedWeapons = collectedWeapons,
-            savedPosition = GameObject.FindGameObjectWithTag("GreyPlayer").transform.position // Save player position
+            savedPosition = player.transform.position // Save player position
         };
         Debug.Log("Saved Position: " + data.savedPosition);
 
@@ -152,13 +167,9 @@ public class GameManager : MonoBehaviour
             playerLevel = data.playerLevel;
             upgradeOrb = data.upgradeOrb;
             collectedWeapons = data.collectedWeapons;
-
-            SceneManager.LoadScene(data.savedScene);
+            savedPosition = data.savedPosition; // Store position
 
             Debug.Log("Loading Game...");
-
-            savedPosition = data.savedPosition; // Store position
-            shouldMovePlayer = true; // Enable movement after load
 
             StartCoroutine(LoadSceneAndMove(data.savedScene));
 
@@ -180,20 +191,30 @@ public class GameManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f); // Ensures scene objects exist
-    }
-    private void LateUpdate()
-    {
-        if (shouldMovePlayer)
+        GameObject player = GameObject.FindGameObjectWithTag("GreyPlayer");
+
+        if (player == null)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("GreyPlayer");
-            if (player != null)
+            Debug.Log("No player found. Spawning at saved position...");
+
+            SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
+
+            if (spawnManager != null)
             {
-                player.transform.position = savedPosition;
-                Debug.Log("LateUpdate forced player move: " + savedPosition);
-                shouldMovePlayer = false; // Prevent running again
+                spawnManager.SpawnPlayer(savedPosition);
+            }
+            else
+            {
+                Debug.LogError("SpawnManager not found in scene!");
             }
         }
+        else
+        {
+            player.transform.position = savedPosition;
+            Debug.Log("Loaded Player Position: " + savedPosition);
+        }
     }
+    
 
     public bool SaveExists()
     {

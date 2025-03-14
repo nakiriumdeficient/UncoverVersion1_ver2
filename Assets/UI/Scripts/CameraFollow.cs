@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -11,19 +12,7 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        // Automatically find the player object by tag
-        if (player == null)
-        {
-            GameObject playerObject = GameObject.FindWithTag("Player");
-            if (playerObject != null)
-            {
-                player = playerObject.transform;
-            }
-            else
-            {
-                Debug.LogError("CameraFollow: No object with tag 'Player' found!");
-            }
-        }
+        
     }
 
     void LateUpdate()
@@ -42,7 +31,16 @@ public class CameraFollow : MonoBehaviour
         {
             isFacingRight = false;
         }
-        Vector3 desiredPosition = new Vector3(player.position.x + (isFacingRight ? rightOffset : leftOffset), player.position.y + yOffset, transform.position.z);
+        Vector3 desiredPosition = new Vector3(
+            player.position.x + (isFacingRight ? rightOffset : leftOffset),
+            player.position.y + yOffset,
+            transform.position.z
+        );
+
         transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+    }
+    public void SetTarget(Transform newTarget)
+    {
+        player = newTarget;
     }
 }

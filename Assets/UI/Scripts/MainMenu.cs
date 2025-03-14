@@ -12,15 +12,21 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        GameManager.Instance.DeleteSave();
-        SceneManager.LoadScene("Level1"); // Change to your first level
+        SaveSystem.DeleteSave(); // Delete all saved data
+        GameManager.Instance.ResetGameData(); // Reset player stats, inventory, orbs, etc.
+
+        SceneManager.LoadScene("Level1"); // Change this to your starting scene
     }
 
     public void ContinueGame()
     {
-        if (GameManager.Instance.SaveExists())
+        if (SaveSystem.SaveExists())
         {
-            GameManager.Instance.LoadGame();
+            GameManager.Instance.LoadGame(); // Load all game data
+        }
+        else
+        {
+            Debug.LogWarning("No save file found!");
         }
     }
 

@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class GreyHealth : MonoBehaviour
 {
-    
+    public event Action OnDeath;
     public HealthBar healthBar;
     private bool isDead = false;
     Animator animator;
@@ -27,7 +28,9 @@ public class GreyHealth : MonoBehaviour
 
 
         GameManager.Instance.playercurHP -= damage;
+
         Debug.Log("[Grey] Took " + damage + " damage! HP: " + GameManager.Instance.playercurHP);
+
         healthBar.SetHealth(GameManager.Instance.playercurHP);
 
         if (GameManager.Instance.playercurHP <= 0)
@@ -47,8 +50,8 @@ public class GreyHealth : MonoBehaviour
         {
             animator.SetTrigger("Die"); // Play death animation
         }
-
-        GameManager.Instance.LoadGame();
+        OnDeath?.Invoke();
+        Destroy(gameObject);
     }
 
     
