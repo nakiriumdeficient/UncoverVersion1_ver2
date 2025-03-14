@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public List<WeaponData> collectedWeapons = new List<WeaponData>();
-
+    public Vector3 savedPosition; // Store loaded position
+    private bool shouldMovePlayer = false; // Flag to move player in LateUpdate
 
     public int playermaxHP = 100;
     public int playercurHP = 100;
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     //exp counter
     public void GainXP(int xp)
     {
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
             collectedWeapons = collectedWeapons,
             savedPosition = GameObject.FindGameObjectWithTag("GreyPlayer").transform.position // Save player position
         };
+        Debug.Log("Saved Position: " + data.savedPosition);
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
@@ -142,11 +145,6 @@ public class GameManager : MonoBehaviour
             string json = File.ReadAllText(savePath);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            SceneManager.LoadScene(data.savedScene);
-
-            // Wait for the scene to load, then move player
-            StartCoroutine(SetPlayerPosition(data.savedPosition));
-
             playermaxHP = data.playerHPmax;
             playercurHP = data.playerHPcur;
             playerXP = data.playerXP;
@@ -155,6 +153,17 @@ public class GameManager : MonoBehaviour
             upgradeOrb = data.upgradeOrb;
             collectedWeapons = data.collectedWeapons;
 
+            SceneManager.LoadScene(data.savedScene);
+
+            Debug.Log("Loading Game...");
+
+            savedPosition = data.savedPosition; // Store position
+            shouldMovePlayer = true; // Enable movement after load
+
+            StartCoroutine(LoadSceneAndMove(data.savedScene));
+
+            Debug.Log("Loaded Position: " + data.savedPosition);
+
             Debug.Log("Game Loaded!");
         }
         else
@@ -162,13 +171,27 @@ public class GameManager : MonoBehaviour
             Debug.LogError("No save file found!");
         }
     }
-    private IEnumerator SetPlayerPosition(Vector3 position)
+    private IEnumerator LoadSceneAndMove(string sceneName)
     {
-        yield return new WaitForSeconds(0.1f); // Give scene time to load
-        GameObject player = GameObject.FindGameObjectWithTag("GreyPlayer");
-        if (player != null)
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        while (!asyncLoad.isDone)
         {
-            player.transform.position = position;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f); // Ensures scene objects exist
+    }
+    private void LateUpdate()
+    {
+        if (shouldMovePlayer)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("GreyPlayer");
+            if (player != null)
+            {
+                player.transform.position = savedPosition;
+                Debug.Log("LateUpdate forced player move: " + savedPosition);
+                shouldMovePlayer = false; // Prevent running again
+            }
         }
     }
 

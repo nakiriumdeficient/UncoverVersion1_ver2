@@ -10,16 +10,8 @@ public class SpikeScript : MonoBehaviour
             Debug.Log("Grey touched a spike!");
 
             // Get the PlayerSpawnManager in the scene
-            PlayerSpawnManager spawnManager = FindObjectOfType<PlayerSpawnManager>();
-            if (spawnManager != null)
-            {
-                // Respawn Grey
-                spawnManager.RespawnGreyPlayer();
-            }
-            else
-            {
-                Debug.LogError("PlayerSpawnManager not found in the scene!");
-            }
+
+            GameManager.Instance.LoadGame();
         }
     }
 }

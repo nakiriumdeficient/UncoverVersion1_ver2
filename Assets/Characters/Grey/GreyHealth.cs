@@ -9,7 +9,6 @@ public class GreyHealth : MonoBehaviour
     public HealthBar healthBar;
     private bool isDead = false;
     Animator animator;
-    private PlayerSpawnManager spawnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -49,25 +48,8 @@ public class GreyHealth : MonoBehaviour
             animator.SetTrigger("Die"); // Play death animation
         }
 
-        StartCoroutine(Respawn());
+        GameManager.Instance.LoadGame();
     }
 
-    private IEnumerator Respawn()
-    {
-        yield return new WaitForSeconds(2.0f); // Wait for death animation
-
-        if (spawnManager != null)
-        {
-            spawnManager.RespawnGreyPlayer(); // Use PlayerSpawnManager for respawn
-        }
-        else
-        {
-            Debug.LogError("PlayerSpawnManager missing! Cannot respawn.");
-        }
-
-        GameManager.Instance.playercurHP = GameManager.Instance.playermaxHP; // Restore health
-        isDead = false;
-
-        Debug.Log("[Grey] Respawned at PlayerSpawnManager's default position with full HP: " + GameManager.Instance.playermaxHP);
-    }
+    
 }

@@ -19,7 +19,6 @@ public class GreyController : MonoBehaviour
     private Vector3 lastPosition;
 
     private bool isDead = false;
-    private PlayerSpawnManager spawnManager;
 
     // Weapon system variables
     
@@ -36,17 +35,7 @@ public class GreyController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>(); // Get Animator from child
         modelTransform = animator.transform;
-        spawnManager = FindObjectOfType<PlayerSpawnManager>();
-
-        if (animator == null)
-        {
-            Debug.LogError("Animator component missing from Grey or its children!");
-        }
-
-        if (spawnManager == null)
-        {
-            Debug.LogError("PlayerSpawnManager not found in scene!");
-        }
+        
 
         // Initialize weapons
         
