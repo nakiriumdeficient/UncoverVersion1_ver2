@@ -1945,7 +1945,7 @@ PrefabInstance:
       objectReference: {fileID: 1222370032}
     - target: {fileID: 8972859575088472855, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: dialogueText
-      value: Press "W" to go forward to the next map.
+      value: You found a new weapon, Press 1-4 for weapon change.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
