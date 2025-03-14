@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 806004867}
   - component: {fileID: 806004869}
   m_Layer: 0
-  m_Name: TransitionZone
+  m_Name: TransitionZoneToLevel5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,7 +796,7 @@ GameObject:
   - component: {fileID: 870289100}
   - component: {fileID: 870289099}
   m_Layer: 0
-  m_Name: EndOfMapTrigger
+  m_Name: EndOfMapTriggerToLevel7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1236,7 +1236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2122076074}
-  offset: {x: 2.99, y: 2, z: -17.7}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!1 &1401596040 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5266785677919700964, guid: 5fc241efd17e0614dbed2b35aa483162, type: 3}

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 137457343}
   - component: {fileID: 137457342}
   m_Layer: 0
-  m_Name: EndOfMapTrigger3
+  m_Name: EndOfMapTriggerBackToLevel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1776,7 +1776,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 732709924}
-  offset: {x: 1.38, y: 0.52, z: -4.62}
+  rightOffset: -5
+  leftOffset: 5
+  yOffset: -3
+  smoothSpeed: 0.125
 --- !u!1001 &1205926657
 PrefabInstance:
   m_ObjectHideFlags: 0
