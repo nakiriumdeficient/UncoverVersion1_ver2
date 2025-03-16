@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneExitTrigger : MonoBehaviour
+public class SceneExitTriggerS : MonoBehaviour
 {
     public string targetScene;
     public string targetSpawnPoint;
@@ -47,9 +47,8 @@ public class SceneExitTrigger : MonoBehaviour
         }
     }
     private void Update()
-
     {
-        if (playerIsNear && Input.GetKeyDown(KeyCode.W)) // Press W to transition
+        if (playerIsNear && Input.GetKeyDown(KeyCode.S)) // Press S to transition
         {
             if (!string.IsNullOrEmpty(requiredItem) && !GameManager.Instance.HasItem(requiredItem))
             {

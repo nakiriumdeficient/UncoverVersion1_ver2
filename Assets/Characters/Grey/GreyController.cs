@@ -27,8 +27,7 @@ public class GreyController : MonoBehaviour
     public AudioSource moveAudioSource; // Reference to the AudioSource for moving sounds
     private bool isMovingSoundPlaying = false; // Track if the moving sound is playing
 
-    // Key system variables
-    private bool hasKey = false; // Track if the player has collected the key
+    
 
     void Start()
     {
@@ -151,16 +150,5 @@ public class GreyController : MonoBehaviour
     
 
     // Key system methods
-    public void CollectKey(string keyID)
-    {
-        hasKey = true;
-        PlayerPrefs.SetInt(keyID, 1); // Save key state
-        PlayerPrefs.Save();
-        Debug.Log("Key collected: " + keyID);
-    }
-
-    public bool HasKey(string keyID)
-    {
-        return PlayerPrefs.GetInt(keyID, 0) == 1; // Check if key is collected
-    }
+    
 }
