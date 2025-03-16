@@ -2217,51 +2217,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2194101403054733732, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2194101403054733732, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2194101403054733732, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 2194101403054733732, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 2293879911824531665, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2293879911824531665, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5125991054339782706, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_Name
       value: UpgradeUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5125991054339782706, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5207509659311229632, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5207509659311229632, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5207509659311229632, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.39
       objectReference: {fileID: 0}
     - target: {fileID: 6968828188259168037, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6968828188259168037, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 7868673198322560989, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_Pivot.x
@@ -2345,11 +2349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9050777781225210049, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9050777781225210049, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
