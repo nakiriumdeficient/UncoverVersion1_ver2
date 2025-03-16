@@ -951,12 +951,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 870289098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4d13dd721ed9443bae51a1b441296a, type: 3}
+  m_Script: {fileID: 11500000, guid: 75285d8d0a9a6a54488b3de01769f949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Level10
-  requiredKeyID: Level1Key
-  keyRequiredMessage: {fileID: 0}
+  targetScene: Level10
+  targetSpawnPoint: 10EntryPointA
+  requiredItem: 
 --- !u!65 &870289100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1152,6 +1152,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024352210}
   m_Mesh: {fileID: 7629811779324647873, guid: 5fc241efd17e0614dbed2b35aa483162, type: 3}
+--- !u!1 &1092693912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092693914}
+  - component: {fileID: 1092693913}
+  m_Layer: 0
+  m_Name: 9EntryPointB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1092693913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092693912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fadb5b3d57d79a4487231ca03057cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointName: 9EntryPointB
+--- !u!4 &1092693914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092693912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 96.24, y: 0.85521, z: 0.0625}
+  m_LocalScale: {x: 0.3330839, y: 0.3330839, z: 0.3330839}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153218225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,6 +2270,7 @@ SceneRoots:
   - {fileID: 2000905982}
   - {fileID: 1636689221}
   - {fileID: 277438622}
+  - {fileID: 1092693914}
   - {fileID: 1498874298}
   - {fileID: 1304061469}
   - {fileID: 779029026}

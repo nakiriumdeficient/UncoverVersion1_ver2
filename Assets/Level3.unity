@@ -3515,7 +3515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.880002
+      value: 18.4
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3560,10 +3560,10 @@ PrefabInstance:
     - target: {fileID: 8972859575088472855, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: dialogueBox
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 795852984}
     - target: {fileID: 8972859575088472855, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: dialogueText
-      value: Press "W" to go forward to the next map.
+      value: Press "W" to go back to the previous map.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
