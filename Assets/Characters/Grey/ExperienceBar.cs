@@ -8,14 +8,12 @@ public class ExperienceBar : MonoBehaviour
 {
     public Slider xpSlider; // Assign in the Inspector
     public TextMeshProUGUI xpText; // Assign in the Inspector
-    public PlayerExperience playerExp; // Reference to the player XP script
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI orbs;
 
     private void Start()
     {
-        playerExp = FindObjectOfType<PlayerExperience>(); // Find PlayerExperience script
-        UpdateXPBar();
+  
     }
 
     private void Update()
