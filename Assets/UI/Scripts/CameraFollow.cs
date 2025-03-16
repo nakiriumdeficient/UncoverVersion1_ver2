@@ -9,6 +9,7 @@ public class CameraFollow : MonoBehaviour
     public float yOffset = -3f;
     public float smoothSpeed = 0.125f;
     private bool isFacingRight = true;
+    public float zOffset;
 
     void Start()
     {

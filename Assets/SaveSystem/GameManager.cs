@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public List<WeaponData> collectedWeapons = new List<WeaponData>();
     public Vector3 savedPosition; // Store loaded position
     private bool shouldMovePlayer = false; // Flag to move player in LateUpdate
+    public List<string> collectedItems = new List<string>();
+
 
     public int playermaxHP = 100;
     public int playercurHP = 100;
@@ -144,6 +146,7 @@ public class GameManager : MonoBehaviour
             playerLevel = playerLevel,
             upgradeOrb = upgradeOrb,
             collectedWeapons = collectedWeapons,
+            collectedItems = collectedItems,
             savedPosition = player.transform.position // Save player position
         };
         Debug.Log("Saved Position: " + data.savedPosition);
@@ -167,6 +170,7 @@ public class GameManager : MonoBehaviour
             playerLevel = data.playerLevel;
             upgradeOrb = data.upgradeOrb;
             collectedWeapons = data.collectedWeapons;
+            collectedItems = data.collectedItems;
             savedPosition = data.savedPosition; // Store position
 
             Debug.Log("Loading Game...");
@@ -196,9 +200,9 @@ public class GameManager : MonoBehaviour
         if (player == null)
         {
             Debug.Log("No player found. Spawning at saved position...");
+            Debug.Log("Saved Position: " + savedPosition);
 
             SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
-
             if (spawnManager != null)
             {
                 spawnManager.SpawnPlayer(savedPosition);
@@ -210,6 +214,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("Before applying position: " + player.transform.position);
+            Debug.Log("Loaded Position: " + savedPosition);
             player.transform.position = savedPosition;
             Debug.Log("Loaded Player Position: " + savedPosition);
         }
@@ -228,6 +234,19 @@ public class GameManager : MonoBehaviour
             File.Delete(savePath);
             Debug.Log("Save file deleted.");
         }
+    }
+    public void CollectItem(string itemName)
+    {
+        if (!collectedItems.Contains(itemName))
+        {
+            collectedItems.Add(itemName);
+            Debug.Log(itemName + " has been collected!");
+        }
+    }
+
+    public bool HasItem(string itemName)
+    {
+        return collectedItems.Contains(itemName);
     }
 }
 

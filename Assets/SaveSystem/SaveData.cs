@@ -14,5 +14,6 @@ public class SaveData
     public int playerLevel;
     public int upgradeOrb;
     public List<WeaponData> collectedWeapons;
+    public List<string> collectedItems;
     public Vector3 savedPosition;
 }

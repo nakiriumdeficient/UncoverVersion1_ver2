@@ -8,8 +8,8 @@ public class SavePoint : MonoBehaviour
 {
     public GameObject upgradeUI;
     public GameObject savePromptUI;
-    private bool playerInRange = false;
 
+    private bool playerInRange = false;
     public bool upgradeExit = false;
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +40,6 @@ public class SavePoint : MonoBehaviour
 
         if (playerInRange && Input.GetKeyDown(KeyCode.R))
         {
-            upgradeUI.SetActive(true);
 
         }
     }

@@ -40,10 +40,6 @@ public class WeaponScript : MonoBehaviour
                 Debug.LogError("Error: currentWeapon is NULL!");
                 return;
             }
-
-
-
-
             if (npc != null)
             {
                 npc.TakeDamage(currentWeapon.damage);

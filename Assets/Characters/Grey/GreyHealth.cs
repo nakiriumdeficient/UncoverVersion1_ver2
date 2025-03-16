@@ -53,6 +53,4 @@ public class GreyHealth : MonoBehaviour
         OnDeath?.Invoke();
         Destroy(gameObject);
     }
-
-    
 }

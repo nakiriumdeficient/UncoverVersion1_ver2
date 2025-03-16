@@ -26,6 +26,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("GreyPlayer") == null)
         {
+            Debug.Log("Spawning player at: " + spawnPoint.position);
             SpawnPlayer(spawnPoint.position);
         }
     }
