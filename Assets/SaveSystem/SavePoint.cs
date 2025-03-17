@@ -79,7 +79,7 @@ public class SavePoint : MonoBehaviour
             {
                 GameObject buttonObj = Instantiate(weaponButtonPrefab, weaponListParent);
                 RectTransform rectTransform = buttonObj.GetComponent<RectTransform>();
-                rectTransform.sizeDelta = new Vector2(300, 200); // Set a reasonable size
+                rectTransform.sizeDelta = new Vector2(300, 100); // Set a reasonable size
                 rectTransform.localScale = Vector3.one; // Reset scale to prevent shrinking
 
                 WeaponButton button = buttonObj.GetComponent<WeaponButton>();

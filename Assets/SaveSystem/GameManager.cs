@@ -10,18 +10,12 @@ public class WeaponData
     public string weaponName;
     public int damage;
     public bool isCollected; // Ensures the weapon must be picked up first
-    public int upgradeCost; // Cost to upgrade weapon
-    public int damageIncrease; // How much damage increases per upgrade
-    public Sprite weaponIcon; // Weapon icon for UI
 
-    public WeaponData(string name, int dmg, int cost, int increase, Sprite icon = null)
+    public WeaponData(string name, int dmg)
     {
         weaponName = name;
         damage = dmg;
         isCollected = false;
-        upgradeCost = cost;
-        damageIncrease = increase;
-        weaponIcon = icon;
     }
 }
 public class GameManager : MonoBehaviour
@@ -77,7 +71,7 @@ public class GameManager : MonoBehaviour
     //exp counter
 
     //weapon saver
-    public void CollectWeapon(string weaponName, int damage, int upgradeCost, int damageIncrease, Sprite icon = null)
+    public void CollectWeapon(string weaponName, int damage)
     {
         // Check if weapon is already in the collection
         foreach (WeaponData weapon in collectedWeapons)
@@ -90,7 +84,7 @@ public class GameManager : MonoBehaviour
         }
 
         // If not found, add a new weapon to the collection
-        WeaponData newWeapon = new WeaponData(weaponName, damage, upgradeCost, damageIncrease, icon);
+        WeaponData newWeapon = new WeaponData(weaponName, damage);
         newWeapon.isCollected = true;
         collectedWeapons.Add(newWeapon);
     }

@@ -97,9 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Falx
   damage: 15
-  upgradeCost: 5
-  damageIncrease: 5
-  weaponIcon: {fileID: 21300000, guid: af9b949b566d2a14994b627f3971a66b, type: 3}
 --- !u!65 &3947102658525794221
 BoxCollider:
   m_ObjectHideFlags: 0

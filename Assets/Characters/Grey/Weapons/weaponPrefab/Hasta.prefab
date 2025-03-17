@@ -96,10 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Hasta
-  damage: 25
-  upgradeCost: 15
-  damageIncrease: 15
-  weaponIcon: {fileID: 21300000, guid: 3ca0021d72f09aa4fb9c4b6cc7cefabc, type: 3}
+  damage: 20
 --- !u!65 &525290581764594121
 BoxCollider:
   m_ObjectHideFlags: 0
