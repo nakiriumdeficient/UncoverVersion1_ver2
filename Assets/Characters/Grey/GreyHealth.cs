@@ -20,7 +20,7 @@ public class GreyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        healthBar.SetHealth(GameManager.Instance.playercurHP);
     }
     public void TakeDamage(int damage)
     {

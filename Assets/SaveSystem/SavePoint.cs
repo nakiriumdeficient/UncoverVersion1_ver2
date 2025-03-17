@@ -62,6 +62,7 @@ public class SavePoint : MonoBehaviour
         Debug.Log("Opening Upgrade Menu..."); // Debugging message
         upgradeUI.SetActive(true);
         upgradeMenuOpen = true;
+        Time.timeScale = 0; // Freeze game
 
         // Update upgrade orbs text
         orbText.text = "Upgrade Orbs: " + GameManager.Instance.upgradeOrb;
@@ -91,5 +92,6 @@ public class SavePoint : MonoBehaviour
     {
         upgradeUI.SetActive(false);
         upgradeMenuOpen = false;
+        Time.timeScale = 1; // Resume game
     }
 }

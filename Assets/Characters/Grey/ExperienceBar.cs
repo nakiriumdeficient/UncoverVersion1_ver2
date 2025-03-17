@@ -11,6 +11,9 @@ public class ExperienceBar : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI orbs;
 
+    public Slider hpSlider;
+    public TextMeshProUGUI hpText;
+
     private void Start()
     {
   
@@ -28,6 +31,10 @@ public class ExperienceBar : MonoBehaviour
         xpText.text = $"{GameManager.Instance.playerXP} / {GameManager.Instance.maxXP}";
         levelText.text = $"Level: {GameManager.Instance.playerLevel}";
         orbs.text = $"Orbs: {GameManager.Instance.upgradeOrb}";
+
+        hpSlider.maxValue = (GameManager.Instance.playermaxHP);
+        hpSlider.value = (GameManager.Instance.playercurHP);
+        hpText.text = $"{GameManager.Instance.playercurHP} / {GameManager.Instance.playermaxHP}";
 
     }
 }
