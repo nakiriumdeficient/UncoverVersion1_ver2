@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using System;
 
 [System.Serializable]
 public class WeaponData
@@ -12,16 +13,18 @@ public class WeaponData
     public bool isCollected; // Ensures the weapon must be picked up first
     public int upgradeCost; // Cost to upgrade weapon
     public int damageIncrease; // How much damage increases per upgrade
-    public Sprite weaponIcon; // Weapon icon for UI
+    public string weaponIconName; // Store sprite name
+    [NonSerialized] public Sprite weaponIcon; // This will not be saved in JSON
 
-    public WeaponData(string name, int dmg, int cost, int increase, Sprite icon = null)
+    public WeaponData(string name, int dmg, int cost, int increase, string iconName = "")
     {
         weaponName = name;
         damage = dmg;
         isCollected = false;
         upgradeCost = cost;
         damageIncrease = increase;
-        weaponIcon = icon;
+        weaponIconName = iconName;
+        weaponIcon = null; // Will be assigned after loading
     }
 }
 public class GameManager : MonoBehaviour
@@ -89,9 +92,19 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        // Store the sprite name instead of the sprite itself
+        string iconName = icon != null ? icon.name : "";
+
         // If not found, add a new weapon to the collection
-        WeaponData newWeapon = new WeaponData(weaponName, damage, upgradeCost, damageIncrease, icon);
+        WeaponData newWeapon = new WeaponData(weaponName, damage, upgradeCost, damageIncrease, iconName);
         newWeapon.isCollected = true;
+
+        // Dynamically load the sprite if available
+        if (!string.IsNullOrEmpty(iconName))
+        {
+            newWeapon.weaponIcon = Resources.Load<Sprite>("WeaponIcons/" + iconName);
+        }
+
         collectedWeapons.Add(newWeapon);
     }
     public WeaponData GetWeapon(string weaponName)
@@ -178,6 +191,16 @@ public class GameManager : MonoBehaviour
             collectedWeapons = data.collectedWeapons;
             collectedItems = data.collectedItems;
             savedPosition = data.savedPosition; // Store position
+
+            // Reassign Sprites from Resources
+            foreach (WeaponData weapon in collectedWeapons)
+            {
+                if (!string.IsNullOrEmpty(weapon.weaponIconName))
+                {
+                    weapon.weaponIcon = Resources.Load<Sprite>("WeaponIcons/" + weapon.weaponIconName);
+                }
+            }
+
 
             Debug.Log("Loading Game...");
 
