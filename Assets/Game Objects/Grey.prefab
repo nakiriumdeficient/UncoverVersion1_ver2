@@ -588,6 +588,9 @@ MonoBehaviour:
     weaponName: 
     damage: 0
     isCollected: 0
+    upgradeCost: 0
+    damageIncrease: 0
+    weaponIconName: 
 --- !u!4 &999184549487139850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7afb68ede56c35c48b20a9017013c126, type: 3}
@@ -668,6 +671,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 83b57d36aedb5da4d9219786339f4961, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6818521196693463920}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 83b57d36aedb5da4d9219786339f4961, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3005918713265761346}
   m_SourcePrefab: {fileID: 100100000, guid: 83b57d36aedb5da4d9219786339f4961, type: 3}
 --- !u!1 &3976945549210006509 stripped
 GameObject:
@@ -695,6 +701,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 25.37669, y: 163.55336, z: 8.963543}
   m_Center: {x: 0, y: -0.0000076293945, z: 0}
+--- !u!114 &3005918713265761346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976945549210006509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ce9e629f4e0244d8e2331b6668b348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon:
+    weaponName: 
+    damage: 0
+    isCollected: 0
+    upgradeCost: 0
+    damageIncrease: 0
+    weaponIconName: 
 --- !u!4 &4358114771624257879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83b57d36aedb5da4d9219786339f4961, type: 3}
@@ -775,6 +800,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c222dd5a577ebd4b84d64fd020ca3ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5428872349098026961}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c222dd5a577ebd4b84d64fd020ca3ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8904828523557128513}
   m_SourcePrefab: {fileID: 100100000, guid: 5c222dd5a577ebd4b84d64fd020ca3ef, type: 3}
 --- !u!1 &5111558886407194286 stripped
 GameObject:
@@ -802,6 +830,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 23.841078, y: 140.73892, z: 8.963543}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8904828523557128513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5111558886407194286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ce9e629f4e0244d8e2331b6668b348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon:
+    weaponName: 
+    damage: 0
+    isCollected: 0
+    upgradeCost: 0
+    damageIncrease: 0
+    weaponIconName: 
 --- !u!4 &5594657200476429332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c222dd5a577ebd4b84d64fd020ca3ef, type: 3}
@@ -928,6 +975,9 @@ MonoBehaviour:
     weaponName: 
     damage: 0
     isCollected: 0
+    upgradeCost: 0
+    damageIncrease: 0
+    weaponIconName: 
 --- !u!4 &6614062933699074666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3358973692ec0bf4fbd6c7c324d848e8, type: 3}
