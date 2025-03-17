@@ -18,16 +18,8 @@ public class ArcherController : MonoBehaviour
 
     void Start()
     {
-       
+        // Initialize health
         currentHealth = maxHealth;
-        // Find the player by tag
-    
-        player = GameObject.FindGameObjectWithTag("GreyPlayer").transform;
-
-        if (player == null)
-        {
-            Debug.LogError("Player not found! Make sure the player is tagged as 'GreyPlayer'.");
-        }
 
         // Get the Animator component
         animator = GetComponentInChildren<Animator>();
@@ -37,11 +29,29 @@ public class ArcherController : MonoBehaviour
             Debug.LogError("Animator component missing from Archer or its children!");
         }
 
-        // Initialize health
-        currentHealth = maxHealth;
+        // Start a coroutine to find the player
+        StartCoroutine(FindPlayer());
 
         // Start the attack coroutine
         StartCoroutine(AttackRoutine());
+    }
+
+    private IEnumerator FindPlayer()
+    {
+        while (player == null)
+        {
+            // Search for the player object with the "GreyPlayer" tag
+            player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
+            if (player == null)
+            {
+                Debug.LogWarning("Player not found yet. Retrying...");
+                yield return new WaitForSeconds(0.5f); // Wait before retrying
+            }
+            else
+            {
+                Debug.Log("Player found: " + player.name);
+            }
+        }
     }
 
     void Update()
@@ -56,88 +66,93 @@ public class ArcherController : MonoBehaviour
         }
     }
 
-   private IEnumerator AttackRoutine()
-{
-    while (!isDead)
+    private IEnumerator AttackRoutine()
     {
-        if (Vector3.Distance(transform.position, player.position) <= attackRange && !isAttacking)
+        while (!isDead)
         {
-            isAttacking = true;
-            Debug.Log("Setting Attack trigger...");
-            animator.SetTrigger("Attack"); // Trigger the attack animation
-
-            // Wait for the animation to reach the frame where the arrow should be fired
-            yield return new WaitForSeconds(0.5f); // Adjust this delay based on your animation
-
-            FireArrow();
-
-            // Wait for the cooldown before attacking again
-            yield return new WaitForSeconds(attackCooldown);
-            isAttacking = false;
-        }
-        else
-        {
-            yield return null;
-        }
-    }
-}
-
-    private void FireArrow()
-    {
-        if (arrowPrefab != null && arrowSpawnPoint != null)
-        {
-            // Instantiate the arrow at the spawn point
-            GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
-
-            // Get the Arrow script component and set its damage and target
-            Arrow arrowScript = arrow.GetComponent<Arrow>();
-            if (arrowScript != null)
+            if (player != null && Vector3.Distance(transform.position, player.position) <= attackRange && !isAttacking)
             {
-                arrowScript.SetDamage(damage);
-                arrowScript.SetTarget(player);
+                isAttacking = true;
+                Debug.Log("Setting Attack trigger...");
+                animator.SetTrigger("Attack"); // Trigger the attack animation
+
+                // Wait for the animation to reach the frame where the arrow should be fired
+                yield return new WaitForSeconds(0.5f); // Adjust this delay based on your animation
+
+                FireArrow();
+
+                // Wait for the cooldown before attacking again
+                yield return new WaitForSeconds(attackCooldown);
+                isAttacking = false;
             }
             else
             {
-                Debug.LogError("Arrow prefab is missing the Arrow script!");
+                yield return null;
             }
+        }
+    }
+
+    private void FireArrow()
+    {
+        if (arrowPrefab == null)
+        {
+            Debug.LogError("Arrow prefab not set!");
+            return;
+        }
+
+        if (arrowSpawnPoint == null)
+        {
+            Debug.LogError("Arrow spawn point not set!");
+            return;
+        }
+
+        // Instantiate the arrow at the spawn point
+        GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
+
+        // Get the Arrow script component and set its damage and target
+        Arrow arrowScript = arrow.GetComponent<Arrow>();
+        if (arrowScript != null)
+        {
+            arrowScript.SetDamage(damage);
+            arrowScript.SetTarget(player);
         }
         else
         {
-            Debug.LogError("Arrow prefab or spawn point not set!");
+            Debug.LogError("Arrow prefab is missing the Arrow script!");
         }
     }
 
     public void TakeDamage(int damage)
-{
-    if (isDead) return; // Ignore damage if already dead
-
-    currentHealth -= damage;
-    Debug.Log("Archer took " + damage + " damage! Current health: " + currentHealth);
-
-    if (currentHealth <= 0)
     {
-        Die();
+        if (isDead) return; // Ignore damage if already dead
+
+        currentHealth -= damage;
+        Debug.Log("Archer took " + damage + " damage! Current health: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
-}
 
-private void Die()
-{
-    isDead = true;
-    Debug.Log("Archer is dead!");
+    private void Die()
+    {
+        isDead = true;
+        Debug.Log("Archer is dead!");
 
-    // Trigger the death animation
-    animator.SetTrigger("Die");
+        // Trigger the death animation
+        animator.SetTrigger("Die");
 
-    // Disable the ArcherController script to stop further actions
-    enabled = false;
+        // Disable the ArcherController script to stop further actions
+        enabled = false;
 
-    // Optionally, destroy the archer after a delay
-    StartCoroutine(DestroyAfterDelay(3f));
-}
+        // Optionally, destroy the archer after a delay
+        StartCoroutine(DestroyAfterDelay(3f));
+    }
 
-private IEnumerator DestroyAfterDelay(float delay)
-{
-    yield return new WaitForSeconds(delay);
-    Destroy(gameObject);
-}
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
+    }
 }
