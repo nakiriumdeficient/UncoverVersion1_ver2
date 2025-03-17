@@ -2217,6 +2217,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2065659778678234232, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_ChildForceExpandWidth
+<<<<<<< Updated upstream
+=======
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194101403054733732, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
+      propertyPath: m_AnchorMax.x
+>>>>>>> Stashed changes
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2194101403054733732, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
@@ -2241,6 +2248,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2293879911824531665, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300270502247941555, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300270502247941555, guid: 6cbc00e242b29c249b94326b2f192a73, type: 3}
