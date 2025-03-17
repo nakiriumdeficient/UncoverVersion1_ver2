@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7931894436770667797
 Transform:
   m_ObjectHideFlags: 0
@@ -100,6 +100,12 @@ MonoBehaviour:
   moveSpeed: 2
   attackDistance: 2.5
   gravity: -9.81
+  expOrb: {fileID: 4639106066485910987, guid: 76cdac29eaac43a4685830ca945df064, type: 3}
+  xpDropAmount: 30
+  numberOfXpDrops: 3
+  upgradeOrb: {fileID: 510702803067997793, guid: ebc85a472c8a2434eb69191557fde3b2, type: 3}
+  upgradeDropAmount: 30
+  numberOfUpDrops: 3
 --- !u!1001 &1272536938380357796
 PrefabInstance:
   m_ObjectHideFlags: 0

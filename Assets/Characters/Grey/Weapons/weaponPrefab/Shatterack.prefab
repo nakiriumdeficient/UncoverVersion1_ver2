@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Shatterack
   damage: 20
-  upgradeCost: 10
+  upgradeCost: 45
   damageIncrease: 10
   weaponIcon: {fileID: 21300000, guid: 14363f36cc76a7f469caa4211dd4483b, type: 3}
 --- !u!114 &7328712306712874380

@@ -4693,15 +4693,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: xpDropAmount
-      value: 150
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: numberOfUpDrops
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: upgradeDropAmount
-      value: 150
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

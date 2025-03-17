@@ -20,6 +20,15 @@ public class AelfricController : MonoBehaviour
     private int currentHealth;
     private bool isDead = false;
 
+    public GameObject expOrb; // Assign XP orb prefab in the Inspector
+    public int xpDropAmount = 30;
+    public int numberOfXpDrops = 3; // Number of XP orbs to spawn
+
+    public GameObject upgradeOrb;
+    public int upgradeDropAmount = 30;
+    public int numberOfUpDrops = 3;
+
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
@@ -141,6 +150,9 @@ public class AelfricController : MonoBehaviour
 
     private void Die()
     {
+        DropExperience();
+        DropUpgrade();
+
         isDead = true;
         Debug.Log("Aelfric is dead!");
         animator.SetTrigger("Die");
@@ -152,5 +164,33 @@ public class AelfricController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
+    }
+
+    private void DropExperience()
+    {
+        for (int i = 0; i < numberOfXpDrops; i++)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-3f, 3f), 0.5f, Random.Range(-0.1f, 0.1f));
+            GameObject xp = Instantiate(expOrb, transform.position + randomOffset, Quaternion.identity);
+            ExperiencePickup xpScript = xp.GetComponent<ExperiencePickup>();
+            if (xpScript != null)
+            {
+                xpScript.expAmount = xpDropAmount / numberOfXpDrops; // Distribute XP evenly
+            }
+        }
+    }
+    private void DropUpgrade()
+    {
+        for (int i = 0; i < numberOfUpDrops; i++)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-3f, 3f), 0.2f, Random.Range(-0.1f, 0.1f));
+            GameObject upgrade = Instantiate(upgradeOrb, transform.position + randomOffset, Quaternion.identity);
+            UpgradePickup upgradeScript = upgrade.GetComponent<UpgradePickup>();
+            if (upgradeScript != null)
+            {
+                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfXpDrops;
+            }
+        }
+
     }
 }

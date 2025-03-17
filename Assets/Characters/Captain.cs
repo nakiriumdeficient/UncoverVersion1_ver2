@@ -9,6 +9,14 @@ public class Captain : NPC
     private float lastAttackTime = 0f;
     private bool isDead = false;
 
+    public GameObject expOrb; // Assign XP orb prefab in the Inspector
+    public int xpDropAmount = 30;
+    public int numberOfXpDrops = 3; // Number of XP orbs to spawn
+
+    public GameObject upgradeOrb;
+    public int upgradeDropAmount = 30;
+    public int numberOfUpDrops = 3;
+
     protected override void Start()
     {
         npcName = "Captain";  // Set NPC name
@@ -125,19 +133,50 @@ public class Captain : NPC
             Die(); // ✅ Call Die() function when health reaches 0
         }
     }
-void Die()
-{
-    if (isDead) return;
-    isDead = true;
-
-    Debug.Log("[Captain] Has died!");
-
-    if (animator != null)
+    void Die()
     {
+        DropExperience();
+        DropUpgrade();
+
+        if (isDead) return;
+        isDead = true;
+
+        Debug.Log("[Captain] Has died!");
+
+        if (animator != null)
+        {
         animator.SetTrigger("Die"); // ✅ Use a trigger instead of a bool
+        }
+
+        float deathAnimLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        Destroy(gameObject, deathAnimLength + 0.5f);
+    }
+    private void DropExperience()
+    {
+        for (int i = 0; i < numberOfXpDrops; i++)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-3f, 3f), 0.5f, Random.Range(-0.1f, 0.1f));
+            GameObject xp = Instantiate(expOrb, transform.position + randomOffset, Quaternion.identity);
+            ExperiencePickup xpScript = xp.GetComponent<ExperiencePickup>();
+            if (xpScript != null)
+            {
+                xpScript.expAmount = xpDropAmount / numberOfXpDrops; // Distribute XP evenly
+            }
+        }
+    }
+    private void DropUpgrade()
+    {
+        for (int i = 0; i < numberOfUpDrops; i++)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-3f, 3f), 0.2f, Random.Range(-0.1f, 0.1f));
+            GameObject upgrade = Instantiate(upgradeOrb, transform.position + randomOffset, Quaternion.identity);
+            UpgradePickup upgradeScript = upgrade.GetComponent<UpgradePickup>();
+            if (upgradeScript != null)
+            {
+                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfXpDrops;
+            }
+        }
+
     }
 
-    float deathAnimLength = animator.GetCurrentAnimatorStateInfo(0).length;
-    Destroy(gameObject, deathAnimLength + 0.5f);
-}
 }

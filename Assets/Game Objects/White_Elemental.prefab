@@ -98,6 +98,12 @@ MonoBehaviour:
   attackRange: 20
   attackCooldown: 4
   maxHealth: 50
+  expOrb: {fileID: 4639106066485910987, guid: 76cdac29eaac43a4685830ca945df064, type: 3}
+  xpDropAmount: 30
+  numberOfXpDrops: 3
+  upgradeOrb: {fileID: 510702803067997793, guid: ebc85a472c8a2434eb69191557fde3b2, type: 3}
+  upgradeDropAmount: 30
+  numberOfUpDrops: 3
 --- !u!1001 &3249105682209626988
 PrefabInstance:
   m_ObjectHideFlags: 0
