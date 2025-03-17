@@ -840,7 +840,7 @@ PrefabInstance:
       objectReference: {fileID: 4639106066485910987, guid: 76cdac29eaac43a4685830ca945df064, type: 3}
     - target: {fileID: 8676597086156181596, guid: fb57be720b55935408a66497604cab38, type: 3}
       propertyPath: maxHealth
-      value: 70
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8676597086156181596, guid: fb57be720b55935408a66497604cab38, type: 3}
       propertyPath: moveSpeed
@@ -1194,7 +1194,7 @@ Transform:
   m_GameObject: {fileID: 809098230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.278, y: 6.409, z: -0.7994002}
+  m_LocalPosition: {x: 61.56, y: 6.409, z: -0.7994002}
   m_LocalScale: {x: 1.8068322, y: 14.155627, z: 21.665726}
   m_ConstrainProportionsScale: 0
   m_Children: []
