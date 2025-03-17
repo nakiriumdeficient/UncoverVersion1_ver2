@@ -46,4 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpSlider: {fileID: 0}
   xpText: {fileID: 0}
-  playerExp: {fileID: 0}
+  levelText: {fileID: 0}
+  orbs: {fileID: 0}
+  hpSlider: {fileID: 0}
+  hpText: {fileID: 0}

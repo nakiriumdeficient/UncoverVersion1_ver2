@@ -285,6 +285,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPointName: 10EntryPointA
+--- !u!114 &129489234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1425967286289442806, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 626914215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &129489235 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4312131093349533394, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 626914215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &137457341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,9 +1289,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 626914217}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
+      propertyPath: hpText
+      value: 
+      objectReference: {fileID: 129489234}
+    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpText
       value: 
       objectReference: {fileID: 626914219}
+    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 129489235}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpSlider
       value: 

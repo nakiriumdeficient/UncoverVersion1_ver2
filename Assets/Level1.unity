@@ -992,10 +992,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6310114702495869936}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
-      propertyPath: hpSilder
-      value: 
-      objectReference: {fileID: 6146186449469189052}
-    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: hpSlider
       value: 
       objectReference: {fileID: 6146186449469189052}
@@ -1007,10 +1003,6 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 1446381998}
-    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
-      propertyPath: playerExp
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7322905221380397175, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: m_Name
       value: XP_Manager

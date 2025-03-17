@@ -1129,11 +1129,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 764894482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d095b7e862a384aa34a84823f5c76d, type: 3}
+  m_Script: {fileID: 11500000, guid: 75285d8d0a9a6a54488b3de01769f949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Level19
-  previousSceneName: 
+  targetScene: Level19
+  targetSpawnPoint: 19EntryPointA
+  requiredItem: 
 --- !u!65 &764894484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1217,7 +1218,7 @@ Transform:
   m_GameObject: {fileID: 809098230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 89.901, y: 8.858999, z: -1.2050998}
+  m_LocalPosition: {x: 85.36, y: 8.858999, z: -1.2050998}
   m_LocalScale: {x: 2.7282996, y: 21.37486, z: 32.71504}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1250,12 +1251,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 870289098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d4d13dd721ed9443bae51a1b441296a, type: 3}
+  m_Script: {fileID: 11500000, guid: 75285d8d0a9a6a54488b3de01769f949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Level21
-  requiredKeyID: Level1Key
-  keyRequiredMessage: {fileID: 0}
+  targetScene: Level21
+  targetSpawnPoint: 21EntryPointA
+  requiredItem: 
 --- !u!65 &870289100
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1599,9 +1600,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 483420496}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
+      propertyPath: hpText
+      value: 
+      objectReference: {fileID: 1952869368}
+    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpText
       value: 
       objectReference: {fileID: 483420498}
+    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1952869369}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpSlider
       value: 
@@ -2183,6 +2192,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952869368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1425967286289442806, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 483420494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1952869369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4312131093349533394, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 483420494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2090415266
 GameObject:
   m_ObjectHideFlags: 0
