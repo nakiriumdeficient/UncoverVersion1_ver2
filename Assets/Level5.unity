@@ -3517,6 +3517,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774924584}
   m_Mesh: {fileID: 1680627951467453691, guid: 333d1481946876742882a73cb63e13e1, type: 3}
+--- !u!114 &786431373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8674357073765865023, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1743443385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &786431374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4312131093349533394, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1743443385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &806004866
 GameObject:
   m_ObjectHideFlags: 0
@@ -8072,9 +8094,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1743443386}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
+      propertyPath: hpText
+      value: 
+      objectReference: {fileID: 786431373}
+    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpText
       value: 
       objectReference: {fileID: 1743443388}
+    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 786431374}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpSlider
       value: 

@@ -136,15 +136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4587975206483482083, guid: 15038f248154f144286e285f74ee757a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 140.99
+      value: 20.049984
       objectReference: {fileID: 0}
     - target: {fileID: 4587975206483482083, guid: 15038f248154f144286e285f74ee757a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.79
+      value: 1.6087
       objectReference: {fileID: 0}
     - target: {fileID: 4587975206483482083, guid: 15038f248154f144286e285f74ee757a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -81.3
+      value: -14.109001
       objectReference: {fileID: 0}
     - target: {fileID: 4587975206483482083, guid: 15038f248154f144286e285f74ee757a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1422,6 +1422,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730814440}
   m_Mesh: {fileID: 5655719748835016313, guid: 2f198ab39b4a4c1479682b9c3ef7002d, type: 3}
+--- !u!114 &748916450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1425967286289442806, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1358936325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &748916451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4312131093349533394, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1358936325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &795852983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1655,6 +1677,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &842130078 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3974676768954527294, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1358936325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &842130079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5769687666808051278, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1358936325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &851634985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2053,9 +2091,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1358936327}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
+      propertyPath: hpText
+      value: 
+      objectReference: {fileID: 748916450}
+    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpText
       value: 
       objectReference: {fileID: 1358936329}
+    - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 748916451}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpSlider
       value: 
@@ -3086,9 +3132,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
+      propertyPath: orbText
+      value: 
+      objectReference: {fileID: 842130078}
+    - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
+      propertyPath: upgradeUI
+      value: 
+      objectReference: {fileID: 842130079}
+    - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
       propertyPath: savePromptUI
       value: 
       objectReference: {fileID: 1233069652}
+    - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
+      propertyPath: weaponButtonPrefab
+      value: 
+      objectReference: {fileID: 284328905100250491, guid: 113a0f6569d739a449f779c14ae9972f, type: 3}
     - target: {fileID: 8391167477957771281, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
       propertyPath: m_LocalScale.x
       value: 18.38795
