@@ -12,14 +12,6 @@ public class AelfricController : MonoBehaviour
     public int maxHealth = 100;
     public float moveSpeed = 3f;
 
-    private Transform player;
-    private Animator animator;
-    private Rigidbody rb;
-    private bool isAttacking = false;
-    private bool isChasing = false;
-    private int currentHealth;
-    private bool isDead = false;
-
     public GameObject expOrb; // Assign XP orb prefab in the Inspector
     public int xpDropAmount = 30;
     public int numberOfXpDrops = 3; // Number of XP orbs to spawn
@@ -28,15 +20,16 @@ public class AelfricController : MonoBehaviour
     public int upgradeDropAmount = 30;
     public int numberOfUpDrops = 3;
 
+    private Transform player;
+    private Animator animator;
+    private Rigidbody rb;
+    private bool isAttacking = false;
+    private bool isChasing = false;
+    private int currentHealth;
+    private bool isDead = false;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
-        if (player == null)
-        {
-            Debug.LogError("Player not found! Make sure the player is tagged as 'GreyPlayer'.");
-        }
-
         animator = GetComponentInChildren<Animator>();
         if (animator == null)
         {
@@ -45,12 +38,35 @@ public class AelfricController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
+
+        // Start a coroutine to find the player
+        StartCoroutine(FindPlayer());
+
+        // Start the attack coroutine
         StartCoroutine(AttackRoutine());
+    }
+
+    private IEnumerator FindPlayer()
+    {
+        while (player == null)
+        {
+            // Search for the player object with the "GreyPlayer" tag
+            player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
+            if (player == null)
+            {
+                Debug.LogWarning("Player not found yet. Retrying...");
+                yield return new WaitForSeconds(0.5f); // Wait before retrying
+            }
+            else
+            {
+                Debug.Log("Player found: " + player.name);
+            }
+        }
     }
 
     void Update()
     {
-        if (isDead) return;
+        if (isDead || player == null) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -96,6 +112,12 @@ public class AelfricController : MonoBehaviour
     {
         while (!isDead)
         {
+            if (player == null)
+            {
+                yield return null; // Wait until the player is found
+                continue;
+            }
+
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer <= attackRange && !isAttacking)
             {
@@ -179,6 +201,7 @@ public class AelfricController : MonoBehaviour
             }
         }
     }
+
     private void DropUpgrade()
     {
         for (int i = 0; i < numberOfUpDrops; i++)
@@ -188,9 +211,8 @@ public class AelfricController : MonoBehaviour
             UpgradePickup upgradeScript = upgrade.GetComponent<UpgradePickup>();
             if (upgradeScript != null)
             {
-                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfXpDrops;
+                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfUpDrops;
             }
         }
-
     }
 }
