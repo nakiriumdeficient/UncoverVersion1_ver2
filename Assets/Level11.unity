@@ -891,6 +891,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb57be720b55935408a66497604cab38, type: 3}
+--- !u!1 &584613168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1694351823188088885, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 138530166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &617781850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2841,7 +2846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95675ce4d1c8cbf40a7fb7e37f501521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
+  pauseMenuUI: {fileID: 584613168}
   player: {fileID: 0}
   playerTag: GreyPlayer
 --- !u!4 &2090415268
