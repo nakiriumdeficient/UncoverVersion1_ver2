@@ -1478,7 +1478,7 @@ PrefabInstance:
     - target: {fileID: 7449626728240686553, guid: df0e883f3df1dcb41858e372000e35ae, type: 3}
       propertyPath: arrowPrefab
       value: 
-      objectReference: {fileID: 2506443506897645831, guid: 26a8e437567cba54f9b5852c19cec69d, type: 3}
+      objectReference: {fileID: 2506443506897645831, guid: 2c22aad90628b2e4fa686e74a27fd810, type: 3}
     - target: {fileID: 7449626728240686553, guid: df0e883f3df1dcb41858e372000e35ae, type: 3}
       propertyPath: attackRange
       value: 20

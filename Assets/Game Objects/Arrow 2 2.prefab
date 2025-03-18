@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2257108648959560679}
   - component: {fileID: 4990786393036482212}
   m_Layer: 0
-  m_Name: Arrow 2 1
+  m_Name: Arrow 2 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 2506443506897645831}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0010798, y: 0.013622, z: 0.0014562}
-  m_LocalScale: {x: 0.47851, y: 0.47851, z: 0.47851}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8807828337841506064}
@@ -123,8 +123,8 @@ Transform:
   m_GameObject: {fileID: 3707401073225682264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.01, z: 0.0047266}
-  m_LocalScale: {x: 0.8266982, y: 0.8266982, z: 0.8266982}
+  m_LocalPosition: {x: -0, y: 0.157, z: 0.0047266}
+  m_LocalScale: {x: 5.4578342, y: 5.4578342, z: 5.4578342}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7932617886591245093}
