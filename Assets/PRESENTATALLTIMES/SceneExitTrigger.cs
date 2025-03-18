@@ -9,15 +9,21 @@ public class SceneExitTrigger : MonoBehaviour
     public string requiredItem; // The key or item required to transition
 
     private bool playerIsNear = false; // Tracks if player is in range
-    private GameObject ExitPrompt; // Reference to UI Prompt
+    private GameObject exitPrompt; // Reference to UI Prompt
+
     private void Start()
     {
-        // Find the UI Prompt in the scene (Make sure it's named "ExitPrompt")
-        ExitPrompt = GameObject.Find("ExitPrompt");
+        // Find ExitPrompt anywhere in the scene
+        exitPrompt = GameObject.FindObjectOfType<Canvas>().transform.Find("ExitPrompt")?.gameObject;
 
-        if (ExitPrompt != null)
+
+        if (exitPrompt != null)
         {
-            ExitPrompt.SetActive(false); // Hide UI at start
+            exitPrompt.SetActive(false); // Ensure it's off at start
+        }
+        else
+        {
+            Debug.LogError("ExitPrompt not found! Make sure it's named 'ExitPrompt' in the Canvas.");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -26,11 +32,7 @@ public class SceneExitTrigger : MonoBehaviour
         {
             playerIsNear = true;
 
-            // Show prompt if found
-            if (ExitPrompt != null)
-            {
-                ExitPrompt.SetActive(true);
-            }
+            exitPrompt?.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -40,9 +42,10 @@ public class SceneExitTrigger : MonoBehaviour
             playerIsNear = false;
 
             // Hide prompt if found
-            if (ExitPrompt != null)
+            if (exitPrompt != null)
             {
-                ExitPrompt.SetActive(false);
+                exitPrompt.SetActive(false);
+                Debug.Log("ExitPrompt disabled");
             }
         }
     }
@@ -58,9 +61,9 @@ public class SceneExitTrigger : MonoBehaviour
             }
 
             // Hide prompt before transitioning
-            if (ExitPrompt != null)
+            if (exitPrompt != null)
             {
-                ExitPrompt.SetActive(false);
+                exitPrompt.SetActive(false);
             }
 
             SceneTransitionManager.Instance.TransitionToScene(targetScene, targetSpawnPoint);
