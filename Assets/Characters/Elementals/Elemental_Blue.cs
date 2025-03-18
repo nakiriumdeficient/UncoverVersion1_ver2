@@ -1,4 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.IO;
+using System.Diagnostics.Contracts;
 
 public class Elemental_Blue : MonoBehaviour
 {
@@ -8,10 +13,9 @@ public class Elemental_Blue : MonoBehaviour
     public int maxHealth = 50; // ✅ Set max health
     private int currentHealth;
     private float lastAttackTime = 0f;
-    private Transform player;
     private Animator animator;
     private bool isAttacking = false;
-
+    private GameObject player;
     public GameObject expOrb; // Assign XP orb prefab in the Inspector
     public int xpDropAmount = 30;
     public int numberOfXpDrops = 3; // Number of XP orbs to spawn
@@ -22,16 +26,16 @@ public class Elemental_Blue : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
-        animator = GetComponentInChildren<Animator>(); // Animator should be on the model child
-        currentHealth = maxHealth; // ✅ Initialize health
-        Debug.Log("[Blue_Elemental] Initialized with HP: " + maxHealth);
+        StartCoroutine(FindPlayer()); // Start looking for the player
     }
 
     private void Update()
     {
         if (player == null || isAttacking) return;
-        float distance = Mathf.Abs(player.position.x - transform.position.x); // Only check X distance
+
+        if (player.transform == null) return; // Prevents null reference error
+
+        float distance = Mathf.Abs(player.transform.position.x - transform.position.x); // Only check X distance
 
         if (distance <= detectionRange)
         {
@@ -41,6 +45,24 @@ public class Elemental_Blue : MonoBehaviour
                 lastAttackTime = Time.time; // ✅ Reset cooldown timer
             }
         }
+    }
+    private IEnumerator FindPlayer()
+    {
+        while (player == null) // Keep checking until the player is found
+        {
+            player = GameObject.FindGameObjectWithTag("GreyPlayer"); // Ensure your player has this tag
+            yield return new WaitForSeconds(0.2f); // Check every 0.2 seconds
+        }
+
+        Debug.Log("Player found: " + player.name);
+        InitializeAI(); // Call a function to set up AI after finding the player
+    }
+    void InitializeAI()
+    {
+        animator = GetComponentInChildren<Animator>(); // Animator should be on the model child
+        currentHealth = maxHealth; // ✅ Initialize health
+        Debug.Log("[Blue_Elemental] Initialized with HP: " + maxHealth);
+        Debug.Log("Enemy AI initialized!");
     }
 
     void Attack()

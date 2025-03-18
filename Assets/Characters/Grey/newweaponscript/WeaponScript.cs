@@ -31,9 +31,14 @@ public class WeaponScript : MonoBehaviour
             Debug.Log("Eenemy Hit!");
 
             NPC npc = other.GetComponent<NPC>();
-
             ElfWarrior elfwarrior = other.GetComponent<ElfWarrior>();
             ArcherController archer = other.GetComponent<ArcherController>();
+            AelfricController aelfric = other.GetComponent<AelfricController>();
+            Elemental_Blue elemental = other.GetComponent<Elemental_Blue>();
+            ElfShielder shielder = other.GetComponent<ElfShielder>();
+            Duelist duelist = other.GetComponent<Duelist>();
+            Captain captain = other.GetComponent<Captain>();
+
 
             if (currentWeapon == null)
             {
@@ -56,6 +61,31 @@ public class WeaponScript : MonoBehaviour
                 Debug.Log("Dealing damage: " + currentWeapon.damage);
                 archer.TakeDamage(currentWeapon.damage);
                 Debug.Log("[Weapon] Dealt " + currentWeapon.damage + " damage to Archer: " + other.name);
+                return;
+            }
+            else if (aelfric != null)
+            {
+                aelfric.TakeDamage(currentWeapon.damage);
+                return;
+            }
+            else if (elemental != null)
+            {
+                elemental.TakeDamage(currentWeapon.damage);
+                return;
+            }
+            else if (shielder != null)
+            {
+                shielder.TakeDamage(currentWeapon.damage);
+                return;
+            }
+            else if (duelist != null)
+            {
+                duelist.TakeDamage(currentWeapon.damage);
+                return;
+            }
+            else if (captain != null)
+            {
+                captain.TakeDamage(currentWeapon.damage);
                 return;
             }
             else
