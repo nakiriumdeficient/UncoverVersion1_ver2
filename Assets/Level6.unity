@@ -3736,7 +3736,7 @@ MonoBehaviour:
   rightOffset: -5
   leftOffset: 5
   yOffset: 1
-  smoothSpeed: 0.125
+  smoothSpeed: 0.015
   zOffset: 0
 --- !u!1 &1178875929
 GameObject:
@@ -6371,7 +6371,9 @@ SceneRoots:
   - {fileID: 962871289}
   - {fileID: 809098232}
   - {fileID: 870289101}
+  - {fileID: 2118489766}
   - {fileID: 806004868}
+  - {fileID: 1364229745}
   - {fileID: 2092513484}
   - {fileID: 1645491565}
   - {fileID: 302655418}
@@ -6380,7 +6382,5 @@ SceneRoots:
   - {fileID: 280627820}
   - {fileID: 2123016735}
   - {fileID: 1667573935}
-  - {fileID: 1364229745}
-  - {fileID: 2118489766}
   - {fileID: 126020669}
   - {fileID: 1911150506}

@@ -39,7 +39,6 @@ public class WeaponScript : MonoBehaviour
             Duelist duelist = other.GetComponent<Duelist>();
             Captain captain = other.GetComponent<Captain>();
 
-
             if (currentWeapon == null)
             {
                 Debug.LogError("Error: currentWeapon is NULL!");
@@ -88,10 +87,21 @@ public class WeaponScript : MonoBehaviour
                 captain.TakeDamage(currentWeapon.damage);
                 return;
             }
+            
             else
             {
                 Debug.LogError("Error: Enemy script not found on " + other.gameObject.name);
             }
+
+        }
+
+        else if(other.CompareTag("Crate"))
+        {
+            Debug.Log("Crate Hit!");
+            
+            Destroy(other.transform.parent.gameObject);
+
+            // sfx
 
         }
     }

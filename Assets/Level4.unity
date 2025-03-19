@@ -2574,7 +2574,7 @@ MonoBehaviour:
   rightOffset: -5
   leftOffset: 5
   yOffset: 1
-  smoothSpeed: 0.125
+  smoothSpeed: 0.015
   zOffset: 0
 --- !u!1001 &1205926657
 PrefabInstance:

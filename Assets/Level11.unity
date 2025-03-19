@@ -410,9 +410,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137457341}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.863, y: 6.463, z: 3.3419995}
-  m_LocalScale: {x: 2.1470697, y: 16.103142, z: 16.103142}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.863003, y: 6.463, z: 3.3419995}
+  m_LocalScale: {x: 4.247333, y: 16.103142, z: 16.103142}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1002,6 +1002,10 @@ PrefabInstance:
       propertyPath: detectionRange
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8676597086156181596, guid: fb57be720b55935408a66497604cab38, type: 3}
+      propertyPath: upgradeDropAmount
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1138,7 +1142,7 @@ Transform:
   m_GameObject: {fileID: 796534773}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.877, y: 1.2723002, z: -1.22}
+  m_LocalPosition: {x: 11.877, y: 1.2723002, z: -1.88}
   m_LocalScale: {x: 14.464587, y: 2.0524802, z: 0.55554485}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2626,7 +2630,7 @@ Transform:
   m_GameObject: {fileID: 1949976447}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.877, y: 1.2723002, z: 1.47}
+  m_LocalPosition: {x: 11.877, y: 1.2723002, z: 1.13}
   m_LocalScale: {x: 14.464587, y: 2.0524802, z: 0.55554485}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2758,7 +2762,9 @@ SceneRoots:
   - {fileID: 962871289}
   - {fileID: 809098232}
   - {fileID: 870289101}
+  - {fileID: 1362822543}
   - {fileID: 137457344}
+  - {fileID: 1044621478}
   - {fileID: 79274950}
   - {fileID: 992660291}
   - {fileID: 9281259}
@@ -2770,8 +2776,6 @@ SceneRoots:
   - {fileID: 165819723}
   - {fileID: 1949976449}
   - {fileID: 796534775}
-  - {fileID: 1044621478}
-  - {fileID: 1362822543}
   - {fileID: 138530166}
   - {fileID: 1537321682}
   - {fileID: 997830361}

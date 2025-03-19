@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600c8ab3e752df94584bd7d82d808041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIbgm: {fileID: 8300000, guid: cf79b6f387b656d4695f3a857674645d, type: 3}
   bgm1: {fileID: 8300000, guid: 3c964e4eac990fc44b4870104ee49a0f, type: 3}
   bgm2: {fileID: 0}
   bgm3: {fileID: 0}

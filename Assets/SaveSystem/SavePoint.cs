@@ -49,6 +49,7 @@ public class SavePoint : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
+            GameManager.Instance.playercurHP = GameManager.Instance.playermaxHP;
             GameManager.Instance.SaveGame();
             Debug.Log("Game Saved!");
             StartCoroutine(ShowSaveMessage());
@@ -112,5 +113,10 @@ public class SavePoint : MonoBehaviour
         upgradeUI.SetActive(false);
         upgradeMenuOpen = false;
         Time.timeScale = 1; // Resume game
+        // Destroy weapon buttons so they reset on next open
+        foreach (Transform child in weaponListParent)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }

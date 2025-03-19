@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    public AudioClip UIbgm;
     public AudioClip bgm1; // Assign BGM1 (Levels 1-11)
     public AudioClip bgm2; // Assign BGM2 (Levels 12-24)
     public AudioClip bgm3; // Assign BGM3 (Levels 25-36)
@@ -27,6 +28,9 @@ public class AudioManager : MonoBehaviour
         }
 
         audioSource = GetComponent<AudioSource>();
+
+        // Ensure BGM starts playing at the beginning
+        PlayBGMForScene();
     }
 
     void Start()
@@ -64,6 +68,11 @@ public class AudioManager : MonoBehaviour
 
     AudioClip GetBGMForScene(string sceneName)
     {
+        // Check for Main Menu
+        if (sceneName == "UIScene") // Change this if your main menu scene has a different name
+        {
+            return UIbgm;
+        }
         // Extract number from scene name (e.g., "Level1" -> 1)
         if (sceneName.StartsWith("Level"))
         {

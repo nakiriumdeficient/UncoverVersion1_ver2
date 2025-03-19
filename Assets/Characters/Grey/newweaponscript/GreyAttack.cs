@@ -161,10 +161,10 @@ public class GreyAttack : MonoBehaviour
         if (weaponCollider != null)
         {
             weaponCollider.enabled = true; // Enable collider
-            yield return new WaitForSeconds(0.5f); // Keep it active briefly
+            yield return new WaitForSeconds(1f); // Keep it active briefly
             weaponCollider.enabled = false; // Disable again
         }
-        yield return new WaitForSeconds(0.5f); // Attack duration
+        yield return new WaitForSeconds(0.2f); // Attack duration
 
         isAttacking = false; // Allow movement again after attack ends
 
