@@ -2499,7 +2499,7 @@ MonoBehaviour:
   rightOffset: -5
   leftOffset: 5
   yOffset: 1
-  smoothSpeed: 0.125
+  smoothSpeed: 0.015
   zOffset: 0
 --- !u!1 &1186329580
 GameObject:
@@ -3036,6 +3036,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1291993365}
     - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
+      propertyPath: saveMessageUI
+      value: 
+      objectReference: {fileID: 1544038241}
+    - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
       propertyPath: weaponListParent
       value: 
       objectReference: {fileID: 1291993364}
@@ -3443,6 +3447,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530948330}
   m_Mesh: {fileID: 7147548047034639954, guid: 2f198ab39b4a4c1479682b9c3ef7002d, type: 3}
+--- !u!114 &1544038241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5806294994220432858, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1291993355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1544199244
 GameObject:
   m_ObjectHideFlags: 0

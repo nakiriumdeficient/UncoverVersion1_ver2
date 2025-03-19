@@ -1121,7 +1121,7 @@ PrefabInstance:
     - target: {fileID: 8972859575088472855, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: dialogueBox
       value: 
-      objectReference: {fileID: 2028838539}
+      objectReference: {fileID: 2133840885}
     - target: {fileID: 8972859575088472855, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: dialogueText
       value: "I should\u2019ve seen this coming. The elves didn\u2019t come to negotiate.
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   rightOffset: -5
   leftOffset: 5
   yOffset: 1
-  smoothSpeed: 0.125
+  smoothSpeed: 0.015
   zOffset: 0
 --- !u!114 &1170030463
 MonoBehaviour:
@@ -2542,11 +2542,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5233509968827832739, guid: 0deeb50bea9e570408d8df245b2e4762, type: 3}
   m_PrefabInstance: {fileID: 2028838537}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2028838539 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6915458841820120593, guid: 0deeb50bea9e570408d8df245b2e4762, type: 3}
-  m_PrefabInstance: {fileID: 2028838537}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2029940691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2793,6 +2788,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2133840885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6915458841820120593, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1241387637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2804,6 +2804,7 @@ SceneRoots:
   - {fileID: 809098232}
   - {fileID: 806004868}
   - {fileID: 2076939304}
+  - {fileID: 99405382}
   - {fileID: 1170030466}
   - {fileID: 1784644102}
   - {fileID: 329976619}
@@ -2826,7 +2827,6 @@ SceneRoots:
   - {fileID: 1299243798}
   - {fileID: 813857608}
   - {fileID: 655277037}
-  - {fileID: 99405382}
   - {fileID: 176937885}
   - {fileID: 1241387637}
   - {fileID: 1026006184}

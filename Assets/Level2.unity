@@ -2516,6 +2516,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15038f248154f144286e285f74ee757a, type: 3}
+--- !u!114 &1651350507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5806294994220432858, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 466819476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1666709357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2733,6 +2744,10 @@ PrefabInstance:
       propertyPath: savePromptUI
       value: 
       objectReference: {fileID: 466819481}
+    - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
+      propertyPath: saveMessageUI
+      value: 
+      objectReference: {fileID: 1651350507}
     - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
       propertyPath: weaponListParent
       value: 

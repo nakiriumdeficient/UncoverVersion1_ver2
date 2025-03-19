@@ -15,6 +15,9 @@ public class WeaponButton : MonoBehaviour
 
     private WeaponData weaponData;
 
+    public AudioSource upgradeSound; // NEW: Sound effect for upgrading
+    private bool isCooldown = false; // NEW: Cooldown flag
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,13 +42,15 @@ public class WeaponButton : MonoBehaviour
             weaponIconImage.sprite = weapon.weaponIcon;
         }
 
-        upgradeButton.onClick.AddListener(UpgradeWeapon);
+        upgradeButton.onClick.RemoveAllListeners();
+        upgradeButton.onClick.AddListener(() => UpgradeWeapon());
         Debug.Log("Button created for: " + weapon.weaponName); // Debugging message
 
     }
 
     void UpgradeWeapon()
     {
+
         if (GameManager.Instance.upgradeOrb >= weaponData.upgradeCost)
         {
             GameManager.Instance.upgradeOrb -= weaponData.upgradeCost; // Spend upgrade orbs
@@ -58,10 +63,12 @@ public class WeaponButton : MonoBehaviour
             FindObjectOfType<SavePoint>().orbText.text = "Upgrade Orbs: " + GameManager.Instance.upgradeOrb;
 
             Debug.Log(weaponData.weaponName + " upgraded! New Damage: " + weaponData.damage);
-        }
-        else
-        {
-            Debug.Log("Not enough upgrade orbs!");
+            Debug.Log("Starting Upgrade Cooldown...");
+            if (upgradeSound != null)
+            {
+                upgradeSound.Play();
+            }
         }
     }
+    
 }
