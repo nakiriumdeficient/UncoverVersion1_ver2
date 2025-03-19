@@ -14,6 +14,9 @@ public class GreyAttack : MonoBehaviour
     public AudioSource attackAudioSource; // Reference to the AudioSource for attack sounds
     public float attackCooldown = 1f;
     private float nextAttackTime = 0f;
+
+    public bool isAttacking = false; // NEW VARIABLE
+
     private void Start()
     {
         EquipWeapon("Default Sword"); // Ensure a starting weapon exists
@@ -124,12 +127,19 @@ public class GreyAttack : MonoBehaviour
     }
     public void Attack()
     {
-        if (currentWeapon != null)
+        if (currentWeapon != null && !isAttacking)
         {
+            isAttacking = true; // Mark as attacking
             animator.SetTrigger("Attack");
             nextAttackTime = Time.time + attackCooldown; // Set next available attack time
             if (attackAudioSource != null && attackAudioSource.clip != null)
             {
+                Debug.Log("Stopping movement sound for attack");
+                GreyController greyController = GetComponent<GreyController>();
+                if (greyController != null)
+                {
+                    greyController.moveAudioSource.Stop(); // Ensure movement sound stops
+                }
                 attackAudioSource.Play();
                 Debug.Log("Attack sound played!");
             }
@@ -151,10 +161,14 @@ public class GreyAttack : MonoBehaviour
         if (weaponCollider != null)
         {
             weaponCollider.enabled = true; // Enable collider
-            yield return new WaitForSeconds(1f); // Keep it active briefly
+            yield return new WaitForSeconds(0.5f); // Keep it active briefly
             weaponCollider.enabled = false; // Disable again
         }
+        yield return new WaitForSeconds(0.5f); // Attack duration
+
+        isAttacking = false; // Allow movement again after attack ends
+
     }
-    
+
 
 }

@@ -52,10 +52,18 @@ public class GreyController : MonoBehaviour
     {
         if (isDead) return; // Prevent movement when dead
 
+        GreyAttack attackScript = GetComponent<GreyAttack>();
+
+        if (attackScript != null && attackScript.isAttacking) return; // Disable movement/jump while attacking
+
+
+        bool isAttacking = attackScript != null && attackScript.isAttacking;
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         bool isMoving = Mathf.Abs(moveHorizontal) > 0;
-
+        
         // Handle moving sound
+        /*
         if (isMoving)
         {
             if (!isMovingSoundPlaying)
@@ -72,8 +80,10 @@ public class GreyController : MonoBehaviour
                 isMovingSoundPlaying = false;
             }
         }
+        */
 
-        if (controller.isGrounded)
+
+        if (controller.isGrounded && !isAttacking)
         {
             if (isJumping)
             {
@@ -92,9 +102,24 @@ public class GreyController : MonoBehaviour
                 isJumping = true;
                 Debug.Log("Jump triggered!");
             }
+            // Manage running sound
+            if (isMoving && !moveAudioSource.isPlaying && !isAttacking)
+            {
+                moveAudioSource.Play();
+            }
+            else if (!isMoving || isAttacking)
+            {
+                moveAudioSource.Stop();
+            }
+        }
+        else
+        {
+            moveAudioSource.Stop(); // Stop sound when not grounded
         }
 
-        if(!controller.isGrounded)
+
+
+        if (!controller.isGrounded)
         {
             isFalling = true;
             animator.SetBool("Falling", isFalling);

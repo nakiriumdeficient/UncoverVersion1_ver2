@@ -8,6 +8,7 @@ public class SavePoint : MonoBehaviour
 {
     public GameObject upgradeUI;     // UI panel for upgrades
     public GameObject savePromptUI;
+    public TextMeshProUGUI saveMessageUI; // Reference to the "Save Successful!" UI
 
     private bool playerInRange = false;
     private bool upgradeMenuOpen = false;
@@ -15,6 +16,14 @@ public class SavePoint : MonoBehaviour
     public Transform weaponListParent; // Parent object for weapon buttons
     public GameObject weaponButtonPrefab; // Prefab for weapon buttons
     public TextMeshProUGUI orbText; // UI text to show upgrade orbs
+
+    private void Start()
+    {
+        if (saveMessageUI != null)
+        {
+            saveMessageUI.gameObject.SetActive(false); // Hide message at start
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -42,6 +51,7 @@ public class SavePoint : MonoBehaviour
         {
             GameManager.Instance.SaveGame();
             Debug.Log("Game Saved!");
+            StartCoroutine(ShowSaveMessage());
         }
 
         if (playerInRange && Input.GetKeyDown(KeyCode.R))
@@ -55,6 +65,15 @@ public class SavePoint : MonoBehaviour
             {
                 CloseUpgradeMenu();
             }
+        }
+    }
+    private IEnumerator ShowSaveMessage()
+    {
+        if (saveMessageUI != null)
+        {
+            saveMessageUI.gameObject.SetActive(true);
+            yield return new WaitForSeconds(2f); // Show for 2 seconds
+            saveMessageUI.gameObject.SetActive(false);
         }
     }
     void OpenUpgradeMenu()
