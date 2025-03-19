@@ -3593,6 +3593,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1743443388}
     - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
+      propertyPath: upgradeUI
+      value: 
+      objectReference: {fileID: 995723514}
+    - target: {fileID: 1998969641149562195, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
       propertyPath: savePromptUI
       value: 
       objectReference: {fileID: 1743443390}
@@ -5682,6 +5686,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993633860}
   m_Mesh: {fileID: 5564474396241971724, guid: 333d1481946876742882a73cb63e13e1, type: 3}
+--- !u!1 &995723514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5769687666808051278, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1743443385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1029893377
 GameObject:
   m_ObjectHideFlags: 0

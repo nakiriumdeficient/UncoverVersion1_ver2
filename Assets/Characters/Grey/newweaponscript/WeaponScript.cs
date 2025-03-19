@@ -99,7 +99,7 @@ public class WeaponScript : MonoBehaviour
         {
             Debug.Log("Crate Hit!");
             
-            Destroy(other.transform.parent.gameObject);
+            Destroy(other.gameObject);
 
             // sfx
 
