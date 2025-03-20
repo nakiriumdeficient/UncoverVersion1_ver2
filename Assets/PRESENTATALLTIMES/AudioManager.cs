@@ -9,8 +9,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip UIbgm;
     public AudioClip bgm1; // Assign BGM1 (Levels 1-11)
-    public AudioClip bgm2; // Assign BGM2 (Levels 12-24)
-    public AudioClip bgm3; // Assign BGM3 (Levels 25-36)
+    public AudioClip bgm2; // Assign BGM2 (Levels 12-27)
+    public AudioClip bgm3; // Assign BGM3 (Levels 28-36)
 
     private AudioSource audioSource;
 
@@ -83,11 +83,11 @@ public class AudioManager : MonoBehaviour
                 {
                     return bgm1;
                 }
-                else if (levelNumber >= 12 && levelNumber <= 24)
+                else if (levelNumber >= 12 && levelNumber <= 27)
                 {
                     return bgm2;
                 }
-                else if (levelNumber >= 25 && levelNumber <= 36)
+                else if (levelNumber >= 28 && levelNumber <= 36)
                 {
                     return bgm3;
                 }
