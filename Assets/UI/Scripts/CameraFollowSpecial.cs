@@ -4,15 +4,48 @@ using UnityEngine;
 
 public class CameraFollowSpecial : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform player;
+    public float smoothSpeed = 5f;
+    public float panOffset = 2f; // How much the camera shifts when moving
+    public float cameraDistance = 5f; // Adjust how close the camera is to the player
+
+    private Vector3 defaultOffset;
+    private CharacterController playerController;
+
     void Start()
     {
-        
+        if (player == null)
+        {
+            Debug.LogError("CameraFollow: Player is not assigned!");
+            return;
+        }
+
+        playerController = player.GetComponent<CharacterController>();
+
+        // Store the default offset but normalize it for dynamic distance adjustments
+        defaultOffset = (transform.position - player.position).normalized;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        if (player == null || playerController == null) return;
+
+        // Get player's horizontal movement direction
+        float moveDirection = Input.GetAxisRaw("Horizontal");
+
+        // Calculate target camera position with adjustable distance
+        Vector3 targetPosition = player.position + defaultOffset * cameraDistance;
+
+        if (moveDirection > 0) // Moving right
+        {
+            targetPosition.x += panOffset;
+        }
+        else if (moveDirection < 0) // Moving left
+        {
+            targetPosition.x -= panOffset;
+        }
+
+        // Smoothly move the camera towards the target position
+        transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
     }
 }

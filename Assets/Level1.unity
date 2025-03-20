@@ -22035,7 +22035,7 @@ MonoBehaviour:
   rightOffset: -5
   leftOffset: 5
   yOffset: 1
-  smoothSpeed: 0.015
+  smoothSpeed: 0.05
   zOffset: 0
 --- !u!1 &1168457757 stripped
 GameObject:
