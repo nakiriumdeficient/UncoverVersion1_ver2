@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.77
+      value: 32.12
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38396,6 +38396,14 @@ PrefabInstance:
       propertyPath: weaponButtonPrefab
       value: 
       objectReference: {fileID: 284328905100250491, guid: 113a0f6569d739a449f779c14ae9972f, type: 3}
+    - target: {fileID: 6841963250295303834, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
+      propertyPath: m_Size.x
+      value: 0.08854351
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841963250295303834, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0019295549
+      objectReference: {fileID: 0}
     - target: {fileID: 8391167477957771281, guid: af50ccd9847631746834bf2ea27f6419, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.08465
@@ -39028,6 +39036,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1293075413308832375, guid: 439bc7244bfe7ba438642eead34bd8ec, type: 3}
+      propertyPath: bgm2
+      value: 
+      objectReference: {fileID: 8300000, guid: da033f529779e7e44935a964cc487167, type: 3}
+    - target: {fileID: 1293075413308832375, guid: 439bc7244bfe7ba438642eead34bd8ec, type: 3}
+      propertyPath: bgm3
+      value: 
+      objectReference: {fileID: 8300000, guid: 894cffaf8b90e2e41945ed03d002f5d7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
