@@ -9,9 +9,11 @@ public class SavePoint : MonoBehaviour
     public GameObject upgradeUI;     // UI panel for upgrades
     public GameObject savePromptUI;
     public TextMeshProUGUI saveMessageUI; // Reference to the "Save Successful!" UI
+    public GameObject mapImage; // Reference to the map UI image
 
     private bool playerInRange = false;
     private bool upgradeMenuOpen = false;
+    private bool mapOpen = false; // Track if the map is open
 
     public Transform weaponListParent; // Parent object for weapon buttons
     public GameObject weaponButtonPrefab; // Prefab for weapon buttons
@@ -22,6 +24,11 @@ public class SavePoint : MonoBehaviour
         if (saveMessageUI != null)
         {
             saveMessageUI.gameObject.SetActive(false); // Hide message at start
+        }
+
+        if (mapImage != null)
+        {
+            mapImage.SetActive(false); // Ensure the map is hidden at start
         }
     }
 
@@ -67,7 +74,14 @@ public class SavePoint : MonoBehaviour
                 CloseUpgradeMenu();
             }
         }
+
+        // Toggle map visibility when M is pressed
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ToggleMap();
+        }
     }
+
     private IEnumerator ShowSaveMessage()
     {
         if (saveMessageUI != null)
@@ -77,6 +91,7 @@ public class SavePoint : MonoBehaviour
             saveMessageUI.gameObject.SetActive(false);
         }
     }
+
     void OpenUpgradeMenu()
     {
         Debug.Log("Opening Upgrade Menu..."); // Debugging message
@@ -108,6 +123,7 @@ public class SavePoint : MonoBehaviour
             }
         }
     }
+
     void CloseUpgradeMenu()
     {
         upgradeUI.SetActive(false);
@@ -117,6 +133,20 @@ public class SavePoint : MonoBehaviour
         foreach (Transform child in weaponListParent)
         {
             Destroy(child.gameObject);
+        }
+    }
+
+    void ToggleMap()
+    {
+        if (mapImage != null)
+        {
+            mapOpen = !mapOpen; // Toggle the map state
+            mapImage.SetActive(mapOpen); // Show/hide the map
+            Time.timeScale = mapOpen ? 0 : 1; // Pause/unpause the game
+        }
+        else
+        {
+            Debug.LogError("Map Image is not assigned in the SavePoint script!");
         }
     }
 }
