@@ -3,7 +3,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     public string npcName = "Enemy"; // Name of the NPC
-    public int maxHealth = 50;
+    [SerializeField] protected int maxHealth = 50; // Serialized field for maxHealth
     protected int currentHealth;
 
     public float detectionRange = 5.0f; // Detection distance
@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
 
     protected virtual void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth; // Initialize currentHealth with the serialized maxHealth
         controller = GetComponent<CharacterController>();
         player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
 

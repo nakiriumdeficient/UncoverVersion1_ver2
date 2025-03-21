@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Diagnostics.Contracts;
 
 public class ElfWarrior : NPC
 {
@@ -21,14 +20,13 @@ public class ElfWarrior : NPC
     protected override void Start()
     {
         npcName = "Elf Warrior";
-        maxHealth = 20;
-        base.Start();
+        base.Start(); // Call base.Start() to initialize maxHealth and other NPC properties
         animator = GetComponentInChildren<Animator>(); // Get Animator from model
     }
 
     protected override void Update()
     {
-        if (isDead) return; // ✅ Prevent movement when dead, but allow attacking before death
+        if (isDead) return; // Prevent movement when dead, but allow attacking before death
 
         if (player == null)
         {
@@ -41,14 +39,14 @@ public class ElfWarrior : NPC
 
             if (distance <= detectionRange && distance > stopDistance)
             {
-                isChasing = true; // ✅ Keep chasing until reaching stop distance
+                isChasing = true; // Keep chasing until reaching stop distance
             }
             else
             {
                 isChasing = false;
             }
 
-            if (distance <= attackRange && !isDead) // ✅ Allow attack if not dead
+            if (distance <= attackRange && !isDead) // Allow attack if not dead
             {
                 isChasing = false; // Stop moving when close enough
                 Attack();
@@ -83,7 +81,7 @@ public class ElfWarrior : NPC
 
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance > stopDistance) // ✅ Stop moving when close enough
+        if (distance > stopDistance) // Stop moving when close enough
         {
             controller.Move(direction * speed * Time.deltaTime);
         }
@@ -118,7 +116,7 @@ public class ElfWarrior : NPC
 
     public override void TakeDamage(int damage)
     {
-        if (isDead) return; // ✅ Prevent taking damage when already dead
+        if (isDead) return; // Prevent taking damage when already dead
 
         currentHealth -= damage;
 
@@ -136,7 +134,7 @@ public class ElfWarrior : NPC
 
         if (animator != null)
         {
-            animator.SetTrigger("Die"); // ✅ Play death animation
+            animator.SetTrigger("Die"); // Play death animation
         }
 
         DropExperience();
@@ -158,6 +156,7 @@ public class ElfWarrior : NPC
             }
         }
     }
+
     private void DropUpgrade()
     {
         for (int i = 0; i < numberOfUpDrops; i++)
@@ -170,13 +169,12 @@ public class ElfWarrior : NPC
                 upgradeScript.upgradeAmount = upgradeDropAmount / numberOfXpDrops;
             }
         }
-
     }
 
     private IEnumerator RemoveNPC()
     {
-        yield return new WaitForSeconds(2.0f); // ✅ Wait for death animation
+        yield return new WaitForSeconds(2.0f); // Wait for death animation
 
-        Destroy(gameObject); // ✅ Remove NPC from scene
+        Destroy(gameObject); // Remove NPC from scene
     }
 }
