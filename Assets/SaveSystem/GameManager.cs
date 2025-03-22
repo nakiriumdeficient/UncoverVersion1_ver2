@@ -27,6 +27,7 @@ public class WeaponData
         weaponIcon = null; // Will be assigned after loading
     }
 }
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -34,7 +35,6 @@ public class GameManager : MonoBehaviour
     public Vector3 savedPosition; // Store loaded position
     private bool shouldMovePlayer = false; // Flag to move player in LateUpdate
     public List<string> collectedItems = new List<string>();
-
 
     public int playermaxHP = 100;
     public int playercurHP = 100;
@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
             LevelUp();
         }
     }
+
     private void LevelUp()
     {
         playerXP -= maxXP; // Carry over excess XP
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
 
         collectedWeapons.Add(newWeapon);
     }
+
     public WeaponData GetWeapon(string weaponName)
     {
         foreach (WeaponData weapon in collectedWeapons)
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
         playerLevel = 1;
         upgradeOrb = 0;
         collectedWeapons.Clear();
+        collectedItems.Clear();
         savedPosition = Vector3.zero;
         SaveSystem.DeleteSave();
     }
@@ -155,6 +158,13 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        // Check if ObjectiveManager.Instance is null
+        if (ObjectiveManager.Instance == null)
+        {
+            Debug.LogError("ObjectiveManager.Instance is null! Ensure ObjectiveManager is initialized.");
+            return;
+        }
+
         SaveData data = new SaveData
         {
             savedScene = SceneManager.GetActiveScene().name,
@@ -166,7 +176,11 @@ public class GameManager : MonoBehaviour
             upgradeOrb = upgradeOrb,
             collectedWeapons = collectedWeapons,
             collectedItems = collectedItems,
-            savedPosition = player.transform.position // Save player position
+            savedPosition = player.transform.position, // Save player position
+
+            // Save ObjectiveManager state
+            hasKey2 = ObjectiveManager.Instance.hasKey2,
+            hasKey3 = ObjectiveManager.Instance.hasKey3
         };
         Debug.Log("Saved Position: " + data.savedPosition);
 
@@ -192,6 +206,20 @@ public class GameManager : MonoBehaviour
             collectedItems = data.collectedItems;
             savedPosition = data.savedPosition; // Store position
 
+            // Load ObjectiveManager state
+            if (ObjectiveManager.Instance != null)
+            {
+                ObjectiveManager.Instance.hasKey2 = data.hasKey2;
+                ObjectiveManager.Instance.hasKey3 = data.hasKey3;
+
+                // Notify the ObjectiveManager to update the objective text
+                ObjectiveManager.Instance.UpdateObjective();
+            }
+            else
+            {
+                Debug.LogError("ObjectiveManager.Instance is null during LoadGame!");
+            }
+
             // Reassign Sprites from Resources
             foreach (WeaponData weapon in collectedWeapons)
             {
@@ -200,7 +228,6 @@ public class GameManager : MonoBehaviour
                     weapon.weaponIcon = Resources.Load<Sprite>("WeaponIcons/" + weapon.weaponIconName);
                 }
             }
-
 
             Debug.Log("Loading Game...");
 
@@ -215,6 +242,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("No save file found!");
         }
     }
+
     private IEnumerator LoadSceneAndMove(string sceneName)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
@@ -249,7 +277,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Loaded Player Position: " + savedPosition);
         }
     }
-    
 
     public bool SaveExists()
     {
@@ -264,6 +291,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Save file deleted.");
         }
     }
+
     public void CollectItem(string itemName)
     {
         if (!collectedItems.Contains(itemName))
@@ -278,4 +306,3 @@ public class GameManager : MonoBehaviour
         return collectedItems.Contains(itemName);
     }
 }
-
