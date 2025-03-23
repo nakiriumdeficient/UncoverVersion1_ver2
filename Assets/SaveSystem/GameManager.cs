@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
+
             // Set the save path when the game starts
             savePath = Application.persistentDataPath + "/savegame.json";
         }
@@ -191,6 +192,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame()
     {
+        Time.timeScale = 1; // true time
+
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
@@ -251,12 +254,13 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.5f); // Ensures scene objects exist
+        yield return new WaitForSeconds(0.1f); // Ensures scene objects exist
         GameObject player = GameObject.FindGameObjectWithTag("GreyPlayer");
 
         if (player == null)
         {
             Debug.Log("No player found. Spawning at saved position...");
+
             Debug.Log("Saved Position: " + savedPosition);
 
             SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
@@ -305,4 +309,6 @@ public class GameManager : MonoBehaviour
     {
         return collectedItems.Contains(itemName);
     }
+    
+
 }

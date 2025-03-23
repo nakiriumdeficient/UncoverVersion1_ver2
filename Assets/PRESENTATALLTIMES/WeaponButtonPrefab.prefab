@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: -5722830303487289980}
   - component: {fileID: -3161420357443433980}
   - component: {fileID: 7193302977249403748}
+  - component: {fileID: 2966719620623414721}
   m_Layer: 0
   m_Name: WeaponButtonPrefab
   m_TagString: Untagged
@@ -220,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -332,6 +333,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2966719620623414721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284328905100250491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e9926bf0780f746948138522c3b0bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &383649094480485390
 GameObject:
   m_ObjectHideFlags: 0

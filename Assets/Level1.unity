@@ -28893,6 +28893,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 764391138}
   m_SourcePrefab: {fileID: 100100000, guid: 5d8e343da5b79be4797ebc7051afa6a0, type: 3}
+--- !u!1 &1609478798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7367849728400551148, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 6146186449469189047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1614054873 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5266785677919700964, guid: 3a1ad82062f4fcf4480ac3e80acd736c, type: 3}
@@ -41764,7 +41769,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2364289260010321863, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 166.27
+      value: 46.97
       objectReference: {fileID: 0}
     - target: {fileID: 2364289260010321863, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41839,6 +41844,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 320350192295647615, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 640740718838533805, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -41861,6 +41870,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 667133560385705944, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531718748476158777, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1939211661300541453, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
@@ -42036,6 +42049,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8950041587077392912, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -42184,6 +42201,10 @@ PrefabInstance:
       propertyPath: bgm3
       value: 
       objectReference: {fileID: 8300000, guid: 894cffaf8b90e2e41945ed03d002f5d7, type: 3}
+    - target: {fileID: 1293075413308832375, guid: 439bc7244bfe7ba438642eead34bd8ec, type: 3}
+      propertyPath: DeathScreen
+      value: 
+      objectReference: {fileID: 1609478798}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

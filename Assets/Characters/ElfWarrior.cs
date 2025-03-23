@@ -17,11 +17,27 @@ public class ElfWarrior : NPC
     public int upgradeDropAmount = 30;
     public int numberOfUpDrops = 3;
 
+    bool isPlayerDead = false;
+
     protected override void Start()
     {
         npcName = "Elf Warrior";
         base.Start(); // Call base.Start() to initialize maxHealth and other NPC properties
         animator = GetComponentInChildren<Animator>(); // Get Animator from model
+
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
+        }
+
+        if (player != null)
+        {
+            GreyHealth greyHealth = player.GetComponent<GreyHealth>();
+            if (greyHealth != null)
+            {
+                greyHealth.OnDeath += HandlePlayerDeath;
+            }
+        }
     }
 
     protected override void Update()
@@ -70,7 +86,15 @@ public class ElfWarrior : NPC
             }
         }
     }
-
+    private void HandlePlayerDeath()
+    {
+        isPlayerDead = true;
+        isChasing = false;
+        if (animator != null)
+        {
+            animator.SetBool("isRunning", false);
+        }
+    }
     void ChasePlayer()
     {
         if (controller == null || player == null) return;
@@ -106,6 +130,8 @@ public class ElfWarrior : NPC
 
     public override void Attack()
     {
+        if (isDead || isPlayerDead) return; // Stop attacking if dead or player is dead
+
         if (animator != null)
         {
             FacePlayer();

@@ -11,10 +11,22 @@ public class GreyHealth : MonoBehaviour
     private bool isDead = false;
     Animator animator;
 
+    private GameObject deathScreen; // Assign in Inspector
+
     // Start is called before the first frame update
     void Start()
     {
         healthBar.SetMaxHealth(GameManager.Instance.playermaxHP);
+        deathScreen = GameObject.FindObjectOfType<Canvas>().transform.Find("DeathScreen")?.gameObject;
+
+        if (deathScreen != null)
+        {
+            deathScreen.SetActive(false); // Ensure it's hidden at start
+        }
+        else
+        {
+            Debug.LogError("DeathScreen not found in the scene!");
+        }
     }
 
     // Update is called once per frame
@@ -50,8 +62,8 @@ public class GreyHealth : MonoBehaviour
         {
             animator.SetTrigger("Die"); // Play death animation
         }
+        deathScreen.SetActive(true); // Show Death Screen
         OnDeath?.Invoke();
-        Destroy(gameObject);
-        GameManager.Instance.LoadGame();
+        Time.timeScale = 0; // Freeze game
     }
 }

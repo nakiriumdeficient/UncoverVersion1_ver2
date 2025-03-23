@@ -236,8 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe3897c02b1ede4791df55c5681073c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greyPlayer: {fileID: 0}
-  greyDefaultSpawnPosition: {x: -39.42, y: 3.3, z: -14.57}
 --- !u!4 &9281259
 Transform:
   m_ObjectHideFlags: 0
@@ -1145,8 +1143,8 @@ Transform:
   m_GameObject: {fileID: 796534773}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.877, y: 1.2723002, z: -1.88}
-  m_LocalScale: {x: 14.464587, y: 2.0524802, z: 0.55554485}
+  m_LocalPosition: {x: 34.7, y: 1.2723002, z: -1.27}
+  m_LocalScale: {x: 106.294174, y: 4.1024976, z: 0.55554485}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1989,7 +1987,7 @@ GameObject:
   m_Layer: 0
   m_Name: 11EntryPointA
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2015,7 +2013,7 @@ Transform:
   m_GameObject: {fileID: 1044621476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.67, y: 1.51, z: -0.553}
+  m_LocalPosition: {x: -8.67, y: 1.51, z: -1.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2739,8 +2737,8 @@ Transform:
   m_GameObject: {fileID: 1949976447}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.877, y: 1.2723002, z: 1.13}
-  m_LocalScale: {x: 14.464587, y: 2.0524802, z: 0.55554485}
+  m_LocalPosition: {x: 30.2, y: 1.67, z: 0.6}
+  m_LocalScale: {x: 89.223755, y: 4.033739, z: 0.55554485}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

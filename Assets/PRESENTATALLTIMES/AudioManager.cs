@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip bgm1; // Assign BGM1 (Levels 1-11)
     public AudioClip bgm2; // Assign BGM2 (Levels 12-27)
     public AudioClip bgm3; // Assign BGM3 (Levels 28-36)
+
+    
 
     private AudioSource audioSource;
 
@@ -36,6 +39,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         PlayBGMForScene();
+
     }
 
     void OnEnable()
@@ -96,4 +100,6 @@ public class AudioManager : MonoBehaviour
 
         return null; // Default to no music if scene name doesn't match pattern
     }
+
+    
 }
