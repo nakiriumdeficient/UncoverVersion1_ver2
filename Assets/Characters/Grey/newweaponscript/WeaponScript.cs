@@ -10,6 +10,9 @@ public class WeaponScript : MonoBehaviour
     // Damage multipliers for specific weapon-NPC combinations
     public float falxVsArcherMultiplier = 2.0f; // Example: Falx deals 2x damage to Archer
 
+    // Crate destruction effect
+    public GameObject crateDestroyEffect; // Assign the particle effect prefab in the Inspector
+
     void Start()
     {
         weaponCollider = GetComponent<Collider>();
@@ -20,6 +23,26 @@ public class WeaponScript : MonoBehaviour
         else
         {
             Debug.LogError("[Weapon] No Collider found on " + gameObject.name);
+        }
+    }
+
+    // Enable the weapon collider (call this when attacking)
+    public void EnableWeaponCollider()
+    {
+        if (weaponCollider != null)
+        {
+            weaponCollider.enabled = true;
+            Debug.Log("Weapon collider enabled.");
+        }
+    }
+
+    // Disable the weapon collider (call this after attacking)
+    public void DisableWeaponCollider()
+    {
+        if (weaponCollider != null)
+        {
+            weaponCollider.enabled = false;
+            Debug.Log("Weapon collider disabled.");
         }
     }
 
@@ -111,12 +134,31 @@ public class WeaponScript : MonoBehaviour
                 Debug.LogError("Error: Enemy script not found on " + other.gameObject.name);
             }
         }
-       else if (other.CompareTag("Crate"))
-{
-    Debug.Log("Crate Hit!");
-    Destroy(other.gameObject);
+        else if (other.CompareTag("Crate"))
+        {
+            Debug.Log("Crate Hit!");
 
-    // sfx
-}
+            // Play the destroy sound
+            AudioSource crateAudio = other.GetComponent<AudioSource>();
+            if (crateAudio != null && crateAudio.clip != null)
+            {
+                crateAudio.Play();
+                Debug.Log("Playing destroy sound: " + crateAudio.clip.name);
+            }
+            else
+            {
+                Debug.LogWarning("No AudioSource or AudioClip found on the crate.");
+            }
+
+            // Spawn the particle effect
+            if (crateDestroyEffect != null)
+            {
+                Instantiate(crateDestroyEffect, other.transform.position, other.transform.rotation);
+                Debug.Log("Spawned crate destroy effect.");
+            }
+
+            // Destroy the crate after a short delay (to allow the sound to play)
+            Destroy(other.gameObject, 0.5f); // Adjust the delay as needed
+        }
     }
 }
