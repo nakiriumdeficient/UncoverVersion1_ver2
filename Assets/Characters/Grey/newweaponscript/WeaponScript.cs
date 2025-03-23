@@ -9,6 +9,7 @@ public class WeaponScript : MonoBehaviour
 
     // Damage multipliers for specific weapon-NPC combinations
     public float falxVsArcherMultiplier = 2.0f; // Example: Falx deals 2x damage to Archer
+    public float shatterrackVsCaptainMultiplier = 1.3f; // Shatterrack deals 30% more damage to Captain
 
     // Crate destruction effect
     public GameObject crateDestroyEffect; // Assign the particle effect prefab in the Inspector
@@ -84,6 +85,13 @@ public class WeaponScript : MonoBehaviour
             {
                 damage = Mathf.RoundToInt(damage * falxVsArcherMultiplier);
                 Debug.Log("Falx deals bonus damage to Archer! Damage: " + damage);
+            }
+
+            // Apply damage multiplier for shatterack vs Captain
+            if (currentWeapon.weaponName == "Shatterack" && captain != null)
+            {
+                damage = Mathf.RoundToInt(damage * shatterrackVsCaptainMultiplier);
+                Debug.Log("Shatterack deals bonus damage to Captain! Damage: " + damage);
             }
 
             // Deal damage to the enemy
