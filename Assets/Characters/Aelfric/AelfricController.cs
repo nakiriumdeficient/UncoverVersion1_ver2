@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AelfricController : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class AelfricController : MonoBehaviour
     public GameObject upgradeOrb;
     public int upgradeDropAmount = 30;
     public int numberOfUpDrops = 3;
+
+    public FadeTransition fadeTransition; // Assign this in the Inspector
 
     private Transform player;
     private Animator animator;
@@ -179,7 +182,27 @@ public class AelfricController : MonoBehaviour
         Debug.Log("Aelfric is dead!");
         animator.SetTrigger("Die");
         enabled = false;
-        StartCoroutine(DestroyAfterDelay(3f));
+
+        // Start the fade transition and load Level 37
+        StartCoroutine(FadeAndLoadLevel());
+    }
+
+    private IEnumerator FadeAndLoadLevel()
+    {
+        // Fade to black
+        if (fadeTransition != null)
+        {
+            yield return fadeTransition.FadeToBlack();
+        }
+
+        // Load Level 37
+        SceneManager.LoadScene("Level37");
+
+        // Fade from black (optional, if you want to fade in the next scene)
+        if (fadeTransition != null)
+        {
+            yield return fadeTransition.FadeFromBlack();
+        }
     }
 
     private IEnumerator DestroyAfterDelay(float delay)
