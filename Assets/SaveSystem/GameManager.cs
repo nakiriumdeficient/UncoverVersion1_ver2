@@ -15,6 +15,8 @@ public class WeaponData
     public int damageIncrease; // How much damage increases per upgrade
     public string weaponIconName; // Store sprite name
     [NonSerialized] public Sprite weaponIcon; // This will not be saved in JSON
+    public int upgradeCount; // Track the number of upgrades
+    public int maxUpgrades = 5; // Maximum number of upgrades allowed
 
     public WeaponData(string name, int dmg, int cost, int increase, string iconName = "")
     {
@@ -25,6 +27,7 @@ public class WeaponData
         damageIncrease = increase;
         weaponIconName = iconName;
         weaponIcon = null; // Will be assigned after loading
+        upgradeCount = 0; // Initialize upgrade count
     }
 }
 
@@ -51,7 +54,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
 
             // Set the save path when the game starts
             savePath = Application.persistentDataPath + "/savegame.json";
@@ -309,6 +311,4 @@ public class GameManager : MonoBehaviour
     {
         return collectedItems.Contains(itemName);
     }
-    
-
 }
