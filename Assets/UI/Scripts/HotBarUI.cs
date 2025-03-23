@@ -18,7 +18,6 @@ public class HotBarUI : MonoBehaviour
     public void UpdateHotbar()
     {
         List<WeaponData> weapons = GameManager.Instance.collectedWeapons;
-        int equippedIndex = GameManager.Instance.GetEquippedWeaponIndex(); // Get equipped weapon index
         for (int i = 0; i < weaponSlots.Count; i++)
         {
             if (i < weapons.Count)
