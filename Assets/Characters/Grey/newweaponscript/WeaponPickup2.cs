@@ -15,6 +15,7 @@ public class WeaponPickup2 : MonoBehaviour
         if (other.CompareTag("GreyPlayer")) // Ensure only player can pick up
         {
             GameManager.Instance.CollectWeapon(weaponName, damage, upgradeCost, damageIncrease, weaponIcon);
+            GameObject.FindObjectOfType<HotBarUI>().UpdateHotbar();
             Debug.Log("Picked up: " + weaponName);
 
             Destroy(gameObject); // Remove from scene
