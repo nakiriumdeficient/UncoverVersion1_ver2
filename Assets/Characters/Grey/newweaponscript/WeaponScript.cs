@@ -111,12 +111,12 @@ public class WeaponScript : MonoBehaviour
                 Debug.LogError("Error: Enemy script not found on " + other.gameObject.name);
             }
         }
-        else if (other.CompareTag("Crate"))
-        {
-            Debug.Log("Crate Hit!");
-            Destroy(other.gameObject);
+       else if (other.CompareTag("Crate"))
+{
+    Debug.Log("Crate Hit!");
+    Destroy(other.gameObject);
 
-            // sfx
-        }
+    // sfx
+}
     }
 }
