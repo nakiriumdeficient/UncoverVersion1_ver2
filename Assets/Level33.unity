@@ -2087,9 +2087,33 @@ PrefabInstance:
       value: Aelfric
       objectReference: {fileID: 0}
     - target: {fileID: 7357862596068058181, guid: dd06ba6c62d58354a9d47606a0589e3c, type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357862596068058181, guid: dd06ba6c62d58354a9d47606a0589e3c, type: 3}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357862596068058181, guid: dd06ba6c62d58354a9d47606a0589e3c, type: 3}
+      propertyPath: xpDropAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357862596068058181, guid: dd06ba6c62d58354a9d47606a0589e3c, type: 3}
+      propertyPath: attackCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357862596068058181, guid: dd06ba6c62d58354a9d47606a0589e3c, type: 3}
       propertyPath: fadeTransition
       value: 
       objectReference: {fileID: 2144206673}
+    - target: {fileID: 7357862596068058181, guid: dd06ba6c62d58354a9d47606a0589e3c, type: 3}
+      propertyPath: numberOfXpDrops
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357862596068058181, guid: dd06ba6c62d58354a9d47606a0589e3c, type: 3}
+      propertyPath: upgradeDropAmount
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
