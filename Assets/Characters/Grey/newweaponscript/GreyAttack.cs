@@ -65,6 +65,7 @@ public class GreyAttack : MonoBehaviour
             currentWeapon = weapon;
             ActivateWeaponObject(weaponName); // Enable the weapon in the scene
             Debug.Log("Equipped: " + weapon.weaponName);
+            FindObjectOfType<HotBarUI>().UpdateHotbar();
         }
         else
         {
@@ -168,6 +169,10 @@ public class GreyAttack : MonoBehaviour
 
         isAttacking = false; // Allow movement again after attack ends
 
+    }
+    public string GetCurrentWeaponName()
+    {
+        return (currentWeapon != null) ? currentWeapon.weaponName : "";
     }
 
 

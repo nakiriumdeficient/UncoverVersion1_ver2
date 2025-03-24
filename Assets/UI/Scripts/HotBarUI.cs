@@ -18,15 +18,19 @@ public class HotBarUI : MonoBehaviour
     public void UpdateHotbar()
     {
         List<WeaponData> weapons = GameManager.Instance.collectedWeapons;
+        string equippedWeaponName = FindObjectOfType<GreyAttack>().GetCurrentWeaponName(); // Get equipped weapon name
+
         for (int i = 0; i < weaponSlots.Count; i++)
         {
             if (i < weapons.Count)
             {
-                weaponSlots[i].sprite = weapons[i].weaponIcon; // Set collected weapon icon
+                weaponSlots[i].sprite = weapons[i].weaponIcon; // Show weapon icon
+                weaponSlots[i].color = (weapons[i].weaponName == equippedWeaponName) ? activeColor : inactiveColor; // Bright or dim
             }
             else
             {
                 weaponSlots[i].sprite = emptySlotSprite; // Show empty slot
+                weaponSlots[i].color = inactiveColor; // Always dim empty slots
             }
         }
     }
