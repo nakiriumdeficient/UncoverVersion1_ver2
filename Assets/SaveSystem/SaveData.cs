@@ -20,4 +20,6 @@ public class SaveData
     // Add these fields for ObjectiveManager state
     public bool hasKey2;
     public bool hasKey3;
+
+    public List<string> defeatedBosses;
 }

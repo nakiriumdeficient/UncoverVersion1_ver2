@@ -1,9 +1,14 @@
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AelfricController : MonoBehaviour
 {
+    public Slider hpSlider; // Assign in the Inspector
+    public TextMeshProUGUI hpText; // Assign in the Inspector
+
     public GameObject drullPrefab;
     public Transform drullSpawnPoint;
     public float chaseRange = 10f;
@@ -31,8 +36,15 @@ public class AelfricController : MonoBehaviour
     private int currentHealth;
     private bool isDead = false;
 
+    public string bossID = "";
     void Start()
     {
+        if (GameManager.Instance.defeatedBosses.Contains(bossID))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         animator = GetComponentInChildren<Animator>();
         if (animator == null)
         {
@@ -177,6 +189,9 @@ public class AelfricController : MonoBehaviour
     {
         DropExperience();
         DropUpgrade();
+
+        GameManager.Instance.defeatedBosses.Add(bossID);
+        GameManager.Instance.SaveGame();
 
         isDead = true;
         Debug.Log("Aelfric is dead!");

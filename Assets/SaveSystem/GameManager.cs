@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public Vector3 savedPosition; // Store loaded position
     private bool shouldMovePlayer = false; // Flag to move player in LateUpdate
     public List<string> collectedItems = new List<string>();
+    public List<string> defeatedBosses = new List<string>();
 
     public int playermaxHP = 100;
     public int playercurHP = 100;
@@ -142,6 +143,7 @@ public class GameManager : MonoBehaviour
         upgradeOrb = 0;
         collectedWeapons.Clear();
         collectedItems.Clear();
+        defeatedBosses.Clear();
         savedPosition = Vector3.zero;
         SaveSystem.DeleteSave();
     }
@@ -179,14 +181,17 @@ public class GameManager : MonoBehaviour
             upgradeOrb = upgradeOrb,
             collectedWeapons = collectedWeapons,
             collectedItems = collectedItems,
+            defeatedBosses = defeatedBosses,
             savedPosition = player.transform.position, // Save player position
+
 
             // Save ObjectiveManager state
             hasKey2 = ObjectiveManager.Instance.hasKey2,
             hasKey3 = ObjectiveManager.Instance.hasKey3
         };
-        Debug.Log("Saved Position: " + data.savedPosition);
 
+
+        Debug.Log("Saved Position: " + data.savedPosition);
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
         Debug.Log("Game Saved at " + savePath);
@@ -209,6 +214,7 @@ public class GameManager : MonoBehaviour
             upgradeOrb = data.upgradeOrb;
             collectedWeapons = data.collectedWeapons;
             collectedItems = data.collectedItems;
+            defeatedBosses = data.defeatedBosses;
             savedPosition = data.savedPosition; // Store position
 
             // Load ObjectiveManager state
@@ -310,5 +316,11 @@ public class GameManager : MonoBehaviour
     public bool HasItem(string itemName)
     {
         return collectedItems.Contains(itemName);
+    }
+
+    public void BossDefeated(string bossName)
+    {
+        defeatedBosses.Add(bossName);
+        Debug.Log(bossName + " is been added and defeated.");
     }
 }

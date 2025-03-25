@@ -1,7 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Captain : NPC
 {
+    public Slider hpSlider; // Assign in the Inspector
+    public TextMeshProUGUI hpText; // Assign in the Inspector
+
     public float speed = 3.5f;  // Captain's movement speed
     public float stopDistance = 2.5f;  // Stops moving when close enough to Grey
     private Animator animator;
@@ -17,11 +22,23 @@ public class Captain : NPC
     public int upgradeDropAmount = 30;
     public int numberOfUpDrops = 3;
 
+    private GameObject bossHP; // Reference to UI Prompt
+    public string bossID = "";
+
     protected override void Start()
     {
+        if(GameManager.Instance.defeatedBosses.Contains(bossID))
+        {
+            Destroy(gameObject);
+            return; // Exit Start() to avoid running AI logic
+        }
+
         npcName = "Captain";  // Set NPC name
         base.Start(); // ✅ Now it keeps the Inspector value
 
+
+
+        bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
         // Try to find the child object dynamically
         Transform modelTransform = transform.Find("Captain_Model");
 
@@ -37,7 +54,7 @@ public class Captain : NPC
 
     protected override void Update()
     {
-        if (isDead) return; // ✅ Prevents movement after death
+        if (isDead) return; // Prevents movement after death
 
         if (player == null)
         {
@@ -65,6 +82,8 @@ public class Captain : NPC
             }
         }
 
+        updateHPBar();
+
         bool shouldRun = isChasing;
 
         if (animator != null)
@@ -78,7 +97,14 @@ public class Captain : NPC
             ChasePlayer();
         }
     }
+    public void updateHPBar()
+    {
+        hpSlider.maxValue = 200;
+        hpSlider.value = currentHealth;
 
+        hpText.text = $"{currentHealth} / {maxHealth}";
+            
+    }
     void ChasePlayer()
     {
         if (controller == null || player == null) return;
@@ -128,6 +154,8 @@ public class Captain : NPC
         currentHealth -= damage;
         Debug.Log("[Captain] Took " + damage + " damage! HP: " + currentHealth);
 
+
+
         if (currentHealth <= 0)
         {
             Die(); // ✅ Call Die() function when health reaches 0
@@ -135,8 +163,16 @@ public class Captain : NPC
     }
     void Die()
     {
+
+        bossHP.SetActive(false);
+
         DropExperience();
         DropUpgrade();
+
+
+
+        GameManager.Instance.defeatedBosses.Add(bossID);
+        GameManager.Instance.SaveGame();
 
         if (isDead) return;
         isDead = true;
@@ -147,6 +183,8 @@ public class Captain : NPC
         {
         animator.SetTrigger("Die"); // ✅ Use a trigger instead of a bool
         }
+        
+        
 
         float deathAnimLength = animator.GetCurrentAnimatorStateInfo(0).length;
         Destroy(gameObject, deathAnimLength + 0.5f);

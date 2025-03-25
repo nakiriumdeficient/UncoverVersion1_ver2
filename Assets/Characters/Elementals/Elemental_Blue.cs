@@ -4,9 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
 using System.Diagnostics.Contracts;
+using UnityEngine.UI;
+using TMPro;
 
 public class Elemental_Blue : MonoBehaviour
 {
+    public Slider hpSlider; // Assign in the Inspector
+    public TextMeshProUGUI hpText; // Assign in the Inspector
+
     public float detectionRange = 5f;
     public float attackRange = 3f;
     public float attackCooldown = 2f;
@@ -24,13 +29,28 @@ public class Elemental_Blue : MonoBehaviour
     public int upgradeDropAmount = 30;
     public int numberOfUpDrops = 3;
 
+    //  Boss System
+    public bool isBoss = false; // Set in the Inspector if this is a boss
+    public string bossID = ""; // Unique ID for the boss (e.g., "Boss1")
+    private GameObject bossHP; // Reference to UI Prompt
     private void Start()
     {
+        //  Prevent respawning if this is a boss that was already defeated
+        if (isBoss && GameManager.Instance.defeatedBosses.Contains(bossID))
+        {
+            Destroy(gameObject);
+            return; // Exit Start() to avoid running AI logic
+        }
+        if(isBoss == true)
+        {
+            bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("SageHPBar")?.gameObject;
+        }
         StartCoroutine(FindPlayer()); // Start looking for the player
     }
 
     private void Update()
     {
+        updateHPBar();
         if (player == null || isAttacking) return;
 
         if (player.transform == null) return; // Prevents null reference error
@@ -45,6 +65,8 @@ public class Elemental_Blue : MonoBehaviour
                 lastAttackTime = Time.time; // ✅ Reset cooldown timer
             }
         }
+
+        updateHPBar();
     }
     private IEnumerator FindPlayer()
     {
@@ -64,7 +86,13 @@ public class Elemental_Blue : MonoBehaviour
         Debug.Log("[Blue_Elemental] Initialized with HP: " + maxHealth);
         Debug.Log("Enemy AI initialized!");
     }
+    public void updateHPBar()
+    {
+        hpSlider.maxValue = 200;
+        hpSlider.value = currentHealth;
 
+        hpText.text = $"{currentHealth} / {maxHealth}";
+    }
     void Attack()
     {
         isAttacking = true;
@@ -95,11 +123,25 @@ public class Elemental_Blue : MonoBehaviour
 
     void Die()
     {
+        updateHPBar();
         DropExperience();
         DropUpgrade();
-
+        StartCoroutine(Waitforfive());
         Debug.Log("[Blue_Elemental] Defeated!");
-        Destroy(gameObject); // ✅ Remove Blue_Elemental from the scene when dead
+
+        // If this is a boss, mark it as defeated in save data
+        if (isBoss)
+        {
+            GameManager.Instance.defeatedBosses.Add(bossID);
+            bossHP.SetActive(false);
+        }
+
+        Destroy(gameObject); // Remove Blue_Elemental from the scene when dead
+    }
+    private IEnumerator Waitforfive()
+    {
+        Debug.Log("waiting for 2 sec");
+        yield return new WaitForSeconds(2f); // Ensures scene objects exist
     }
     private void DropExperience()
     {

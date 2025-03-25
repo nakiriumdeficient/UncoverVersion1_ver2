@@ -10,6 +10,22 @@ public class BossDialogueTrigger : MonoBehaviour
     private bool isDialogueActive = false; // Track if the dialogue image is active
     private bool hasBeenTriggered = false; // Track if the dialogue has been triggered
 
+    public bool isCaptain = false;
+    public bool isSage = false;
+    public bool isAelfric = false;
+
+    private GameObject bossHP; // Reference to UI Prompt
+
+    public string bossID = "";
+
+    private void Start()
+    {
+        //  If the boss is defeated, remove this dialogue trigger
+        if (GameManager.Instance.defeatedBosses.Contains(bossID))
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         // Check if the player entered the trigger and the dialogue hasn't been triggered yet
@@ -30,6 +46,25 @@ public class BossDialogueTrigger : MonoBehaviour
                 Debug.LogWarning("Open sound not set or AudioSource missing!");
             }
         }
+        if (isCaptain == true)
+        {
+            bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
+
+            bossHP.SetActive(true);
+        }
+        else if (isSage == true)
+        {
+            bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("SageHPBar")?.gameObject;
+
+            bossHP.SetActive(true);
+        }
+        else if (isAelfric == true)
+        {
+            bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("AelfricHPBar")?.gameObject;
+
+            bossHP.SetActive(true);
+        }
+
     }
 
     private void Update()
@@ -43,6 +78,7 @@ public class BossDialogueTrigger : MonoBehaviour
                 CloseDialogue();
             }
         }
+
     }
 
     private void CloseDialogue()
