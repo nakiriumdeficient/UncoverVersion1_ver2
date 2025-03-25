@@ -38,7 +38,7 @@ public class Drull : MonoBehaviour
             GreyHealth player = other.GetComponent<GreyHealth>();
             if (player != null)
             {
-                player.TakeDamage(damage);
+                player.TakeDamage(damage, "enemy");
             }
 
             // Destroy the Drull on impact

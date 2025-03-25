@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class SpikeScript : MonoBehaviour
 {
+    public int damage = 100;
     private void OnTriggerEnter(Collider other)
     {
         // Check if Grey touched the spike
-        if (other.CompareTag("GreyPlayer"))
+        GreyHealth grey = other.GetComponent<GreyHealth>();
+        if (grey != null)
         {
-            Debug.Log("Grey touched a spike!");
-
-            // Get the PlayerSpawnManager in the scene
-
-            GameManager.Instance.LoadGame();
+            Debug.Log("Spike touched!");
+            grey.TakeDamage(damage, "trap"); //  Apply damage to Grey
         }
     }
 }

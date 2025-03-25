@@ -11,7 +11,7 @@ public class EnemyWeapon : MonoBehaviour
             GreyHealth grey = other.GetComponent<GreyHealth>();
             if (grey != null)
             {
-                grey.TakeDamage(damage); // ✅ Apply damage to Grey
+                grey.TakeDamage(damage, "enemy"); // ✅ Apply damage to Grey
                 Debug.Log("[Elf_Sword] Hit Grey for " + damage + " damage!");
             }
         }

@@ -33,6 +33,7 @@ public class Elemental_Blue : MonoBehaviour
     public bool isBoss = false; // Set in the Inspector if this is a boss
     public string bossID = ""; // Unique ID for the boss (e.g., "Boss1")
     private GameObject bossHP; // Reference to UI Prompt
+
     private void Start()
     {
         //  Prevent respawning if this is a boss that was already defeated
@@ -41,9 +42,16 @@ public class Elemental_Blue : MonoBehaviour
             Destroy(gameObject);
             return; // Exit Start() to avoid running AI logic
         }
-        if(isBoss == true)
+        if(isBoss)
         {
             bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("SageHPBar")?.gameObject;
+            hpSlider = bossHP?.GetComponentInChildren<Slider>();
+            hpText = bossHP?.GetComponentInChildren<TextMeshProUGUI>();
+
+            if (bossHP != null)
+            {
+                bossHP.SetActive(false); // Start disabled
+            }
         }
         StartCoroutine(FindPlayer()); // Start looking for the player
     }
@@ -65,8 +73,9 @@ public class Elemental_Blue : MonoBehaviour
                 lastAttackTime = Time.time; // ✅ Reset cooldown timer
             }
         }
-
+        
         updateHPBar();
+        
     }
     private IEnumerator FindPlayer()
     {
@@ -88,6 +97,8 @@ public class Elemental_Blue : MonoBehaviour
     }
     public void updateHPBar()
     {
+        if (hpSlider == null || hpText == null) return; // Prevents null reference errors
+
         hpSlider.maxValue = 200;
         hpSlider.value = currentHealth;
 

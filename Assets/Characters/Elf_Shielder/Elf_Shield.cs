@@ -11,7 +11,7 @@ public class Elf_Shield : MonoBehaviour
             GreyHealth grey = other.GetComponent<GreyHealth>();
             if (grey != null)
             {
-                grey.TakeDamage(damage); // ✅ Apply damage to Grey
+                grey.TakeDamage(damage, "enemy"); // ✅ Apply damage to Grey
                 Debug.Log("[Elf Shield] Slammed into Grey! Dealt " + damage + " damage.");
             }
         }

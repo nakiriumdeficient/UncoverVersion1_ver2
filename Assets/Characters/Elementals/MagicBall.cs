@@ -12,7 +12,7 @@ public class MagicBall : MonoBehaviour
             GreyHealth grey = other.GetComponent<GreyHealth>();
             if (grey != null)
             {
-                grey.TakeDamage(damage);
+                grey.TakeDamage(damage, "enemy");
                 Debug.Log("[MagicBall] Hit Grey for " + damage + " damage!");
             }
         }

@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!65 &22635098
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10219,6 +10220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &144689938
 GameObject:
   m_ObjectHideFlags: 0
@@ -10492,6 +10494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &227829853
 GameObject:
   m_ObjectHideFlags: 0
@@ -16784,6 +16787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &764391137 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d8e343da5b79be4797ebc7051afa6a0, type: 3}
@@ -16822,6 +16826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &786595283
 GameObject:
   m_ObjectHideFlags: 0
@@ -21988,6 +21993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &905490520 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d8e343da5b79be4797ebc7051afa6a0, type: 3}
@@ -22026,6 +22032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &922532409
 GameObject:
   m_ObjectHideFlags: 0
@@ -22177,6 +22184,10 @@ MonoBehaviour:
   dialogueImage: {fileID: 266335509}
   openSoundSource: {fileID: 922532411}
   closeSoundSource: {fileID: 922532411}
+  isCaptain: 0
+  isSage: 0
+  isAelfric: 0
+  bossID: 
 --- !u!4 &922532413
 Transform:
   m_ObjectHideFlags: 0
@@ -22624,6 +22635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &1081223569 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d8e343da5b79be4797ebc7051afa6a0, type: 3}
@@ -22662,6 +22674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &1113891899
 GameObject:
   m_ObjectHideFlags: 0
@@ -23035,6 +23048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &1184261245
 GameObject:
   m_ObjectHideFlags: 0
@@ -28891,6 +28905,10 @@ PrefabInstance:
     - target: {fileID: 4801937657834648602, guid: 822afe2a9a8729d4eb68ffa9b3cd783a, type: 3}
       propertyPath: m_Name
       value: Brown_Elemental
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394842956439970999, guid: 822afe2a9a8729d4eb68ffa9b3cd783a, type: 3}
+      propertyPath: isBoss
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35719,6 +35737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1 &1869168965
 GameObject:
   m_ObjectHideFlags: 0
@@ -36417,6 +36436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1cd55eda71d6d4c884173a250b3bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!1001 &2121505288
 PrefabInstance:
   m_ObjectHideFlags: 0

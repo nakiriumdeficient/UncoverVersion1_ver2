@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using TMPro;
+using static Unity.VisualScripting.Member;
 
 public class GreyHealth : MonoBehaviour
 {
@@ -12,7 +14,8 @@ public class GreyHealth : MonoBehaviour
     Animator animator;
 
     private GameObject deathScreen; // Assign in Inspector
-
+    private TextMeshProUGUI deathMessage; // Reference to Death Screen text
+    private string lastDamageSource = ""; // Track how the player died
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class GreyHealth : MonoBehaviour
         if (deathScreen != null)
         {
             deathScreen.SetActive(false); // Ensure it's hidden at start
+            deathMessage = deathScreen.transform.Find("DeathMessage")?.GetComponent<TextMeshProUGUI>();
         }
         else
         {
@@ -34,12 +38,13 @@ public class GreyHealth : MonoBehaviour
     {
         healthBar.SetHealth(GameManager.Instance.playercurHP);
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string source)
     {
         if (isDead) return;
 
 
         GameManager.Instance.playercurHP -= damage;
+        lastDamageSource = source; // Store last hit source
 
         Debug.Log("[Grey] Took " + damage + " damage! HP: " + GameManager.Instance.playercurHP);
 
@@ -62,7 +67,28 @@ public class GreyHealth : MonoBehaviour
         {
             animator.SetTrigger("Die"); // Play death animation
         }
-        deathScreen.SetActive(true); // Show Death Screen
+        if (deathScreen != null)
+        {
+            deathScreen.SetActive(true); // Show Death Screen
+
+            if (deathMessage != null)
+            {
+                // Change text based on death source
+                if (lastDamageSource == "trap")
+                {
+                    deathMessage.text = "You stepped on deadly traps...";
+                }
+                else if (lastDamageSource == "enemy")
+                {
+                    deathMessage.text = "A foe has bested you in battle...";
+                }
+                else
+                {
+                    deathMessage.text = "You have perished...";
+                }
+            }
+        }
+
         OnDeath?.Invoke();
         Time.timeScale = 0; // Freeze game
     }

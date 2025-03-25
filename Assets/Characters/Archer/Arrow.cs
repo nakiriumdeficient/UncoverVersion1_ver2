@@ -42,7 +42,7 @@ public class Arrow : MonoBehaviour
             GreyHealth player = other.GetComponent<GreyHealth>();
             if (player != null)
             {
-                player.TakeDamage(damage);
+                player.TakeDamage(damage, "enemy");
             }
 
             // Destroy the arrow on hit
