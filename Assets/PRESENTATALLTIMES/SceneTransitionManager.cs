@@ -34,7 +34,7 @@ public class SceneTransitionManager : MonoBehaviour
 
     private IEnumerator HandleSceneLoaded()
     {
-        yield return new WaitForSeconds(0.5f); // Allow time for scene to load
+        yield return new WaitForSeconds(0.1f); // Allow time for scene to load
 
         // Find the correct spawn point
         SpawnPoint[] spawnPoints = FindObjectsOfType<SpawnPoint>();
