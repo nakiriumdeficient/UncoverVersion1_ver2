@@ -203,7 +203,6 @@ public class AelfricController : MonoBehaviour
         bossHP.SetActive(false);
 
         GameManager.Instance.defeatedBosses.Add(bossID);
-        GameManager.Instance.SaveGame();
 
         isDead = true;
         Debug.Log("Aelfric is dead!");
