@@ -42,4 +42,8 @@ public class CameraFollow : MonoBehaviour
     {
         player = newTarget;
     }
+    public void TeleportToPosition(Vector3 position)
+    {
+        transform.position = new Vector3(position.x, position.y + yOffset, transform.position.z);
+    }
 }

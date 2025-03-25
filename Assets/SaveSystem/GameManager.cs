@@ -268,9 +268,10 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f); // Ensures scene objects exist
         GameObject player = GameObject.FindGameObjectWithTag("GreyPlayer");
-
+        CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
         if (player == null)
         {
+            
             Debug.Log("No player found. Spawning at saved position...");
 
             Debug.Log("Saved Position: " + savedPosition);
@@ -278,6 +279,11 @@ public class GameManager : MonoBehaviour
             SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
             if (spawnManager != null)
             {
+                
+                if (cameraFollow != null)
+                {
+                    cameraFollow.TeleportToPosition(GameManager.Instance.savedPosition);
+                }
                 spawnManager.SpawnPlayer(savedPosition);
             }
             else
@@ -287,6 +293,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            
+            if (cameraFollow != null)
+            {
+                cameraFollow.TeleportToPosition(GameManager.Instance.savedPosition);
+            }
             Debug.Log("Before applying position: " + player.transform.position);
             Debug.Log("Loaded Position: " + savedPosition);
             player.transform.position = savedPosition;

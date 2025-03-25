@@ -39099,7 +39099,7 @@ PrefabInstance:
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: hpText
       value: 
-      objectReference: {fileID: 786431373}
+      objectReference: {fileID: 2039989599}
     - target: {fileID: 6445938479444169052, guid: 1484a70bee985bd43b80d58cb794a353, type: 3}
       propertyPath: xpText
       value: 
@@ -39462,6 +39462,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017186850}
   m_Mesh: {fileID: 7629811779324647873, guid: 0ceef7aa409a2d04ab2d3c8faa1011a1, type: 3}
+--- !u!114 &2039989599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8712275976116604828, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+  m_PrefabInstance: {fileID: 1743443385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2044192670
 GameObject:
   m_ObjectHideFlags: 0

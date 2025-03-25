@@ -56,6 +56,12 @@ public class SceneTransitionManager : MonoBehaviour
             GameManager.Instance.savedPosition = Vector3.zero;
         }
 
+        CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.TeleportToPosition(GameManager.Instance.savedPosition);
+        }
+
         // Spawn player at the correct position
         SpawnManager spawnManager = FindObjectOfType<SpawnManager>();
         if (spawnManager != null)
