@@ -36,6 +36,8 @@ public class AelfricController : MonoBehaviour
     private int currentHealth;
     private bool isDead = false;
 
+
+    private GameObject bossHP; // Reference to UI Prompt
     public string bossID = "";
     void Start()
     {
@@ -44,7 +46,7 @@ public class AelfricController : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("AelfricHPBar")?.gameObject;
         animator = GetComponentInChildren<Animator>();
         if (animator == null)
         {
@@ -82,6 +84,7 @@ public class AelfricController : MonoBehaviour
     void Update()
     {
         if (isDead || player == null) return;
+        updateHPBar();
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
@@ -109,7 +112,14 @@ public class AelfricController : MonoBehaviour
             rb.velocity = Vector3.zero;
         }
     }
+    public void updateHPBar()
+    {
+        hpSlider.maxValue = 100;
+        hpSlider.value = currentHealth;
 
+        hpText.text = $"{currentHealth} / {maxHealth}";
+
+    }
     private void MoveTowardsPlayer()
     {
         Vector3 direction = (player.position - transform.position).normalized;
@@ -187,8 +197,10 @@ public class AelfricController : MonoBehaviour
 
     private void Die()
     {
+        updateHPBar();
         DropExperience();
         DropUpgrade();
+        bossHP.SetActive(false);
 
         GameManager.Instance.defeatedBosses.Add(bossID);
         GameManager.Instance.SaveGame();

@@ -133,6 +133,7 @@ public class Elemental_Blue : MonoBehaviour
         if (isBoss)
         {
             GameManager.Instance.defeatedBosses.Add(bossID);
+            GameManager.Instance.SaveGame();
             bossHP.SetActive(false);
         }
 

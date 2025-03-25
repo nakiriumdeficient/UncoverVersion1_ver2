@@ -39,6 +39,7 @@ public class Captain : NPC
 
 
         bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
+
         // Try to find the child object dynamically
         Transform modelTransform = transform.Find("Captain_Model");
 
