@@ -4,8 +4,6 @@ using static UnityEngine.GraphicsBuffer;
 public class CameraFollow : MonoBehaviour
 {
     public Transform player; // Reference to the player's Transform
-    public float rightOffset = -5f;
-    public float leftOffset = 5f;
     public float yOffset = -3f;
     public float smoothSpeed = 0.125f;
     private bool isFacingRight = true;
@@ -33,7 +31,7 @@ public class CameraFollow : MonoBehaviour
             isFacingRight = false;
         }
         Vector3 desiredPosition = new Vector3(
-            player.position.x + (isFacingRight ? rightOffset : leftOffset),
+            player.position.x,
             player.position.y + yOffset,
             transform.position.z
         );

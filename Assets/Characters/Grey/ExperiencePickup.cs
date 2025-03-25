@@ -10,11 +10,13 @@ public class ExperiencePickup : MonoBehaviour
     public AudioClip pickupSound; // Assign a sound effect
     private AudioSource audioSource;
     private Collider pickupCollider;
+    private MeshRenderer meshRenderer;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>(); // Get the AudioSource from the prefab
         pickupCollider = GetComponent<Collider>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +28,7 @@ public class ExperiencePickup : MonoBehaviour
             {
                 GameManager.Instance.GainXP(expAmount);
                 pickupCollider.enabled = false;
-
+                meshRenderer.enabled = false;
                 // Spawn particle effect at XP pickup location
                 if (pickupEffectPrefab != null)
                 {

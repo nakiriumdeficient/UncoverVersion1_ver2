@@ -6,11 +6,13 @@ public class UpgradePickup : MonoBehaviour
 {
     public int upgradeAmount; // Amount of XP this pickup gives
     private Collider upgradeCollider;
+    private MeshRenderer meshRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         upgradeCollider = GetComponent<Collider>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class UpgradePickup : MonoBehaviour
         {
             GameManager.Instance.GainUpgrade(upgradeAmount);
             upgradeCollider.enabled = false;
+            meshRenderer.enabled = false;
             StartCoroutine(DestroyAfterSound()); // Wait before destroying
         }
     }
