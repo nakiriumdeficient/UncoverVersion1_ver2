@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public int maxXP = 100;
     public int playerLevel = 1;
     public int upgradeOrb = 0;
+    public int hpUpgradeCount = 0; // How many times Max HP has been upgraded
 
     private string savePath;
 
@@ -141,11 +142,13 @@ public class GameManager : MonoBehaviour
         maxXP = 100;
         playerLevel = 1;
         upgradeOrb = 0;
+        hpUpgradeCount = 0;
         collectedWeapons.Clear();
         collectedItems.Clear();
         defeatedBosses.Clear();
         savedPosition = Vector3.zero;
         SaveSystem.DeleteSave();
+
     }
 
     public void SaveGame()
@@ -183,6 +186,7 @@ public class GameManager : MonoBehaviour
             collectedItems = collectedItems,
             defeatedBosses = defeatedBosses,
             savedPosition = player.transform.position, // Save player position
+            hpUpgradeCount = hpUpgradeCount,
 
 
             // Save ObjectiveManager state
@@ -216,7 +220,7 @@ public class GameManager : MonoBehaviour
             collectedItems = data.collectedItems;
             defeatedBosses = data.defeatedBosses;
             savedPosition = data.savedPosition; // Store position
-
+            hpUpgradeCount = data.hpUpgradeCount;
             // Load ObjectiveManager state
             if (ObjectiveManager.Instance != null)
             {

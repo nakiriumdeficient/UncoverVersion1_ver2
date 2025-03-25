@@ -16,7 +16,7 @@ public class SaveData
     public List<WeaponData> collectedWeapons;
     public List<string> collectedItems;
     public Vector3 savedPosition;
-
+    public int hpUpgradeCount; // How many times Max HP has been upgraded
     // Add these fields for ObjectiveManager state
     public bool hasKey2;
     public bool hasKey3;
