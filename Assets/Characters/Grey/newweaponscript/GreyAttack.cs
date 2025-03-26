@@ -100,7 +100,7 @@ public class GreyAttack : MonoBehaviour
             equippedWeaponObject = newWeapon.gameObject;
             equippedWeaponObject.SetActive(true);
 
-            // Get weapon's collider (ensure the weapon has one!)
+            // Get weapon's collider (ensure the weapon has one)
             weaponCollider = equippedWeaponObject.GetComponent<Collider>();
             if (weaponCollider == null)
             {
@@ -113,7 +113,7 @@ public class GreyAttack : MonoBehaviour
             WeaponScript weaponScript = equippedWeaponObject.GetComponent<WeaponScript>();
             if (weaponScript != null)
         {
-            weaponScript.currentWeapon = currentWeapon; // <-- THIS FIXES THE DAMAGE ISSUE
+            weaponScript.currentWeapon = currentWeapon; 
             Debug.Log("Weapon assigned: " + currentWeapon.weaponName + " Damage: " + currentWeapon.damage);
         }
         else

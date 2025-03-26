@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 6024992262107528788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 239.3, y: 0.137, z: -5}
+  m_LocalPosition: {x: 239.3, y: 1.182, z: -5}
   m_LocalScale: {x: 64.444, y: 64.444, z: 64.444}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -78,6 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5903009ac0c4f93448f0dc56f6aeb359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpSlider: {fileID: 0}
+  hpText: {fileID: 0}
   drullPrefab: {fileID: 3677347840537115988, guid: 05fb7f60e2b96a045b87ef1911788628, type: 3}
   drullSpawnPoint: {fileID: 7839720317920303881}
   chaseRange: 5
@@ -92,6 +94,8 @@ MonoBehaviour:
   upgradeOrb: {fileID: 510702803067997793, guid: ebc85a472c8a2434eb69191557fde3b2, type: 3}
   upgradeDropAmount: 30
   numberOfUpDrops: 3
+  fadeTransition: {fileID: 0}
+  bossID: 
 --- !u!65 &2996906004594995160
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -154,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f7f8e085d6924646abc9463d641878d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.00498
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f7f8e085d6924646abc9463d641878d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -191,6 +195,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7f7f8e085d6924646abc9463d641878d, type: 3}
       propertyPath: m_Name
       value: A_Movements
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642674770791024736, guid: 7f7f8e085d6924646abc9463d641878d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0044
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
