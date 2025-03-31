@@ -45,5 +45,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
+  journalUI: {fileID: 0}
   player: {fileID: 0}
   playerTag: GreyPlayer
+  enemyNameText: {fileID: 0}
+  enemyImage: {fileID: 0}
+  enemyDescriptionText: {fileID: 0}
+  nextButton: {fileID: 0}
+  previousButton: {fileID: 0}
+  pageCounterText: {fileID: 0}
+  enemyEntries:
+  - enemyName: Elf Warrior
+    enemyImage: {fileID: 21300000, guid: fa2ad035aa8511647b7b3e7f0ffae5df, type: 3}
+    enemyDescription: Enemy with a sword.
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 0
+  - enemyName: Elf Archer
+    enemyImage: {fileID: 21300000, guid: 4dc27ad85798dae48a149747b55fbf6d, type: 3}
+    enemyDescription: 'Skilled shooter Weak: Falx'
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 0
+  - enemyName: Elf Shielder
+    enemyImage: {fileID: 21300000, guid: fa2ad035aa8511647b7b3e7f0ffae5df, type: 3}
+    enemyDescription: 'A very skilled shielder and sword user. has health. Weak:
+      Shatterack'
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 0
+  - enemyName: Captain
+    enemyImage: {fileID: 21300000, guid: ec0f3cd397492574eaac30d59d1c7c45, type: 3}
+    enemyDescription: Captain of the Ranks
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 1
+  - enemyName: Duelist
+    enemyImage: {fileID: 21300000, guid: 1b6e828e64f288146ab21c680175c0ab, type: 3}
+    enemyDescription: Trained individual, has fast attacks. Weak
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 0
+  - enemyName: Elementalist
+    enemyImage: {fileID: 21300000, guid: bdd632bafe1ea9a42b3cecea04bc808d, type: 3}
+    enemyDescription: Immune to Falx. Throws magic.
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 0
+  - enemyName: Eidolons
+    enemyImage: {fileID: 21300000, guid: 7c85f85a808b8974bb0ae958a16b18a0, type: 3}
+    enemyDescription: Spews magic. Immune to Hasta, Shatterack.
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 0
+  - enemyName: Grand Sage of Silva
+    enemyImage: {fileID: 21300000, guid: 8f51e8c6fad32a942b8dff1d8041de6f, type: 3}
+    enemyDescription: Boss, the Defender of the Forest. Immune to Falx.
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 1
+  - enemyName: Aelfric The Elven King
+    enemyImage: {fileID: 21300000, guid: 279762c2e09fe524482d8cfb9df8da51, type: 3}
+    enemyDescription: The King of the Elven Kingdom.
+    nameColor: {r: 0, g: 0, b: 0, a: 0}
+    isBoss: 1

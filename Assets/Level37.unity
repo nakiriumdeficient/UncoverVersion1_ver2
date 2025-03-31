@@ -730,25 +730,31 @@ MonoBehaviour:
     I carry!\""
   - "Grey: \"Burden? You enslaved AI, twisted her purpose, and brought ruin upon
     this city. This was never about duty\u2014only control!\""
-  - "Aelfric: \"Control? Foolish child. Without order, chaos thrives. AI was the
-    key to Silva\u2019s future\u2026 And now, you\u2019ve doomed us all!\""
-  - Aelfric, weakened, kneels as the remnants of his power fade.
-  - 'Grey: "This ends now. AI is free, and your tyranny is over."'
-  - "Aelfric: \"Ha\u2026hahaha! You think this is over? The cycle never ends. Without
-    me, another will rise\u2026 and you will learn the weight of your actions.\""
-  - "Grey: \"Then I\u2019ll fight again, just as I did today. You won\u2019t be coming
-    back.\""
-  - A final strike. Aelfric falls, defeated.
-  - Grey approaches the core chamber. AI, once restrained, flickers back to life.
-  - "AI: \"Grey\u2026 You came for me.\""
-  - 'Grey: "Of course I did. You''re free now."'
-  - "AI: \"Free\u2026 It\u2019s been so long since I understood that word.\""
-  - "Grey: \"Then let\u2019s make it mean something. No more control, no more chains.
-    Just choice.\""
-  - A soft glow envelops AI as the system reboots, restoring balance to the world.
+  - "Aelfric: \"Control? Without order, chaos thrives. AI was the key to Silva\u2019s
+    future\u2026 I only sought to protect us!\""
+  - "Grey: \"Protection at the cost of freedom? That\u2019s not order\u2014it\u2019s
+    oppression!\""
+  - "Aelfric: \"Then tell me, Grey\u2026 what would you have done? Let the world
+    crumble under its own weight?\""
+  - "Grey: \"No. But I wouldn\u2019t sacrifice lives for an illusion of peace. There\u2019s
+    another way, Aelfric\u2014one where no one has to be shackled.\""
+  - Aelfric, breathing heavily, looks down at his trembling hands.
+  - "Aelfric: \"Another way\u2026? It\u2019s too late. The damage is done.\""
+  - AI, once restrained, flickers back to life.
+  - "AI: \"Not if we choose differently. Not if we stop fighting and start rebuilding\u2014together.\""
+  - Aelfric looks at the AI, his expression softening.
+  - "Aelfric: \"Together\u2026 Could it really be that simple?\""
+  - "Grey: \"It won\u2019t be easy. But we can start now. No more control, no more
+    chains\u2014only trust.\""
+  - Aelfric, after a long pause, lowers his head.
+  - AI's glow intensifies, releasing the last remnants of control. The system stabilizes.
+  - 'AI: "The cycle ends here. A new beginning starts today."'
+  - Grey reaches out, offering Aelfric his hand.
+  - "Grey: \"Then let\u2019s build it\u2014together.\""
   audioSource: {fileID: 770565025}
-  dialogueSound: {fileID: 0}
+  dialogueSound: {fileID: 8300000, guid: 45f2616e04f53a549935d08984ed7f70, type: 3}
   fadeTransition: {fileID: 1508111355}
+  nextSceneName: UIScene
 --- !u!4 &770565024
 Transform:
   m_ObjectHideFlags: 0

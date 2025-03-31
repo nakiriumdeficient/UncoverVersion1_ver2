@@ -6,28 +6,14 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText; // Reference to the TextMeshPro UI element
-    public string[] dialogues = new string[]
-    {
-        "Aelfric stumbles back, gripping his wounds, eyes burning with defiance.",
-        "Aelfric: \"You… dare defy the will of Silva? You know nothing of the burden I carry!\"",
-        "Grey: \"Burden? You enslaved AI, twisted her purpose, and brought ruin upon this city. This was never about duty—only control!\"",
-        "Aelfric: \"Control? Foolish child. Without order, chaos thrives. AI was the key to Silva’s future… And now, you’ve doomed us all!\"",
-        "Aelfric, weakened, kneels as the remnants of his power fade.",
-        "Grey: \"This ends now. AI is free, and your tyranny is over.\"",
-        "Aelfric: \"Ha…hahaha! You think this is over? The cycle never ends. Without me, another will rise… and you will learn the weight of your actions.\"",
-        "Grey: \"Then I’ll fight again, just as I did today. You won’t be coming back.\"",
-        "AI: \"Grey… You came for me.\"",
-        "Grey: \"Of course I did. You're free now.\"",
-        "AI: \"Free… It’s been so long since I understood that word.\"",
-        "Grey: \"Then let’s make it mean something. No more control, no more chains. Just choice.\"",
-        "A soft glow envelops AI as the system reboots, restoring balance to the world."
-    };
+    public string[] dialogues; // Assign dialogues in the Inspector or via another script
     private int currentDialogueIndex = 0; // Track the current dialogue
 
     public AudioSource audioSource; // Reference to the AudioSource component
     public AudioClip dialogueSound; // Sound to play when dialogue pops
 
     public FadeTransition fadeTransition; // Assign this in the Inspector
+    public string nextSceneName = "UIScene"; // Default to main menu, but can be changed in Inspector
 
     private void Start()
     {
@@ -62,8 +48,8 @@ public class DialogueManager : MonoBehaviour
         else
         {
             // End of dialogue, transition to the next scene with a fade-to-black effect
-            Debug.Log("End of dialogue. Transitioning to the next scene with a fade-to-black effect.");
-            StartCoroutine(FadeAndLoadScene("UIScene")); // Replace "UIScene" with your desired scene
+            Debug.Log("End of dialogue. Transitioning to scene: " + nextSceneName);
+            StartCoroutine(FadeAndLoadScene(nextSceneName));
         }
     }
 
@@ -90,6 +76,19 @@ public class DialogueManager : MonoBehaviour
         if (audioSource != null && dialogueSound != null)
         {
             audioSource.PlayOneShot(dialogueSound); // Play the sound effect
+        }
+    }
+
+    // Optional: Method to set dialogues dynamically from another script
+    public void SetDialogues(string[] newDialogues, string targetSceneName)
+    {
+        dialogues = newDialogues;
+        nextSceneName = targetSceneName;
+        currentDialogueIndex = 0; // Reset to first dialogue
+        if (dialogues.Length > 0)
+        {
+            dialogueText.text = dialogues[currentDialogueIndex];
+            PlayDialogueSound();
         }
     }
 }

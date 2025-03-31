@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
         SaveSystem.DeleteSave(); // Delete all saved data
         GameManager.Instance.ResetGameData(); // Reset player stats, inventory, orbs, etc.
 
-        SceneManager.LoadScene("Level1"); // Change this to your starting scene
+        SceneManager.LoadScene("Level0"); // Change this to your starting scene
     }
 
     public void ContinueGame()

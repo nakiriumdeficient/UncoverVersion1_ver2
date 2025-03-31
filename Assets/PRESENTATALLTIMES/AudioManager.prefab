@@ -49,6 +49,9 @@ MonoBehaviour:
   bgm1: {fileID: 8300000, guid: 3c964e4eac990fc44b4870104ee49a0f, type: 3}
   bgm2: {fileID: 8300000, guid: da033f529779e7e44935a964cc487167, type: 3}
   bgm3: {fileID: 8300000, guid: 894cffaf8b90e2e41945ed03d002f5d7, type: 3}
+  ambient1: {fileID: 8300000, guid: 86c74606007a05c45a27815244bc5e24, type: 3}
+  ambient2: {fileID: 0}
+  ambient3: {fileID: 0}
 --- !u!82 &3808431710598174907
 AudioSource:
   m_ObjectHideFlags: 0
