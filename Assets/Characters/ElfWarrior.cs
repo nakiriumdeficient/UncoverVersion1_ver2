@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ElfWarrior : NPC
 {
@@ -19,6 +20,7 @@ public class ElfWarrior : NPC
 
     bool isPlayerDead = false;
 
+    private Slider healthBar; // Assign in Inspector
     protected override void Start()
     {
         npcName = "Elf Warrior";
@@ -38,11 +40,21 @@ public class ElfWarrior : NPC
                 greyHealth.OnDeath += HandlePlayerDeath;
             }
         }
+
+        healthBar = GetComponentInChildren<Slider>();
+
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHealth;
+            healthBar.value = currentHealth;
+        }
     }
 
     protected override void Update()
     {
         if (isDead) return; // Prevent movement when dead, but allow attacking before death
+
+        healthBar.value = currentHealth;
 
         if (player == null)
         {
@@ -145,6 +157,12 @@ public class ElfWarrior : NPC
         if (isDead) return; // Prevent taking damage when already dead
 
         currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        if (healthBar)
+        {
+            healthBar.value = currentHealth;
+        }
 
         if (currentHealth <= 0)
         {

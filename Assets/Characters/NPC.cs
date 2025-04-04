@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
     public string npcName = "Enemy"; // Name of the NPC
     [SerializeField] protected int maxHealth = 50; // Serialized field for maxHealth
     protected int currentHealth;
+
 
     public float detectionRange = 5.0f; // Detection distance
     protected Transform player;

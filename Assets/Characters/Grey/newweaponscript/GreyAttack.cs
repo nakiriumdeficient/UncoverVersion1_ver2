@@ -135,14 +135,12 @@ public class GreyAttack : MonoBehaviour
             nextAttackTime = Time.time + attackCooldown; // Set next available attack time
             if (attackAudioSource != null && attackAudioSource.clip != null)
             {
-                Debug.Log("Stopping movement sound for attack");
                 GreyController greyController = GetComponent<GreyController>();
                 if (greyController != null)
                 {
                     greyController.moveAudioSource.Stop(); // Ensure movement sound stops
                 }
                 attackAudioSource.Play();
-                Debug.Log("Attack sound played!");
             }
             else
             {
