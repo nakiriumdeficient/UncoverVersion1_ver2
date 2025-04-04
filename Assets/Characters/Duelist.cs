@@ -22,9 +22,9 @@ public class Duelist : NPC
     private bool isDead = false;
 
     private Slider healthBar; // Assign in Inspector
+    public bool isDefeated = false;
     protected override void Start()
     {
-        npcName = "Duelist"; // Set the NPC name
         maxHealth = 50; // Set the max health
 
         base.Start(); // Call the base NPC Start method
@@ -173,9 +173,13 @@ public class Duelist : NPC
         {
             animator.SetTrigger("Die");
         }
+        if (!GameManager.Instance.IsEnemyDefeated(enemyID))  // Check if the enemy is already defeated
+        {
+            GameManager.Instance.MarkEnemyAsDefeated(enemyID);  // Mark it as defeated
+            DropExperience();  // Drop XP and upgrades only if not defeated before
+            DropUpgrade();
+        }
 
-        DropExperience();
-        DropUpgrade();
 
         StartCoroutine(RemoveNPC());
     }

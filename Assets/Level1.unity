@@ -42331,6 +42331,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 600702283037836975, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 600702283037836975, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2364289260010321863, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 165.8
@@ -42376,8 +42384,20 @@ PrefabInstance:
       value: Elf_Warrior
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
+      propertyPath: enemyID
+      value: 1warrior1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
+      propertyPath: npcName
+      value: 1warrior1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: maxHealth
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
+      propertyPath: isDefeated
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: xpDropAmount

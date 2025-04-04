@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     private bool shouldMovePlayer = false; // Flag to move player in LateUpdate
     public List<string> collectedItems = new List<string>();
     public List<string> defeatedBosses = new List<string>();
+    public List<string> defeatedEnemies = new List<string>(); // Track defeated enemies' unique IDs or names
 
     public int playermaxHP = 100;
     public int playercurHP = 100;
@@ -148,6 +149,7 @@ public class GameManager : MonoBehaviour
         collectedItems.Clear();
         defeatedBosses.Clear();
         savedPosition = Vector3.zero;
+        defeatedEnemies.Clear();
         SaveSystem.DeleteSave();
 
     }
@@ -188,7 +190,7 @@ public class GameManager : MonoBehaviour
             defeatedBosses = defeatedBosses,
             savedPosition = player.transform.position, // Save player position
             hpUpgradeCount = hpUpgradeCount,
-
+            defeatedEnemies = defeatedEnemies,
 
             // Save ObjectiveManager state
             hasKey2 = ObjectiveManager.Instance.hasKey2,
@@ -222,6 +224,7 @@ public class GameManager : MonoBehaviour
             defeatedBosses = data.defeatedBosses;
             savedPosition = data.savedPosition; // Store position
             hpUpgradeCount = data.hpUpgradeCount;
+            defeatedEnemies = data.defeatedEnemies;
             // Load ObjectiveManager state
             if (ObjectiveManager.Instance != null)
             {
@@ -338,5 +341,18 @@ public class GameManager : MonoBehaviour
     {
         defeatedBosses.Add(bossName);
         Debug.Log(bossName + " is been added and defeated.");
+    }
+
+    // Add to list when an enemy is defeated
+    public void MarkEnemyAsDefeated(string enemyID)
+    {
+        if (!defeatedEnemies.Contains(enemyID))
+        {
+            defeatedEnemies.Add(enemyID);
+        }
+    }
+    public bool IsEnemyDefeated(string enemyID)
+    {
+        return defeatedEnemies.Contains(enemyID);
     }
 }

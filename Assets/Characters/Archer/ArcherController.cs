@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ArcherController : MonoBehaviour
 {
+    public string enemyID;  // Each enemy has a unique ID
+
     public GameObject arrowPrefab; // Reference to the arrow prefab
     public Transform arrowSpawnPoint; // Point where the arrow will be spawned
     public float attackRange = 10f; // Range within which the archer will attack
@@ -26,7 +28,7 @@ public class ArcherController : MonoBehaviour
     public int numberOfUpDrops = 3;
 
     private Slider healthBar; // Assign in Inspector
-
+    public bool isDefeated = false;
     void Start()
     {
         // Initialize health
@@ -162,8 +164,12 @@ public class ArcherController : MonoBehaviour
 
     private void Die()
     {
-        DropExperience();
-        DropUpgrade();
+        if(!GameManager.Instance.IsEnemyDefeated(enemyID))  // Check if the enemy is already defeated
+        {
+            GameManager.Instance.MarkEnemyAsDefeated(enemyID);  // Mark it as defeated
+            DropExperience();  // Drop XP and upgrades only if not defeated before
+            DropUpgrade();
+        }
 
         isDead = true;
         Debug.Log("Archer is dead!");

@@ -11,7 +11,7 @@ public class ElfShielder : NPC
 
     protected override void Start()
     {
-        npcName = "Elf Shielder";
+        enemyID = "Elf Shielder";
         maxHealth = 100;
         base.Start();
 

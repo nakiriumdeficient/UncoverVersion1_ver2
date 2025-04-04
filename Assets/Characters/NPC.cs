@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
-    public string npcName = "Enemy"; // Name of the NPC
+    public string enemyID = ""; // Name of the NPC
     [SerializeField] protected int maxHealth = 50; // Serialized field for maxHealth
     protected int currentHealth;
 
@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour
         controller = GetComponent<CharacterController>();
         player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
 
-        Debug.Log("[NPC] " + npcName + " spawned with " + maxHealth + " HP.");
+        Debug.Log("[NPC] " + enemyID + " spawned with " + maxHealth + " HP.");
     }
 
     protected virtual void Update()
@@ -42,7 +42,7 @@ public class NPC : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("[NPC] " + npcName + " took " + damage + " damage! HP left: " + currentHealth);
+        Debug.Log("[NPC] " + enemyID + " took " + damage + " damage! HP left: " + currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -52,12 +52,12 @@ public class NPC : MonoBehaviour
 
     protected virtual void Die()
     {
-        Debug.Log("[NPC] " + npcName + " has been defeated!");
+        Debug.Log("[NPC] " + enemyID + " has been defeated!");
         Destroy(gameObject);
     }
 
     public virtual void Attack()
     {
-        Debug.Log("[NPC] " + npcName + " attacks! (Override this in child classes)");
+        Debug.Log("[NPC] " + enemyID + " attacks! (Override this in child classes)");
     }
 }

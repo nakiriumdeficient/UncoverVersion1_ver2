@@ -21,9 +21,9 @@ public class ElfWarrior : NPC
     bool isPlayerDead = false;
 
     private Slider healthBar; // Assign in Inspector
+    public bool isDefeated = false;
     protected override void Start()
     {
-        npcName = "Elf Warrior";
         base.Start(); // Call base.Start() to initialize maxHealth and other NPC properties
         animator = GetComponentInChildren<Animator>(); // Get Animator from model
 
@@ -180,9 +180,13 @@ public class ElfWarrior : NPC
         {
             animator.SetTrigger("Die"); // Play death animation
         }
+        if (!GameManager.Instance.IsEnemyDefeated(enemyID))  // Check if the enemy is already defeated
+        {
+            GameManager.Instance.MarkEnemyAsDefeated(enemyID);  // Mark it as defeated
+            DropExperience();  // Drop XP and upgrades only if not defeated before
+            DropUpgrade();
+        }
 
-        DropExperience();
-        DropUpgrade();
 
         StartCoroutine(RemoveNPC());
     }

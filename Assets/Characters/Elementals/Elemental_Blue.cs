@@ -9,6 +9,8 @@ using TMPro;
 
 public class Elemental_Blue : MonoBehaviour
 {
+    public string enemyID;  // Each enemy has a unique ID
+
     public Slider hpSlider; // Assign in the Inspector
     public TextMeshProUGUI hpText; // Assign in the Inspector
 
@@ -35,6 +37,7 @@ public class Elemental_Blue : MonoBehaviour
     private GameObject bossHP; // Reference to UI Prompt
 
     private Slider healthBar; // Assign in Inspector
+    public bool isDefeated = false;
 
     private void Start()
     {
@@ -155,9 +158,14 @@ public class Elemental_Blue : MonoBehaviour
 
     void Die()
     {
+
         updateHPBar();
-        DropExperience();
-        DropUpgrade();
+        if (!GameManager.Instance.IsEnemyDefeated(enemyID))  // Check if the enemy is already defeated
+        {
+            GameManager.Instance.MarkEnemyAsDefeated(enemyID);  // Mark it as defeated
+            DropExperience();  // Drop XP and upgrades only if not defeated before
+            DropUpgrade();
+        }
         StartCoroutine(Waitforfive());
         Debug.Log("[Blue_Elemental] Defeated!");
 

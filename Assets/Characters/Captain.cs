@@ -33,7 +33,7 @@ public class Captain : NPC
             return; // Exit Start() to avoid running AI logic
         }
 
-        npcName = "Captain";  // Set NPC name
+        enemyID = "Captain";  // Set NPC name
         base.Start(); // ✅ Now it keeps the Inspector value
 
 

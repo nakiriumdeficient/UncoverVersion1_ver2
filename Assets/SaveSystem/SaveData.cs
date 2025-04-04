@@ -22,4 +22,5 @@ public class SaveData
     public bool hasKey3;
 
     public List<string> defeatedBosses;
+    public List<string> defeatedEnemies;
 }
