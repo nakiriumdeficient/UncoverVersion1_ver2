@@ -685,8 +685,16 @@ PrefabInstance:
       value: Blue_Elemental
       objectReference: {fileID: 0}
     - target: {fileID: 7015407503554156662, guid: 895dbf1c8ef83b3439f17d0ecf65450d, type: 3}
+      propertyPath: enemyID
+      value: 20ele2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015407503554156662, guid: 895dbf1c8ef83b3439f17d0ecf65450d, type: 3}
       propertyPath: attackRange
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015407503554156662, guid: 895dbf1c8ef83b3439f17d0ecf65450d, type: 3}
+      propertyPath: xpDropAmount
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7015407503554156662, guid: 895dbf1c8ef83b3439f17d0ecf65450d, type: 3}
       propertyPath: detectionRange
@@ -1219,6 +1227,14 @@ PrefabInstance:
     - target: {fileID: 1761814733670528689, guid: 063df8d1d42ef444a8242579cf9cbcc2, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370113662526446257, guid: 063df8d1d42ef444a8242579cf9cbcc2, type: 3}
+      propertyPath: enemyID
+      value: 20ele1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370113662526446257, guid: 063df8d1d42ef444a8242579cf9cbcc2, type: 3}
+      propertyPath: xpDropAmount
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4868808771972618791, guid: 063df8d1d42ef444a8242579cf9cbcc2, type: 3}
       propertyPath: m_Name

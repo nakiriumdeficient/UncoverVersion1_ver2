@@ -3702,12 +3702,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6910790331036542837, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: enemyID
+      value: Sage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910790331036542837, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
       propertyPath: hpSlider
       value: 
       objectReference: {fileID: 1354125797}
     - target: {fileID: 6910790331036542837, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
       propertyPath: isDefeated
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910790331036542837, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: xpDropAmount
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910790331036542837, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: upgradeDropAmount
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

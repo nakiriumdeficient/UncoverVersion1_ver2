@@ -80514,6 +80514,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7661313528611554021, guid: 74b0df23b33810a40bc056d53350dcda, type: 3}
+      propertyPath: enemyID
+      value: 17eidolon1
+      objectReference: {fileID: 0}
     - target: {fileID: 9173879511502790114, guid: 74b0df23b33810a40bc056d53350dcda, type: 3}
       propertyPath: m_Name
       value: Eidolon
@@ -89269,8 +89273,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1158963383}
+  journalUI: {fileID: 0}
   player: {fileID: 0}
   playerTag: GreyPlayer
+  enemyNameText: {fileID: 0}
+  enemyImage: {fileID: 0}
+  enemyDescriptionText: {fileID: 0}
+  nextButton: {fileID: 0}
+  previousButton: {fileID: 0}
+  pageCounterText: {fileID: 0}
+  enemyEntries: []
 --- !u!4 &2090415268
 Transform:
   m_ObjectHideFlags: 0

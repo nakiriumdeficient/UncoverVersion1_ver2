@@ -2341,6 +2341,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1771300420892805984, guid: 3023d28e800c8994c816b2c906010721, type: 3}
+      propertyPath: enemyID
+      value: 27ele1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771300420892805984, guid: 3023d28e800c8994c816b2c906010721, type: 3}
+      propertyPath: xpDropAmount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2060737130982665089, guid: 3023d28e800c8994c816b2c906010721, type: 3}
       propertyPath: m_Name
       value: Red_Elemental

@@ -206,7 +206,7 @@ public class Elemental_Blue : MonoBehaviour
             UpgradePickup upgradeScript = upgrade.GetComponent<UpgradePickup>();
             if (upgradeScript != null)
             {
-                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfXpDrops;
+                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfUpDrops;
             }
         }
 

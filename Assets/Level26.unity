@@ -1446,6 +1446,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5394842956439970999, guid: 822afe2a9a8729d4eb68ffa9b3cd783a, type: 3}
+      propertyPath: enemyID
+      value: 26ele1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394842956439970999, guid: 822afe2a9a8729d4eb68ffa9b3cd783a, type: 3}
+      propertyPath: xpDropAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5394842956439970999, guid: 822afe2a9a8729d4eb68ffa9b3cd783a, type: 3}
       propertyPath: detectionRange
       value: 9
       objectReference: {fileID: 0}

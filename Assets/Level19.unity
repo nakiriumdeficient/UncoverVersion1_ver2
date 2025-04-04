@@ -2165,6 +2165,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7449626728240686553, guid: df0e883f3df1dcb41858e372000e35ae, type: 3}
+      propertyPath: enemyID
+      value: 19archer1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449626728240686553, guid: df0e883f3df1dcb41858e372000e35ae, type: 3}
       propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}

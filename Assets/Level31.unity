@@ -815,8 +815,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
+      propertyPath: enemyID
+      value: 31shielder1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
       propertyPath: maxHealth
       value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
+      propertyPath: xpDropAmount
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1600,8 +1608,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8676597086156181596, guid: fb57be720b55935408a66497604cab38, type: 3}
+      propertyPath: enemyID
+      value: 31duelist1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8676597086156181596, guid: fb57be720b55935408a66497604cab38, type: 3}
       propertyPath: maxHealth
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8676597086156181596, guid: fb57be720b55935408a66497604cab38, type: 3}
+      propertyPath: xpDropAmount
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8676597086156181596, guid: fb57be720b55935408a66497604cab38, type: 3}
+      propertyPath: upgradeDropAmount
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

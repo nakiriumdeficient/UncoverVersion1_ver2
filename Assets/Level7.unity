@@ -642,6 +642,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4639106066485910987, guid: 76cdac29eaac43a4685830ca945df064, type: 3}
     - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
+      propertyPath: enemyID
+      value: 7shielder1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
@@ -658,8 +662,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
+      propertyPath: xpDropAmount
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
       propertyPath: detectionRange
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
+      propertyPath: upgradeDropAmount
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3673,6 +3685,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 640740718838533805, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640740718838533805, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2845695283634600495, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3782,6 +3802,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5726685790204747708, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878663045579678908, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878663045579678908, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}

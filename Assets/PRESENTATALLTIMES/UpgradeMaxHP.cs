@@ -14,7 +14,7 @@ public class UpgradeMaxHP : MonoBehaviour
     private Button upgradeButton;
 
     private int maxUpgrades = 10; // Max times HP can be upgraded
-    private int baseCost = 20; // Starting cost in upgrade orbs
+    private int baseCost = 40; // Starting cost in upgrade orbs
 
     private int MaxHPUpgradesAllowed => GameManager.Instance.playerLevel / 2 + 5; // Scales with level
     void Start()

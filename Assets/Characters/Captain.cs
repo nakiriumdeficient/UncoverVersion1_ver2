@@ -22,9 +22,12 @@ public class Captain : NPC
     public int upgradeDropAmount = 30;
     public int numberOfUpDrops = 3;
 
+    //  Boss System
+    public bool isBoss = false; // Set in the Inspector if this is a boss
     private GameObject bossHP; // Reference to UI Prompt
     public string bossID = "";
 
+    private Slider healthBar; // Assign in Inspector
     protected override void Start()
     {
         if(GameManager.Instance.defeatedBosses.Contains(bossID))
@@ -32,13 +35,32 @@ public class Captain : NPC
             Destroy(gameObject);
             return; // Exit Start() to avoid running AI logic
         }
-
-        enemyID = "Captain";  // Set NPC name
+        
         base.Start(); // ✅ Now it keeps the Inspector value
 
+        if (isBoss)
+        {
+            bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
+            hpSlider = bossHP?.GetComponentInChildren<Slider>();
+            hpText = bossHP?.GetComponentInChildren<TextMeshProUGUI>();
 
+            if (bossHP != null)
+            {
+                bossHP.SetActive(false); // Start disabled
+            }
+        }
 
-        bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
+        if (!isBoss)
+        {
+            healthBar = GetComponentInChildren<Slider>();
+
+            if (healthBar != null)
+            {
+                healthBar.maxValue = maxHealth;
+                healthBar.value = currentHealth;
+            }
+        }
+
 
         // Try to find the child object dynamically
         Transform modelTransform = transform.Find("Captain_Model");
@@ -61,6 +83,8 @@ public class Captain : NPC
         {
             player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
         }
+
+        healthBar.value = currentHealth;
 
         if (player != null)
         {
@@ -155,7 +179,10 @@ public class Captain : NPC
         currentHealth -= damage;
         Debug.Log("[Captain] Took " + damage + " damage! HP: " + currentHealth);
 
-
+        if (healthBar)
+        {
+            healthBar.value = currentHealth;
+        }
 
         if (currentHealth <= 0)
         {
@@ -166,12 +193,21 @@ public class Captain : NPC
     {
         bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
         updateHPBar();
-        DropExperience();
-        DropUpgrade();
 
-
-        GameManager.Instance.defeatedBosses.Add(bossID);
-        GameManager.Instance.SaveGame();
+        updateHPBar();
+        if (!GameManager.Instance.IsEnemyDefeated(enemyID))  // Check if the enemy is already defeated
+        {
+            GameManager.Instance.MarkEnemyAsDefeated(enemyID);  // Mark it as defeated
+            DropExperience();  // Drop XP and upgrades only if not defeated before
+            DropUpgrade();
+        }
+        // If this is a boss, mark it as defeated in save data
+        if (isBoss)
+        {
+            GameManager.Instance.defeatedBosses.Add(bossID);
+            GameManager.Instance.SaveGame();
+            bossHP.SetActive(false);
+        }
 
         if (isDead) return;
         isDead = true;
@@ -186,7 +222,7 @@ public class Captain : NPC
         float deathAnimLength = animator.GetCurrentAnimatorStateInfo(0).length;
         Destroy(gameObject, deathAnimLength + 0.5f);
 
-        bossHP.SetActive(false);
+        
     }
     private void DropExperience()
     {
@@ -210,7 +246,7 @@ public class Captain : NPC
             UpgradePickup upgradeScript = upgrade.GetComponent<UpgradePickup>();
             if (upgradeScript != null)
             {
-                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfXpDrops;
+                upgradeScript.upgradeAmount = upgradeDropAmount / numberOfUpDrops;
             }
         }
 

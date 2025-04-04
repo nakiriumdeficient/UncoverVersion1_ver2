@@ -2681,8 +2681,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
+      propertyPath: enemyID
+      value: 28shielder1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
       propertyPath: maxHealth
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
+      propertyPath: xpDropAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328529532013304730, guid: 640844e3a4123de41b1977916c4ef159, type: 3}
+      propertyPath: upgradeDropAmount
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
