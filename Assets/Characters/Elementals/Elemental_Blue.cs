@@ -34,6 +34,8 @@ public class Elemental_Blue : MonoBehaviour
     public string bossID = ""; // Unique ID for the boss (e.g., "Boss1")
     private GameObject bossHP; // Reference to UI Prompt
 
+    private Slider healthBar; // Assign in Inspector
+
     private void Start()
     {
         //  Prevent respawning if this is a boss that was already defeated
@@ -53,6 +55,18 @@ public class Elemental_Blue : MonoBehaviour
                 bossHP.SetActive(false); // Start disabled
             }
         }
+
+        if(!isBoss)
+        {
+            healthBar = GetComponentInChildren<Slider>();
+
+            if (healthBar != null)
+            {
+                healthBar.maxValue = maxHealth;
+                healthBar.value = currentHealth;
+            }
+        }
+
         StartCoroutine(FindPlayer()); // Start looking for the player
     }
 
@@ -60,6 +74,8 @@ public class Elemental_Blue : MonoBehaviour
     {
         updateHPBar();
         if (player == null || isAttacking) return;
+
+        healthBar.value = currentHealth;
 
         if (player.transform == null) return; // Prevents null reference error
 
@@ -125,6 +141,11 @@ public class Elemental_Blue : MonoBehaviour
         Debug.Log("[Blue_Elemental] Got hit! Incoming damage: " + damage);
         currentHealth -= damage;
         Debug.Log("[Blue_Elemental] Took " + damage + " damage! HP: " + currentHealth);
+
+        if (healthBar)
+        {
+            healthBar.value = currentHealth;
+        }
 
         if (currentHealth <= 0)
         {

@@ -2325,7 +2325,7 @@ PrefabInstance:
     - target: {fileID: 2756563781606875392, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6560004847895857626, guid: af7f55803ca0a4a44b416efb84601749, type: 3}
     - target: {fileID: 2756563781606875392, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
@@ -2413,7 +2413,7 @@ PrefabInstance:
     - target: {fileID: 4046227281800754932, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6560004847895857626, guid: af7f55803ca0a4a44b416efb84601749, type: 3}
     - target: {fileID: 4046227281800754932, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadMainMenu
@@ -2421,7 +2421,7 @@ PrefabInstance:
     - target: {fileID: 4232574355851998749, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6560004847895857626, guid: af7f55803ca0a4a44b416efb84601749, type: 3}
     - target: {fileID: 4232574355851998749, guid: 97a320098f674a24787d0715e18b5caf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame

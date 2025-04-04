@@ -16,7 +16,6 @@ public class WeaponData
     public string weaponIconName; // Store sprite name
     [NonSerialized] public Sprite weaponIcon; // This will not be saved in JSON
     public int upgradeCount; // Track the number of upgrades
-    public int maxUpgrades = 5; // Maximum number of upgrades allowed
 
     public WeaponData(string name, int dmg, int cost, int increase, string iconName = "")
     {
@@ -29,6 +28,8 @@ public class WeaponData
         weaponIcon = null; // Will be assigned after loading
         upgradeCount = 0; // Initialize upgrade count
     }
+
+    public int MaxUpgrades => Mathf.Clamp(GameManager.Instance.playerLevel / 2, 1, 10);
 }
 
 public class GameManager : MonoBehaviour

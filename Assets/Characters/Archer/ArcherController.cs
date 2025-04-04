@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArcherController : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class ArcherController : MonoBehaviour
     public int upgradeDropAmount = 30;
     public int numberOfUpDrops = 3;
 
+    private Slider healthBar; // Assign in Inspector
+
     void Start()
     {
         // Initialize health
@@ -35,6 +38,14 @@ public class ArcherController : MonoBehaviour
         if (animator == null)
         {
             Debug.LogError("Animator component missing from Archer or its children!");
+        }
+
+        healthBar = GetComponentInChildren<Slider>();
+
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHealth;
+            healthBar.value = currentHealth;
         }
 
         // Start a coroutine to find the player
@@ -64,6 +75,7 @@ public class ArcherController : MonoBehaviour
 
     void Update()
     {
+        healthBar.value = currentHealth;
         // Rotate the archer to face the player
         if (player != null && !isDead)
         {
@@ -135,6 +147,11 @@ public class ArcherController : MonoBehaviour
         if (isDead) return; // Ignore damage if already dead
 
         currentHealth -= damage;
+        if (healthBar)
+        {
+            healthBar.value = currentHealth;
+        }
+
         Debug.Log("Archer took " + damage + " damage! Current health: " + currentHealth);
 
         if (currentHealth <= 0)

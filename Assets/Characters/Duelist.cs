@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Duelist : NPC
 {
@@ -20,6 +21,7 @@ public class Duelist : NPC
     private Animator animator;
     private bool isDead = false;
 
+    private Slider healthBar; // Assign in Inspector
     protected override void Start()
     {
         npcName = "Duelist"; // Set the NPC name
@@ -38,6 +40,14 @@ public class Duelist : NPC
 
         // Start a coroutine to find the player
         StartCoroutine(FindPlayer());
+
+        healthBar = GetComponentInChildren<Slider>();
+
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHealth;
+            healthBar.value = currentHealth;
+        }
     }
 
     private IEnumerator FindPlayer()
@@ -63,7 +73,7 @@ public class Duelist : NPC
         if (isDead || currentHealth <= 0) return; // Stop updating if the Duelist is dead
 
         if (player == null) return; // Exit if player is not found yet
-
+        healthBar.value = currentHealth;
         base.Update(); // Call the base NPC Update method to handle detection range
 
         distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -154,7 +164,10 @@ public class Duelist : NPC
 
         base.Die(); // Call the base NPC Die method
         Debug.Log("[Duelist] Died! Playing death animation...");
-
+        if (healthBar)
+        {
+            healthBar.value = currentHealth;
+        }
         // Play death animation
         if (animator != null)
         {

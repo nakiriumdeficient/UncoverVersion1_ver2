@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26163e7c609fcc446ad33f122991031c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpSlider: {fileID: 0}
+  hpText: {fileID: 0}
   detectionRange: 15
   attackRange: 20
   attackCooldown: 4
@@ -104,6 +106,8 @@ MonoBehaviour:
   upgradeOrb: {fileID: 510702803067997793, guid: ebc85a472c8a2434eb69191557fde3b2, type: 3}
   upgradeDropAmount: 30
   numberOfUpDrops: 3
+  isBoss: 0
+  bossID: 
 --- !u!1001 &1003502186602208876
 PrefabInstance:
   m_ObjectHideFlags: 0

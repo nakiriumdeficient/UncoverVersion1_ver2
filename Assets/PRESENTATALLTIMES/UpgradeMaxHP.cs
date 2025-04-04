@@ -16,6 +16,7 @@ public class UpgradeMaxHP : MonoBehaviour
     private int maxUpgrades = 10; // Max times HP can be upgraded
     private int baseCost = 20; // Starting cost in upgrade orbs
 
+    private int MaxHPUpgradesAllowed => GameManager.Instance.playerLevel / 2 + 5; // Scales with level
     void Start()
     {
         upgradeUI = GameObject.FindObjectOfType<Canvas>().transform.Find("UpgradeUI")?.gameObject;
@@ -38,18 +39,21 @@ public class UpgradeMaxHP : MonoBehaviour
 
     public void PermaHPUpgrade()
     {
-        int currentUpgrades = GameManager.Instance.hpUpgradeCount; // Load upgrade count
+        int currentUpgrades = GameManager.Instance.hpUpgradeCount;
+        int maxUpgrades = MaxHPUpgradesAllowed; // Use dynamic max upgrade count
         int currentCost = baseCost + (currentUpgrades * 5); // Cost increases by 5 per upgrade
 
         if (GameManager.Instance.upgradeOrb < currentCost)
         {
             Debug.Log("Not enough upgrade orbs!");
+            UpdateUI();
             return;
         }
 
         if (currentUpgrades >= maxUpgrades)
         {
             Debug.Log("Max HP upgrades reached!");
+            UpdateUI();
             return;
         }
 
@@ -69,6 +73,7 @@ public class UpgradeMaxHP : MonoBehaviour
     private void UpdateUI()
     {
         int currentUpgrades = GameManager.Instance.hpUpgradeCount;
+        int maxUpgrades = MaxHPUpgradesAllowed; // Get current max allowed upgrades
         int nextCost = baseCost + (currentUpgrades * 5);
         FindObjectOfType<SavePoint>().orbText.text = "Upgrade Orbs: " + GameManager.Instance.upgradeOrb;
 
@@ -95,7 +100,7 @@ public class UpgradeMaxHP : MonoBehaviour
         {
             if (currentUpgrades >= maxUpgrades)
             {
-                maxHPmax.text = "Max HP upgrade achieved!";
+                maxHPmax.text = "Max HP upgrade achieved!\nIncrease levels for more upgrades!";
                 maxHPmax.gameObject.SetActive(true);
             }
             else

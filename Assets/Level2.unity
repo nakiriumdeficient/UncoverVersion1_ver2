@@ -4227,6 +4227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Ambient
       objectReference: {fileID: 0}
+    - target: {fileID: 5517826756489554648, guid: febc43868fdda2d40a7b0fa395cadf17, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

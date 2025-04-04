@@ -56,7 +56,7 @@ public class Captain : NPC
     protected override void Update()
     {
         if (isDead) return; // Prevents movement after death
-
+        updateHPBar();
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
@@ -164,12 +164,10 @@ public class Captain : NPC
     }
     void Die()
     {
-
-        bossHP.SetActive(false);
-
+        bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
+        updateHPBar();
         DropExperience();
         DropUpgrade();
-
 
 
         GameManager.Instance.defeatedBosses.Add(bossID);
@@ -185,10 +183,10 @@ public class Captain : NPC
         animator.SetTrigger("Die"); // ✅ Use a trigger instead of a bool
         }
         
-        
-
         float deathAnimLength = animator.GetCurrentAnimatorStateInfo(0).length;
         Destroy(gameObject, deathAnimLength + 0.5f);
+
+        bossHP.SetActive(false);
     }
     private void DropExperience()
     {

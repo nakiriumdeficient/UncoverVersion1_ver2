@@ -26,6 +26,10 @@ public class WeaponButton : MonoBehaviour
     {
         // Update logic (if needed)
     }
+    private int GetMaxWeaponUpgrades()
+    {
+        return GameManager.Instance.playerLevel / 2 + 2; // Increases every 2 levels
+    }
 
     public void Setup(WeaponData weapon)
     {
@@ -49,8 +53,10 @@ public class WeaponButton : MonoBehaviour
 
     void UpgradeWeapon()
     {
+        int maxUpgrades = GetMaxWeaponUpgrades(); // Get dynamic max upgrades
+
         // Check if the weapon has reached the maximum number of upgrades
-        if (weaponData.upgradeCount >= weaponData.maxUpgrades)
+        if (weaponData.upgradeCount >= maxUpgrades)
         {
             Debug.Log(weaponData.weaponName + " has reached the maximum number of upgrades!");
             return;
@@ -83,7 +89,7 @@ public class WeaponButton : MonoBehaviour
             }
 
             // Debugging message
-            Debug.Log(weaponData.weaponName + " upgraded! New Damage: " + weaponData.damage + " | Upgrades: " + weaponData.upgradeCount + "/" + weaponData.maxUpgrades);
+            Debug.Log(weaponData.weaponName + " upgraded! New Damage: " + weaponData.damage + " | Upgrades: " + weaponData.upgradeCount + "/" + maxUpgrades);
 
             // Update the button state
             UpdateButtonState();
@@ -96,8 +102,9 @@ public class WeaponButton : MonoBehaviour
 
     private void UpdateButtonState()
     {
+        int maxUpgrades = GetMaxWeaponUpgrades();
         // Disable the upgrade button if the weapon has reached the maximum number of upgrades
-        if (weaponData.upgradeCount >= weaponData.maxUpgrades)
+        if (weaponData.upgradeCount >= maxUpgrades)
         {
             upgradeButton.interactable = false;
             upgradeCostText.text = "Max Upgrades Reached!";

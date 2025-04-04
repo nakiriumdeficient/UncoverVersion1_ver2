@@ -16,11 +16,15 @@ public class ElfShielder : NPC
         base.Start();
 
         animator = GetComponentInChildren<Animator>(); // Get Animator from model
+
+
+        
     }
 
     protected override void Update()
     {
         if (isDead) return; // ✅ Prevent movement when dead, but allow attacking before death
+        
 
         if (player == null)
         {
@@ -117,6 +121,8 @@ public class ElfShielder : NPC
 
         currentHealth -= damage;
         Debug.Log("[Elf Shielder] Took " + damage + " damage! HP: " + currentHealth);
+
+
 
         if (currentHealth <= 0)
         {

@@ -27,10 +27,16 @@ public class InventoryManager : MonoBehaviour
             ToggleInventory();
         }
     }
-
+    private int GetMaxWeaponUpgrades()
+    {
+        return GameManager.Instance.playerLevel / 2 + 2; // Increases every 2 levels
+    }
     public void ToggleInventory()
     {
+
         bool isActive = inventoryUI.activeSelf;
+
+
 
         inventoryUI.SetActive(!isActive); // Toggle Inventory UI
 
@@ -80,7 +86,8 @@ public class InventoryManager : MonoBehaviour
 
     void ShowWeaponDetails(WeaponData weapon)
     {
-        itemDescriptionText.text = $"{weapon.weaponName}\nDamage: {weapon.damage}\nUpgrades: {weapon.upgradeCount}/{weapon.maxUpgrades}";
+        int maxUpgrades = GetMaxWeaponUpgrades(); // Get dynamic max upgrades
+        itemDescriptionText.text = $"{weapon.weaponName}\nDamage: {weapon.damage}\nUpgrades: {weapon.upgradeCount}/{maxUpgrades}";
     }
 
     void ShowItemDetails(string itemName)
