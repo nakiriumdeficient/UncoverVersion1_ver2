@@ -49,9 +49,6 @@ MonoBehaviour:
   bgm1: {fileID: 8300000, guid: 3c964e4eac990fc44b4870104ee49a0f, type: 3}
   bgm2: {fileID: 8300000, guid: da033f529779e7e44935a964cc487167, type: 3}
   bgm3: {fileID: 8300000, guid: 894cffaf8b90e2e41945ed03d002f5d7, type: 3}
-  ambient1: {fileID: 8300000, guid: 86c74606007a05c45a27815244bc5e24, type: 3}
-  ambient2: {fileID: 0}
-  ambient3: {fileID: 0}
 --- !u!82 &3808431710598174907
 AudioSource:
   m_ObjectHideFlags: 0
@@ -61,7 +58,7 @@ AudioSource:
   m_GameObject: {fileID: 69091348823409478}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3564352154835954999, guid: d9e8955df5041444e8b8c4ebf56ecaea, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.2

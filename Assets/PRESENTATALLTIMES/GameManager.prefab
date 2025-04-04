@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2702408557097311108}
   - component: {fileID: 8714667113296851978}
+  - component: {fileID: 5337046541132591712}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48,9 +49,27 @@ MonoBehaviour:
   savedPosition: {x: 0, y: 0, z: 0}
   collectedItems: []
   defeatedBosses: []
+  defeatedEnemies: []
   playermaxHP: 100
   playercurHP: 100
   playerXP: 0
   maxXP: 100
   playerLevel: 1
   upgradeOrb: 0
+  hpUpgradeCount: 0
+--- !u!114 &5337046541132591712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896444418128966747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b88322430ed4b14698e667296141d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: d9e8955df5041444e8b8c4ebf56ecaea, type: 2}
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject continueButton;
+    public GameObject settingspanel;
 
     private void Start()
     {
@@ -28,6 +29,14 @@ public class MainMenu : MonoBehaviour
         {
             Debug.LogWarning("No save file found!");
         }
+    }
+    public void SettingsON()
+    {
+        settingspanel.SetActive(true);
+    }
+    public void SettingsOFF()
+    {
+        settingspanel.SetActive(false);
     }
 
     public void QuitGame()
