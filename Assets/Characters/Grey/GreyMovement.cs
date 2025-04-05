@@ -11,6 +11,7 @@ public class GreyMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
 
+    private PlayerDodge dodgeScript;
     void Start()
     {
         // Get the CharacterController component
@@ -18,11 +19,17 @@ public class GreyMovement : MonoBehaviour
 
         animator = GetComponent<Animator>();
         // Check if the player is on the ground
+
+        dodgeScript = GetComponent<PlayerDodge>();
     }
 
     void Update()
     {
         animator.SetBool("isMoving", false);
+        if (dodgeScript != null && dodgeScript.IsDodging())
+        {
+            return; // Stop regular movement while dodging
+        }
 
         if (controller.isGrounded && velocity.y < 0)
         {

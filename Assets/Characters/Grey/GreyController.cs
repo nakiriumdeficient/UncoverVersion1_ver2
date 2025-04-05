@@ -20,8 +20,9 @@ public class GreyController : MonoBehaviour
 
     private bool isDead = false;
 
+    private PlayerDodge dodgeScript;
     // Weapon system variables
-    
+
 
     // Audio
     public AudioSource moveAudioSource; // Reference to the AudioSource for moving sounds
@@ -34,10 +35,10 @@ public class GreyController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>(); // Get Animator from child
         modelTransform = animator.transform;
-        
+        dodgeScript = GetComponent<PlayerDodge>();
 
         // Initialize weapons
-        
+
 
         // Initialize move audio source
         if (moveAudioSource == null)
@@ -52,6 +53,11 @@ public class GreyController : MonoBehaviour
     {
         if (isDead) return; // Prevent movement when dead
 
+        if (dodgeScript != null && dodgeScript.IsDodging())
+        {
+            return; // Stop regular movement while dodging
+        }
+
         GreyAttack attackScript = GetComponent<GreyAttack>();
 
         if (attackScript != null && attackScript.isAttacking) return; // Disable movement/jump while attacking
@@ -62,27 +68,6 @@ public class GreyController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         bool isMoving = Mathf.Abs(moveHorizontal) > 0;
         
-        // Handle moving sound
-        /*
-        if (isMoving)
-        {
-            if (!isMovingSoundPlaying)
-            {
-                moveAudioSource.Play(); // Play the moving sound
-                isMovingSoundPlaying = true;
-            }
-        }
-        else
-        {
-            if (isMovingSoundPlaying)
-            {
-                moveAudioSource.Stop(); // Stop the moving sound
-                isMovingSoundPlaying = false;
-            }
-        }
-        */
-
-
         if (controller.isGrounded && !isAttacking)
         {
             if (isJumping)
@@ -158,22 +143,5 @@ public class GreyController : MonoBehaviour
         facingRight = !facingRight;
         modelTransform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
-
-    
-
-    
-
-    // Weapon system methods
-    
-
-    
-
-    // Save collected weapons to PlayerPrefs
-    
-
-    // Load collected weapons from PlayerPrefs
-    
-
-    // Key system methods
     
 }

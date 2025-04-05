@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 5955442767960610015}
   - component: {fileID: 4654109060876702733}
   - component: {fileID: 4214876246468068577}
+  - component: {fileID: 5553830000508451180}
+  - component: {fileID: 7126850032942766883}
   - component: {fileID: 1705128956911022276}
   - component: {fileID: 5161323169174479114}
   - component: {fileID: 5547768072058767136}
-  - component: {fileID: 5553830000508451180}
-  - component: {fileID: 7126850032942766883}
   - component: {fileID: 3573626051623068531}
+  - component: {fileID: 1321280433118573889}
   m_Layer: 0
   m_Name: Grey
   m_TagString: GreyPlayer
@@ -184,47 +185,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1705128956911022276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2178899271628919971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e78818dc0aea3554b93f27e7900f65ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  jumpSpeed: 8
-  gravity: 20
-  moveAudioSource: {fileID: 7126850032942766883}
---- !u!114 &5161323169174479114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2178899271628919971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 098f8e2d1f09de34f98938a14f910caa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5547768072058767136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2178899271628919971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c38963da61d2f942a6c1be118d5d641, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 6403360979495108728, guid: 28b39d74b02b6e740ba3eb458fdec1cd, type: 3}
 --- !u!82 &5553830000508451180
 AudioSource:
   m_ObjectHideFlags: 0
@@ -417,6 +377,48 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1705128956911022276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2178899271628919971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78818dc0aea3554b93f27e7900f65ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  jumpSpeed: 8
+  gravity: 20
+  moveAudioSource: {fileID: 7126850032942766883}
+--- !u!114 &5161323169174479114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2178899271628919971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098f8e2d1f09de34f98938a14f910caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5547768072058767136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2178899271628919971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c38963da61d2f942a6c1be118d5d641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 6403360979495108728, guid: 28b39d74b02b6e740ba3eb458fdec1cd, type: 3}
+  canBeDamaged: 1
 --- !u!114 &3573626051623068531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +435,21 @@ MonoBehaviour:
   attackAudioSource: {fileID: 4214876246468068577}
   attackCooldown: 1.2
   isAttacking: 0
+--- !u!114 &1321280433118573889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2178899271628919971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4423b9d723e7c4ca02ea0429073efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dodgeDistance: 3
+  dodgeCooldown: 3
+  dodgeDuration: 0.2
 --- !u!1 &5978631218497746405
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class GreyHealth : MonoBehaviour
     private TextMeshProUGUI deathMessage; // Reference to Death Screen text
     private string lastDamageSource = ""; // Track how the player died
     // Start is called before the first frame update
+
+    public bool canBeDamaged = true;
     void Start()
     {
         healthBar.SetMaxHealth(GameManager.Instance.playermaxHP);
@@ -42,6 +44,7 @@ public class GreyHealth : MonoBehaviour
     {
         if (isDead) return;
 
+        if (!canBeDamaged) return;
 
         GameManager.Instance.playercurHP -= damage;
         lastDamageSource = source; // Store last hit source
