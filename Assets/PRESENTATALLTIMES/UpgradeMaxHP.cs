@@ -100,7 +100,7 @@ public class UpgradeMaxHP : MonoBehaviour
         {
             if (currentUpgrades >= maxUpgrades)
             {
-                maxHPmax.text = "Max HP upgrade achieved!\nIncrease levels for more upgrades!";
+                maxHPmax.text = $"Max HP upgrade achieved!\nIncrease levels for more upgrades!";
                 maxHPmax.gameObject.SetActive(true);
             }
             else

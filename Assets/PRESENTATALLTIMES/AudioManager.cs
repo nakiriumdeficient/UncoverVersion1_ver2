@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private bool suppressMusic = false;
     void Awake()
     {
         if (instance == null)
@@ -54,11 +55,31 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        string sceneName = scene.name;
+
+        // If Level0 (cutscene), stop music and suppress auto-play
+        if (sceneName == "Level0")
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+
+            suppressMusic = true;
+            return;
+        }
+
+        // Any other level: resume music
+        suppressMusic = false;
+
+
         PlayBGMForScene();
     }
 
     void PlayBGMForScene()
     {
+        if (suppressMusic) return; // Don't play music if suppressed
+
         string sceneName = SceneManager.GetActiveScene().name;
         AudioClip newBGM = GetBGMForScene(sceneName);
 

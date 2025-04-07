@@ -1658,7 +1658,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 07c1cffd6111ffd43b011f4752a94991, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2552,8 +2552,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 48339847}
+  journalUI: {fileID: 0}
   player: {fileID: 0}
   playerTag: GreyPlayer
+  enemyNameText: {fileID: 0}
+  enemyImage: {fileID: 0}
+  enemyDescriptionText: {fileID: 0}
+  nextButton: {fileID: 0}
+  previousButton: {fileID: 0}
+  pageCounterText: {fileID: 0}
+  enemyEntries: []
 --- !u!4 &2090415268
 Transform:
   m_ObjectHideFlags: 0
