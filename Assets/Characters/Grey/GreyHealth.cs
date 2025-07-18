@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
+using System.Linq;
 using static Unity.VisualScripting.Member;
 
 public class GreyHealth : MonoBehaviour
@@ -24,6 +25,7 @@ public class GreyHealth : MonoBehaviour
         healthBar.SetMaxHealth(GameManager.Instance.playermaxHP);
         deathScreen = GameObject.FindObjectOfType<Canvas>().transform.Find("DeathScreen")?.gameObject;
 
+        /**
         if (deathScreen != null)
         {
             deathScreen.SetActive(false); // Ensure it's hidden at start
@@ -33,6 +35,8 @@ public class GreyHealth : MonoBehaviour
         {
             Debug.LogError("DeathScreen not found in the scene!");
         }
+        **/
+
     }
 
     // Update is called once per frame
@@ -40,6 +44,41 @@ public class GreyHealth : MonoBehaviour
     {
         healthBar.SetHealth(GameManager.Instance.playercurHP);
     }
+
+    private IEnumerator FindDeathScreenSafely()
+    {
+        yield return new WaitForSeconds(0.5f); // wait a bit longer
+
+        Canvas canvas = GameObject.FindObjectOfType<Canvas>();
+        if (canvas == null)
+        {
+            Debug.LogError("Canvas not found in the scene!");
+            yield break;
+        }
+
+        // Recursively search all children (including inactive) for "DeathScreen"
+        deathScreen = canvas.GetComponentsInChildren<Transform>(true)
+            .FirstOrDefault(t => t.name == "DeathScreen")?.gameObject;
+
+        if (deathScreen == null)
+        {
+            Debug.LogError("DeathScreen not found anywhere under Canvas!");
+            yield break;
+        }
+
+        // Now try to find the "DeathMessage" under deathScreen
+        deathMessage = deathScreen.GetComponentsInChildren<Transform>(true)
+            .FirstOrDefault(t => t.name == "DeathMessage")?.GetComponent<TextMeshProUGUI>();
+
+        deathScreen.SetActive(false); // Hide at start
+        Debug.Log("DeathScreen successfully found and disabled.");
+    }
+
+    public void ReconnectDeathScreen()
+    {
+        StartCoroutine(FindDeathScreenSafely());
+    }
+
     public void TakeDamage(int damage, string source)
     {
         if (isDead) return;
@@ -64,12 +103,16 @@ public class GreyHealth : MonoBehaviour
         if (isDead) return;
 
         Debug.Log("[Grey] HP reached 0! Playing death animation...");
+
         isDead = true;
 
         if (animator != null)
         {
             animator.SetTrigger("Die"); // Play death animation
         }
+
+        ReconnectDeathScreen();
+
         if (deathScreen != null)
         {
             deathScreen.SetActive(true); // Show Death Screen

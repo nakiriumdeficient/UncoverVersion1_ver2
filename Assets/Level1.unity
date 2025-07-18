@@ -23830,12 +23830,16 @@ PrefabInstance:
       value: DialogueTriggerArea (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.809364
+      objectReference: {fileID: 0}
+    - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalScale.y
       value: 3.0249
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.47
+      value: -8.87
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36277,7 +36281,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3564352154835954999, guid: d9e8955df5041444e8b8c4ebf56ecaea, type: 2}
   m_audioClip: {fileID: 8300000, guid: e3f012158d545dc4b9acacbe94e3a196, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.15
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -42410,6 +42414,10 @@ PrefabInstance:
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: numberOfUpDrops
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
+      propertyPath: numberOfXpDrops
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: upgradeDropAmount

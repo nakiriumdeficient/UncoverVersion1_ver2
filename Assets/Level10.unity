@@ -220,6 +220,10 @@ PrefabInstance:
       value: Elf_Warrior (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
+      propertyPath: enemyID
+      value: 10warrior2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: maxHealth
       value: 50
       objectReference: {fileID: 0}
@@ -3191,6 +3195,10 @@ PrefabInstance:
     - target: {fileID: 7857979653790513911, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: m_Name
       value: Elf_Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
+      propertyPath: enemyID
+      value: 10warrior1
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: maxHealth

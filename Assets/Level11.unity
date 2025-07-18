@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: enemyID
-      value: 11warior1
+      value: 11wariror1
       objectReference: {fileID: 0}
     - target: {fileID: 9110564179757589169, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: maxHealth

@@ -307,6 +307,8 @@ public class GameManager : MonoBehaviour
             player.transform.position = savedPosition;
             Debug.Log("Loaded Player Position: " + savedPosition);
         }
+
+        FindObjectOfType<GreyHealth>()?.ReconnectDeathScreen();
     }
 
     public bool SaveExists()
