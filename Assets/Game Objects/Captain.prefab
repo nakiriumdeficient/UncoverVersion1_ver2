@@ -94,18 +94,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a10b6f4fc75d48a6374a24f5e4a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Enemy
+  enemyID: Captain
   maxHealth: 200
   detectionRange: 5
+  hpSlider: {fileID: 0}
+  hpText: {fileID: 0}
   speed: 3.5
   stopDistance: 2.3
-  attackCooldown: 5
+  attackCooldown: 9
   expOrb: {fileID: 4639106066485910987, guid: 76cdac29eaac43a4685830ca945df064, type: 3}
   xpDropAmount: 30
   numberOfXpDrops: 3
   upgradeOrb: {fileID: 510702803067997793, guid: ebc85a472c8a2434eb69191557fde3b2, type: 3}
   upgradeDropAmount: 30
   numberOfUpDrops: 3
+  isBoss: 1
+  bossID: Captain
 --- !u!1001 &51150466028053709
 PrefabInstance:
   m_ObjectHideFlags: 0
