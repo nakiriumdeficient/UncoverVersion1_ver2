@@ -78,13 +78,12 @@ public class Captain : NPC
     protected override void Update()
     {
         if (isDead) return; // Prevents movement after death
-        updateHPBar();
+
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
         }
-
-        healthBar.value = currentHealth;
 
         if (player != null)
         {
@@ -107,8 +106,6 @@ public class Captain : NPC
             }
         }
 
-        updateHPBar();
-
         bool shouldRun = isChasing;
 
         if (animator != null)
@@ -124,6 +121,13 @@ public class Captain : NPC
     }
     public void updateHPBar()
     {
+        bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
+        hpSlider = bossHP?.GetComponentInChildren<Slider>();
+        hpText = bossHP?.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (hpSlider == null || hpText == null) return;
+
+
         hpSlider.maxValue = 200;
         hpSlider.value = currentHealth;
 
@@ -179,6 +183,8 @@ public class Captain : NPC
         currentHealth -= damage;
         Debug.Log("[Captain] Took " + damage + " damage! HP: " + currentHealth);
 
+        updateHPBar();
+
         if (healthBar)
         {
             healthBar.value = currentHealth;
@@ -194,7 +200,6 @@ public class Captain : NPC
         bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
         updateHPBar();
 
-        updateHPBar();
         if (!GameManager.Instance.IsEnemyDefeated(enemyID))  // Check if the enemy is already defeated
         {
             GameManager.Instance.MarkEnemyAsDefeated(enemyID);  // Mark it as defeated
@@ -211,7 +216,7 @@ public class Captain : NPC
 
         if (isDead) return;
         isDead = true;
-
+        updateHPBar();
         Debug.Log("[Captain] Has died!");
 
         if (animator != null)
