@@ -4,135 +4,141 @@ using TMPro;
 
 public class Captain : NPC
 {
-    public Slider hpSlider; // Assign in the Inspector
-    public TextMeshProUGUI hpText; // Assign in the Inspector
+    [Header("Boss UI")]
+    public bool isBoss = false;
+    public string bossID = "";
+    private GameObject bossHP;
+    private Slider hpSlider;
+    private TextMeshProUGUI hpText;
 
-    public float speed = 3.5f;  // Captain's movement speed
-    public float stopDistance = 2.5f;  // Stops moving when close enough to Grey
-    private Animator animator;
-    public float attackCooldown = 1.5f; // Time between attacks
+    [Header("Combat Stats")]
+    public float speed = 3.5f;
+    public float stopDistance = 3.5f;
+    public float attackCooldown = 1.5f;
     private float lastAttackTime = 0f;
     private bool isDead = false;
 
-    public GameObject expOrb; // Assign XP orb prefab in the Inspector
+    [Header("Drops")]
+    public GameObject expOrb;
     public int xpDropAmount = 30;
-    public int numberOfXpDrops = 3; // Number of XP orbs to spawn
+    public int numberOfXpDrops = 3;
 
     public GameObject upgradeOrb;
     public int upgradeDropAmount = 30;
     public int numberOfUpDrops = 3;
 
-    //  Boss System
-    public bool isBoss = false; // Set in the Inspector if this is a boss
-    private GameObject bossHP; // Reference to UI Prompt
-    public string bossID = "";
+    private Animator animator;
+    private bool isAttacking = false;
+    [Header("Attack Behavior")]
+    public float attackPush = 1.5f; // how far forward he slides during attack
 
-    private Slider healthBar; // Assign in Inspector
     protected override void Start()
     {
-        if(GameManager.Instance.defeatedBosses.Contains(bossID))
+        // Destroy if already defeated
+        if (GameManager.Instance.defeatedBosses.Contains(bossID))
         {
             Destroy(gameObject);
-            return; // Exit Start() to avoid running AI logic
-        }
-        
-        base.Start(); // Now it keeps the Inspector value
-
-        if (isBoss)
-        {
-            bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
-            hpSlider = bossHP?.GetComponentInChildren<Slider>();
-            hpText = bossHP?.GetComponentInChildren<TextMeshProUGUI>();
-
-            if (bossHP != null)
-            {
-                bossHP.SetActive(false); // Start disabled
-            }
+            return;
         }
 
-        if (!isBoss)
-        {
-            healthBar = GetComponentInChildren<Slider>();
+        base.Start(); // from NPC
 
-            if (healthBar != null)
-            {
-                healthBar.maxValue = maxHealth;
-                healthBar.value = currentHealth;
-            }
-        }
-
-
-        // Try to find the child object dynamically
+        // Initialize Animator
         Transform modelTransform = transform.Find("Captain_Model");
-
-        if (modelTransform != null)
-        {
+        if (modelTransform)
             animator = modelTransform.GetComponent<Animator>();
+
+        // Try to find boss HP bar once (on player’s Canvas)
+        Canvas mainCanvas = FindObjectOfType<Canvas>();
+        if (mainCanvas != null)
+        {
+            Transform hpBar = mainCanvas.transform.Find("CaptainHPBar");
+            if (hpBar != null)
+            {
+                bossHP = hpBar.gameObject;
+                hpSlider = bossHP.GetComponentInChildren<Slider>();
+                hpText = bossHP.GetComponentInChildren<TextMeshProUGUI>();
+                bossHP.SetActive(false); // start hidden
+            }
+            else
+            {
+                Debug.LogWarning("[Captain] CaptainHPBar not found on canvas!");
+            }
+        }
+
+        if (mainCanvas != null)
+        {
+            Debug.Log("[Captain] Found canvas: " + mainCanvas.name);
+            Transform hpBar = mainCanvas.transform.Find("CaptainHPBar");
+            if (hpBar != null)
+                Debug.Log("[Captain] Found CaptainHPBar inside canvas!");
+            else
+                Debug.LogWarning("[Captain] CaptainHPBar not found inside " + mainCanvas.name);
         }
         else
         {
-            Debug.LogError("[Captain] Child object 'Captain_Model' not found! Check the name in the Hierarchy.");
+            Debug.LogError("[Captain] No Canvas found in the scene!");
         }
     }
 
     protected override void Update()
     {
-        if (isDead) return; // Prevents movement after death
-
+        Canvas mainCanvas = FindObjectOfType<Canvas>();
+        if (isDead) return;
 
         if (player == null)
-        {
             player = GameObject.FindGameObjectWithTag("GreyPlayer")?.transform;
-        }
 
-        if (player != null)
+        if (player == null) return;
+
+        float distance = Vector3.Distance(transform.position, player.position);
+
+        // ✅ Activate boss HP when player is close enough
+        if (isBoss && bossHP != null && !bossHP.activeSelf && distance <= detectionRange)
+            bossHP.SetActive(true);
+
+        //  Update HP bar only if visible
+        if (isBoss && bossHP != null && bossHP.activeSelf)
+            UpdateHPBar();
+
+        //  If attacking, don't chase or move
+        if (isAttacking)
         {
-            float distance = Vector3.Distance(transform.position, player.position);
-
-            if (distance <= detectionRange && distance > stopDistance)
-            {
-                isChasing = true;
-            }
-            else
-            {
-                isChasing = false;
-            }
-
-            // ✅ Enforce attack cooldown correctly
-            if (distance <= stopDistance && Time.time >= lastAttackTime + attackCooldown)
-            {
-                Attack();
-                lastAttackTime = Time.time; // ✅ Update cooldown timer
-            }
+            // Optional: Apply a small forward slide during the attack
+            Vector3 push = transform.forward * attackPush * Time.deltaTime;
+            controller.Move(push);
+            return;
         }
 
-        bool shouldRun = isChasing;
+        //  Chase logic
+        isChasing = (distance <= detectionRange && distance > stopDistance);
 
-        if (animator != null)
-        {
-            animator.SetBool("isRunning", shouldRun);
-        }
-
-        if (shouldRun)
+        if (isChasing)
         {
             FacePlayer();
             ChasePlayer();
+            animator?.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator?.SetBool("isRunning", false);
+        }
+
+        // ✅ Attack logic
+        if (distance <= stopDistance && Time.time >= lastAttackTime + attackCooldown)
+        {
+            Attack();
+            lastAttackTime = Time.time;
         }
     }
-    public void updateHPBar()
-    {
-        bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
-        hpSlider = bossHP?.GetComponentInChildren<Slider>();
-        hpText = bossHP?.GetComponentInChildren<TextMeshProUGUI>();
 
+    private void UpdateHPBar()
+    {
         if (hpSlider == null || hpText == null) return;
 
-
-        hpSlider.maxValue = 200;
+        hpSlider.maxValue = maxHealth;
         hpSlider.value = currentHealth;
-
         hpText.text = $"{currentHealth} / {maxHealth}";
-            
     }
     void ChasePlayer()
     {
@@ -169,65 +175,58 @@ public class Captain : NPC
 
     public override void Attack()
     {
+        if (isDead || isAttacking) return;
+
+        isAttacking = true;
+        animator?.SetTrigger("Attack");
+
+        //  Start coroutine to re-enable chasing after animation finishes
+        StartCoroutine(AttackRoutine());
+    }
+
+    private System.Collections.IEnumerator AttackRoutine()
+    {
+        // Optional: get actual attack animation duration
+        float attackTime = 4.1f;
         if (animator != null)
         {
-            animator.SetTrigger("Attack"); // ✅ Use a trigger for one-time attack animation
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            if (stateInfo.IsName("Attack")) // Replace with your animation clip name if needed
+                attackTime = stateInfo.length;
         }
-        Debug.Log("[Captain] Attacking Grey!");
+
+        yield return new WaitForSeconds(attackTime);
+
+        isAttacking = false;
     }
+
 
     public override void TakeDamage(int damage)
     {
-        if (isDead) return; // ✅ Prevents taking damage after death
+        if (isDead) return;
 
         currentHealth -= damage;
-        Debug.Log("[Captain] Took " + damage + " damage! HP: " + currentHealth);
-
-        updateHPBar();
-
-        if (healthBar)
-        {
-            healthBar.value = currentHealth;
-        }
+        UpdateHPBar();
 
         if (currentHealth <= 0)
-        {
-            Die(); // ✅ Call Die() function when health reaches 0
-        }
+            Die();
     }
-    void Die()
+    private void Die()
     {
-        bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
-        updateHPBar();
-
-        if (!GameManager.Instance.IsEnemyDefeated(enemyID))  // Check if the enemy is already defeated
-        {
-            GameManager.Instance.MarkEnemyAsDefeated(enemyID);  // Mark it as defeated
-            DropExperience();  // Drop XP and upgrades only if not defeated before
-            DropUpgrade();
-        }
-        // If this is a boss, mark it as defeated in save data
-        if (isBoss)
-        {
-            GameManager.Instance.defeatedBosses.Add(bossID);
-            GameManager.Instance.SaveGame();
-            bossHP.SetActive(false);
-        }
-
         if (isDead) return;
         isDead = true;
-        updateHPBar();
-        Debug.Log("[Captain] Has died!");
 
-        if (animator != null)
-        {
-        animator.SetTrigger("Die"); // ✅ Use a trigger instead of a bool
-        }
-        
-        float deathAnimLength = animator.GetCurrentAnimatorStateInfo(0).length;
-        Destroy(gameObject, deathAnimLength + 0.5f);
+        animator?.SetTrigger("Die");
+        if (isBoss && bossHP != null)
+            bossHP.SetActive(false);
 
-        
+        GameManager.Instance.defeatedBosses.Add(bossID);
+        GameManager.Instance.SaveGame();
+
+        DropExperience();
+        DropUpgrade();
+
+        Destroy(gameObject, 2f);
     }
     private void DropExperience()
     {

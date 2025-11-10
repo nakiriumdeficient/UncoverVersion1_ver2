@@ -156,7 +156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2364289260010321863, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.331
+      value: 1.227
       objectReference: {fileID: 0}
     - target: {fileID: 2364289260010321863, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -856,7 +856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2364289260010321863, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.331
+      value: 1.215
       objectReference: {fileID: 0}
     - target: {fileID: 2364289260010321863, guid: eaac56a0c61bd8043b79a49d70ee663d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3676,7 +3676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6006361768395204468, guid: 2f93f3a283802c944be0bdb5bf186709, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.757
+      value: 0.665
       objectReference: {fileID: 0}
     - target: {fileID: 6006361768395204468, guid: 2f93f3a283802c944be0bdb5bf186709, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3723,8 +3723,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 182879094}
     - target: {fileID: 6889886827428631675, guid: 2f93f3a283802c944be0bdb5bf186709, type: 3}
+      propertyPath: attackPush
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889886827428631675, guid: 2f93f3a283802c944be0bdb5bf186709, type: 3}
+      propertyPath: xpDropAmount
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889886827428631675, guid: 2f93f3a283802c944be0bdb5bf186709, type: 3}
+      propertyPath: attackCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889886827428631675, guid: 2f93f3a283802c944be0bdb5bf186709, type: 3}
       propertyPath: detectionRange
-      value: 20
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889886827428631675, guid: 2f93f3a283802c944be0bdb5bf186709, type: 3}
+      propertyPath: upgradeDropAmount
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 8657713392633303462, guid: 2f93f3a283802c944be0bdb5bf186709, type: 3}
       propertyPath: m_Name

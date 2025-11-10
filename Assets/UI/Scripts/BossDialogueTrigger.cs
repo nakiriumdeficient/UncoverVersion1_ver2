@@ -50,14 +50,7 @@ public class BossDialogueTrigger : MonoBehaviour
                 Debug.LogWarning("Open sound not set or AudioSource missing!");
             }
         }
-        if (isCaptain == true)
-        {
-            bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
-
-            bossHP.SetActive(true);
-
-            triggerCollider.enabled = false;
-        }
+        
         else if (isSage == true)
         {
             bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("SageHPBar")?.gameObject;

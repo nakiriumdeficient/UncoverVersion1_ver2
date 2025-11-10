@@ -36,6 +36,7 @@ public class AelfricController : MonoBehaviour
     private int currentHealth;
     private bool isDead = false;
 
+    private bool bossUIShown = false;
 
     private GameObject bossHP; // Reference to UI Prompt
     public string bossID = "";
@@ -46,6 +47,17 @@ public class AelfricController : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        if (hpSlider == null)
+            hpSlider = GameObject.Find("AelfricHPBar")?.GetComponentInChildren<Slider>();
+
+        if (hpText == null)
+            hpText = GameObject.Find("AelfricHPBar")?.GetComponentInChildren<TextMeshProUGUI>();
+
+        bossHP = hpSlider?.transform.parent.gameObject;
+
+        if (bossHP != null)
+            bossHP.SetActive(false);
+
         bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("AelfricHPBar")?.gameObject;
         animator = GetComponentInChildren<Animator>();
         if (animator == null)
@@ -88,6 +100,15 @@ public class AelfricController : MonoBehaviour
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
+        if (distanceToPlayer <= chaseRange && !bossUIShown)
+        {
+            if (bossHP != null)
+            {
+                bossHP.SetActive(true);
+                bossUIShown = true;
+            }
+        }
+
         if (distanceToPlayer <= chaseRange)
         {
             if (distanceToPlayer > attackRange)
@@ -114,7 +135,7 @@ public class AelfricController : MonoBehaviour
     }
     public void updateHPBar()
     {
-        hpSlider.maxValue = 100;
+        hpSlider.maxValue = maxHealth;
         hpSlider.value = currentHealth;
 
         hpText.text = $"{currentHealth} / {maxHealth}";
@@ -203,7 +224,9 @@ public class AelfricController : MonoBehaviour
         updateHPBar();
         DropExperience();
         DropUpgrade();
-        bossHP.SetActive(false);
+
+        if (bossHP != null)
+            bossHP.SetActive(false);
 
         GameManager.Instance.defeatedBosses.Add(bossID);
 
@@ -216,8 +239,10 @@ public class AelfricController : MonoBehaviour
         StartCoroutine(FadeAndLoadLevel());
     }
 
-    private IEnumerator FadeAndLoadLevel()
+    /*private IEnumerator FadeAndLoadLevel()
     {
+
+        Debug.Log("Starting fade transition...");
         // Fade to black
         if (fadeTransition != null)
         {
@@ -232,6 +257,23 @@ public class AelfricController : MonoBehaviour
         {
             yield return fadeTransition.FadeFromBlack();
         }
+    }
+    */
+    private IEnumerator FadeAndLoadLevel()
+    {
+        Debug.Log("Starting fade transition...");
+
+        if (fadeTransition != null)
+        {
+            yield return fadeTransition.FadeToBlack();
+        }
+        else
+        {
+            Debug.LogWarning("FadeTransition is NULL! Loading Level37 directly.");
+        }
+
+        Debug.Log("Loading Level37...");
+        SceneManager.LoadScene("Level37");
     }
 
     private IEnumerator DestroyAfterDelay(float delay)
