@@ -36,7 +36,7 @@ public class Captain : NPC
             return; // Exit Start() to avoid running AI logic
         }
         
-        base.Start(); // ✅ Now it keeps the Inspector value
+        base.Start(); // Now it keeps the Inspector value
 
         if (isBoss)
         {
