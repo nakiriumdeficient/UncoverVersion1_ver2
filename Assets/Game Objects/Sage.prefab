@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1060735427255919771}
   - component: {fileID: 5590703714168066401}
   - component: {fileID: 8245802511254531416}
-  - component: {fileID: 6910790331036542837}
+  - component: {fileID: 333790132739431733}
   m_Layer: 0
   m_Name: Sage
   m_TagString: Enemy
@@ -82,7 +82,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.038, z: 0}
---- !u!114 &6910790331036542837
+--- !u!114 &333790132739431733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,18 +91,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6870945622546423373}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26163e7c609fcc446ad33f122991031c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fee4bd9ab5de3e4dbb55efc72c39c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossID: Boss1
+  maxHealth: 300
   detectionRange: 8
   attackRange: 3
   attackCooldown: 2
-  maxHealth: 200
   expOrb: {fileID: 4639106066485910987, guid: 76cdac29eaac43a4685830ca945df064, type: 3}
-  xpDropAmount: 30
-  numberOfXpDrops: 3
+  xpDropAmount: 100
+  numberOfXpDrops: 5
   upgradeOrb: {fileID: 510702803067997793, guid: ebc85a472c8a2434eb69191557fde3b2, type: 3}
-  upgradeDropAmount: 30
+  upgradeDropAmount: 50
   numberOfUpDrops: 3
 --- !u!1001 &6260452419589393388
 PrefabInstance:

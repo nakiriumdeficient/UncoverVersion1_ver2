@@ -63,6 +63,7 @@ public class WeaponScript : MonoBehaviour
             ElfShielder shielder = other.GetComponent<ElfShielder>();
             Duelist duelist = other.GetComponent<Duelist>();
             Captain captain = other.GetComponent<Captain>();
+            ElementalBoss sage = other.GetComponent<ElementalBoss>();
 
             if (currentWeapon == null)
             {
@@ -135,6 +136,11 @@ public class WeaponScript : MonoBehaviour
             else if (captain != null)
             {
                 captain.TakeDamage(damage);
+                return;
+            }
+            else if (sage != null)
+            {
+                sage.TakeDamage(damage);
                 return;
             }
             else

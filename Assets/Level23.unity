@@ -3794,6 +3794,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 333790132739431733, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: bossID
+      value: BossSage
+      objectReference: {fileID: 0}
+    - target: {fileID: 333790132739431733, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: attackCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 333790132739431733, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: detectionRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1060735427255919771, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
       propertyPath: m_LocalScale.x
       value: 30.81214
