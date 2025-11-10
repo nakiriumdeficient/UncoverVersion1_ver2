@@ -2353,8 +2353,7 @@ PrefabInstance:
       objectReference: {fileID: 900825621}
     - target: {fileID: 8972859575088472855, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: dialogueText
-      value: Stanger! If you wish to defeat the Great Sage, be warned! Legend says
-        that elementals are immune to blue magics!
+      value: Stanger! Be warned that the Great Sage is immune to blue magics!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

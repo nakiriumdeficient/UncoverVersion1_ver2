@@ -129,6 +129,9 @@ public class AelfricController : MonoBehaviour
     private void RotateTowardsPlayer()
     {
         Vector3 direction = (player.position - transform.position).normalized;
+        direction.y = 0f; // Ignore vertical difference
+        if (direction.magnitude == 0) return;
+
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
     }

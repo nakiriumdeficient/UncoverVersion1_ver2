@@ -1131,7 +1131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &884262250
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3267,7 +3267,7 @@ RectTransform:
   m_Father: {fileID: 718254518}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3556,8 +3556,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1095046676}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3799,12 +3799,24 @@ PrefabInstance:
       value: BossSage
       objectReference: {fileID: 0}
     - target: {fileID: 333790132739431733, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: attackRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 333790132739431733, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: xpDropAmount
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 333790132739431733, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
       propertyPath: attackCooldown
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 333790132739431733, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
       propertyPath: detectionRange
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 333790132739431733, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: upgradeDropAmount
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 1060735427255919771, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
       propertyPath: m_LocalScale.x
@@ -3858,6 +3870,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2042254597398881144, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: m_Radius
+      value: 0.017409956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042254597398881144, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042254597398881144, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: m_Center.y
+      value: -0.000000064690255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042254597398881144, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: m_Center.z
+      value: -2.1855721e-16
+      objectReference: {fileID: 0}
     - target: {fileID: 3077389861421763484, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3901,6 +3929,18 @@ PrefabInstance:
     - target: {fileID: 6910790331036542837, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
       propertyPath: upgradeDropAmount
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518544146300674418, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7176796
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518544146300674418, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7176796
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518544146300674418, guid: e1cec6635dbf5df4fb0547ecdaa0cda1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7176796
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

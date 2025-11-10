@@ -10,21 +10,25 @@ public class BossDialogueTrigger : MonoBehaviour
     private bool isDialogueActive = false; // Track if the dialogue image is active
     private bool hasBeenTriggered = false; // Track if the dialogue has been triggered
 
+
     public bool isCaptain = false;
     public bool isSage = false;
     public bool isAelfric = false;
 
     private GameObject bossHP; // Reference to UI Prompt
-
+    private Collider triggerCollider;
     public string bossID = "";
 
     private void Start()
     {
+        triggerCollider = GetComponent<Collider>();
         //  If the boss is defeated, remove this dialogue trigger
         if (GameManager.Instance.defeatedBosses.Contains(bossID))
         {
             Destroy(gameObject);
         }
+
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -51,18 +55,23 @@ public class BossDialogueTrigger : MonoBehaviour
             bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("CaptainHPBar")?.gameObject;
 
             bossHP.SetActive(true);
+
+            triggerCollider.enabled = false;
         }
         else if (isSage == true)
         {
             bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("SageHPBar")?.gameObject;
 
             bossHP.SetActive(true);
+            triggerCollider.enabled = false;
         }
         else if (isAelfric == true)
         {
             bossHP = GameObject.FindObjectOfType<Canvas>().transform.Find("AelfricHPBar")?.gameObject;
 
             bossHP.SetActive(true);
+
+            triggerCollider.enabled = false;
         }
 
     }

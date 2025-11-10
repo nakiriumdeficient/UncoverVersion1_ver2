@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.336025
+      value: 3.0041823
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalScale.y
@@ -494,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.369995
+      value: -51.35
       objectReference: {fileID: 0}
     - target: {fileID: 5488897102597425771, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: m_LocalPosition.y
@@ -542,7 +542,8 @@ PrefabInstance:
       objectReference: {fileID: 124164978}
     - target: {fileID: 8972859575088472855, guid: 9447fad568f51374691079baacc3c668, type: 3}
       propertyPath: dialogueText
-      value: You... be careful going against the forest....
+      value: You... There seems to a magical artifact inside the caves, but I'm afraid
+        to go myself.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -752,7 +753,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6aaa58fe0c8bf564f83068e16738d840, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.4379
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6aaa58fe0c8bf564f83068e16738d840, type: 3}
       propertyPath: m_LocalPosition.y
